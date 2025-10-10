@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Moderno | Romário Delphin Martins</title>
+    <meta name="description" content="Portfólio de Romário Delphin Martins, Gestor Estratégico com 10+ anos de experiência em Operações e Tecnologia. Conheça meus projetos em IA e meus serviços de consultoria.">
+    <title>Romário Delphin Martins | Gestor de Operações & Desenvolvedor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a1a; /* Fundo principal escuro */
+            background-color: #050816; /* Fundo azul-marinho mais escuro e sofisticado */
         }
         .section-title {
-            @apply text-4xl font-bold text-white mb-10 text-center;
+            @apply text-4xl font-bold text-white mb-12 text-center;
         }
         .card {
-            @apply bg-gray-800/50 backdrop-blur-sm border border-gray-700 shadow-xl rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:border-teal-400 flex flex-col;
+            @apply bg-slate-900/50 backdrop-blur-sm border border-slate-700 shadow-xl rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:border-cyan-400 flex flex-col;
         }
         .skill-card {
-            @apply bg-gray-800/50 p-6 rounded-lg border border-gray-700 text-center transition-all duration-300 hover:border-cyan-400 hover:-translate-y-2;
+            @apply bg-slate-900/50 p-6 rounded-lg border border-slate-700 text-center transition-all duration-300 hover:border-cyan-400 hover:-translate-y-2 flex flex-col items-center justify-center;
         }
         .glass-nav {
-            @apply bg-gray-900/60 backdrop-blur-lg;
+            @apply bg-slate-900/60 backdrop-blur-lg;
         }
         .hero-gradient-bg {
-            background-image: linear-gradient(120deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            background: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.3),hsla(0,0%,100%,0));
         }
         .btn-primary {
-            @apply bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-bold py-3 px-8 rounded-full hover:from-teal-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-110 shadow-lg;
+            @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 shadow-lg;
         }
-        /* Animação para a borda da foto */
+        /* Animação corrigida para maior compatibilidade */
         @keyframes spin {
+          from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
         .animate-spin-slow {
-          animation: spin 8s linear infinite;
+          animation: spin 10s linear infinite;
         }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="text-gray-300">
 
     <!-- Navbar -->
     <nav class="glass-nav sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-400">RDM</a>
+            <a href="#" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">RDM</a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-teal-400 transition-colors">Sobre</a>
-                <a href="#skills" class="hover:text-teal-400 transition-colors">Competências</a>
-                <a href="#education" class="hover:text-teal-400 transition-colors">Formação</a>
-                <a href="#projects" class="hover:text-teal-400 transition-colors">Projetos</a>
-                <a href="#experience" class="hover:text-teal-400 transition-colors">Experiência</a>
-                <a href="#volunteer" class="hover:text-teal-400 transition-colors">Voluntariado</a>
-                <a href="#contact" class="hover:text-teal-400 transition-colors">Contato</a>
+                <a href="#about" class="hover:text-cyan-400 transition-colors">Sobre</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Carreira</a>
+                <a href="#services" class="hover:text-cyan-400 transition-colors">Serviços PJ</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projetos</a>
+                <a href="#education" class="hover:text-cyan-400 transition-colors">Formação</a>
+                <a href="#volunteer" class="hover:text-cyan-400 transition-colors">Voluntariado</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contato</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-2xl text-white">
                 <i class="fas fa-bars"></i>
@@ -60,35 +62,32 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-3">
-            <a href="#about" class="block hover:text-teal-400 transition-colors rounded-md p-2">Sobre</a>
-            <a href="#skills" class="block hover:text-teal-400 transition-colors rounded-md p-2">Competências</a>
-            <a href="#education" class="block hover:text-teal-400 transition-colors rounded-md p-2">Formação</a>
-            <a href="#projects" class="block hover:text-teal-400 transition-colors rounded-md p-2">Projetos</a>
-            <a href="#experience" class="block hover:text-teal-400 transition-colors rounded-md p-2">Experiência</a>
-            <a href="#volunteer" class="block hover:text-teal-400 transition-colors rounded-md p-2">Voluntariado</a>
-            <a href="#contact" class="block hover:text-teal-400 transition-colors rounded-md p-2">Contato</a>
+            <a href="#about" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Sobre</a>
+            <a href="#experience" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Carreira</a>
+            <a href="#services" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Serviços PJ</a>
+            <a href="#projects" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Projetos</a>
+            <a href="#education" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Formação</a>
+            <a href="#volunteer" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Voluntariado</a>
+            <a href="#contact" class="block hover:text-cyan-400 transition-colors rounded-md p-2">Contato</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-gradient-bg border-b border-gray-800">
+    <header class="hero-gradient-bg border-b border-slate-800">
         <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center text-center md:text-left">
             <div class="md:w-2/3 mb-12 md:mb-0">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">Romário Delphin Martins</h1>
-                <p class="mt-4 text-xl text-teal-400 font-semibold">Líder de Operações e Estratégia Tecnológica</p>
-                <p class="mt-6 max-w-2xl text-gray-300">Lidero a otimização de operações e resultados de negócio através da aplicação estratégica de tecnologia, dados e Inteligência Artificial.</p>
-                <div class="mt-10 flex justify-center md:justify-start space-x-5">
-                    <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/RomarioDelphin" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
-                    <a href="mailto:romariodelphinmartins@gmail.com" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+5566981155486" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fas fa-phone"></i></a>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">Romário Delphin Martins</h1>
+                <p class="mt-4 text-xl text-cyan-400 font-semibold">Gestor de Operações & Desenvolvedor de Soluções de Negócio</p>
+                <p class="mt-6 max-w-2xl text-gray-300">Com mais de uma década de experiência em liderança e gestão, traduzo estratégias em resultados operacionais e, como desenvolvedor, crio soluções digitais personalizadas para impulsionar a eficiência e o crescimento.</p>
+                <div class="mt-10 flex justify-center md:justify-start space-x-4">
+                     <a href="#contact" class="btn-primary">Contrate-me</a>
+                     <a href="#projects" class="bg-slate-700 text-white font-bold py-3 px-8 rounded-full hover:bg-slate-600 transition-all duration-300 transform hover:scale-110 shadow-lg">Ver Projetos</a>
                 </div>
             </div>
-            <div class="md:w-1/3 flex justify-center">
-                <!-- Foto com borda giratória -->
-                <div class="relative w-56 h-56 md:w-72 md:h-72 flex items-center justify-center">
-                    <div class="absolute w-full h-full bg-gradient-to-r from-teal-400 via-cyan-500 to-purple-600 rounded-full animate-spin-slow"></div>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzWuIr4Hh8ypEYw1v63sBffK2dCm3YBzDfQwI-uMVjaqNSISvlzxVJxfEXALVEdkya1iQqZ8yR02YWaoUwYtS-C-rQp9O3Zn0LHoQ6aJcqcKHRdlWPAr0PEfmVMndwIuIwPEnVFSuZkCJ221vdGDlyl6PQ-TgA_TRRMDLmdjlmQxbFB6oyLrM6GtCkbttd/s1600/WhatsApp%20Image%202025-09-25%20at%2010.24.43.jpeg" alt="Foto de Romário Delphin Martins" class="relative w-[calc(100%-12px)] h-[calc(100%-12px)] object-cover rounded-full">
+            <div class="md:w-1/3 flex justify-center mt-10 md:mt-0">
+                <div class="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
+                    <div class="absolute w-full h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 rounded-full animate-spin-slow"></div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzWuIr4Hh8ypEYw1v63sBffK2dCm3YBzDfQwI-uMVjaqNSISvlzxVJxfEXALVEdkya1iQqZ8yR02YWaoUwYtS-C-rQp9O3Zn0LHoQ6aJcqcKHRdlWPAr0PEfmVMndwIuIwPEnVFSuZkCJ221vdGDlyl6PQ-TgA_TRRMDLmdjlmQxbFB6oyLrM6GtCkbttd/s1600/WhatsApp%20Image%202025-09-25%20at%2010.24.43.jpeg" alt="Foto de Romário Delphin Martins" class="relative w-[calc(100%-12px)] h-[calc(100%-12px)] object-cover rounded-full border-4 border-slate-900">
                 </div>
             </div>
         </div>
@@ -97,100 +96,67 @@
     <main class="container mx-auto px-6 py-12">
         <!-- About Section -->
         <section id="about" class="py-20">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="max-w-4xl mx-auto bg-gray-800/50 p-10 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="section-title">Minha Trajetória</h2>
+            <div class="max-w-4xl mx-auto bg-slate-900/50 p-10 rounded-2xl shadow-lg border border-slate-700">
                 <p class="text-center text-lg leading-relaxed text-gray-300">
-                    Sou um líder estratégico com mais de uma década de experiência em Operações, RH e Relações Institucionais. Minha especialidade é converter planejamento em resultados financeiros e operacionais, utilizando tecnologia, IA e Machine Learning para resolver desafios complexos e otimizar a performance industrial em grandes corporações.
+                    Sou um Gestor Estratégico com carreira híbrida de mais de 10 anos, especialista em traduzir planejamento em resultados financeiros e operacionais. Minha paixão é unir a excelência em **Gestão de Operações e Pessoas** com a aplicação prática de **Tecnologia e Inteligência Artificial**. Lidero equipes, otimizo processos do chão de fábrica à estratégia corporativa e, paralelamente, desenvolvo soluções digitais como consultor para resolver desafios complexos de negócio.
                 </p>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="section-title">Principais Competências</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-chart-line"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Gestão Estratégica</h3>
-                    <p class="text-sm text-gray-400">P&L, Orçamento, KPIs, Planejamento e Gestão de Projetos.</p>
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="section-title">Carreira Profissional</h2>
+            <div class="max-w-4xl mx-auto relative border-l-2 border-slate-700 pl-10">
+                <div class="mb-12 relative">
+                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-slate-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-briefcase text-cyan-400"></i></div>
+                    <p class="text-sm font-medium text-cyan-400">2021 - 2024</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">Gerente de Unidade de Negócios</h3>
+                    <p class="italic text-gray-400">INPEV - Mato Grosso</p>
+                    <p class="mt-2 text-gray-300">Liderança integral da unidade com total responsabilidade sobre o P&L, operações, produção, RH e otimização de processos, onde uma de minhas iniciativas de padronização foi replicada em toda a regional.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-cogs"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Operações e Manutenção</h3>
-                    <p class="text-sm text-gray-400">Lean, Kaizen, 5S, Manutenção Preditiva, Logística.</p>
+                <div class="mb-12 relative">
+                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-slate-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-server text-cyan-400"></i></div>
+                    <p class="text-sm font-medium text-cyan-400">2020 - 2021</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">Analista de Operações e Infraestrutura</h3>
+                    <p class="italic text-gray-400">Storaze - Mato Grosso</p>
+                    <p class="mt-2 text-gray-300">Responsável pela infraestrutura de TI e automação industrial de 5 unidades fabris, prestando suporte a sistemas críticos e ao sistema de automação das dosagens de insumos no chão de fábrica.</p>
                 </div>
-                 <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-brain"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">IA & Machine Learning</h3>
-                    <p class="text-sm text-gray-400">Modelos Preditivos, Análise de Dados, Scikit-learn, Pandas.</p>
+                 <div class="mb-12 relative">
+                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-slate-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-tractor text-cyan-400"></i></div>
+                    <p class="text-sm font-medium text-cyan-400">2018 - 2020</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">Analista Regional de Operações Sênior</h3>
+                    <p class="italic text-gray-400">Cargill - Mato Grosso</p>
+                    <p class="mt-2 text-gray-300">Atuei como braço direito do Supervisor Regional, otimizando a força de trabalho com a ferramenta "Model Elevator" e liderando o recrutamento de mais de 100 colaboradores em períodos de safra.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fab fa-python"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Tecnologia Python</h3>
-                    <p class="text-sm text-gray-400">Flask, Streamlit, Análise de Dados, Integração de APIs.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-users-cog"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Liderança e RH</h3>
-                    <p class="text-sm text-gray-400">Desenvolvimento de Equipes, Gestão de Talentos, Relações Sindicais.</p>
-                </div>
-                 <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-check-double"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Qualidade e Compliance</h3>
-                    <p class="text-sm text-gray-400">Auditorias ISO, Normas Regulamentadoras (NRs), ESG.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-landmark"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">Relações Institucionais</h3>
-                    <p class="text-sm text-gray-400">Articulação Política, Assessoria e Processo Legislativo.</p>
-                </div>
-                 <div class="skill-card">
-                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-power-off"></i></div>
-                    <h3 class="font-bold text-lg mb-2 text-white">AppSheet No-Code</h3>
-                    <p class="text-sm text-gray-400">Desenvolvimento Ágil, Automação de Workflows, Integrações.</p>
+                <div class="relative">
+                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-slate-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-users-cog text-cyan-400"></i></div>
+                    <p class="text-sm font-medium text-cyan-400">2015 - 2018</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">Supervisor de Recursos Humanos</h3>
+                    <p class="italic text-gray-400">Fazenda Tanguro, Grupo Amaggi - Mato Grosso</p>
+                    <p class="mt-2 text-gray-300">Atuei como Business Partner, implementando indicadores de RH (turnover, absenteísmo) e gerenciando o ciclo completo dos colaboradores para apoiar a tomada de decisão da gestão.</p>
                 </div>
             </div>
         </section>
 
-         <!-- Education Section -->
-        <section id="education" class="py-20">
-            <h2 class="section-title">Formação Académica</h2>
-            <div class="max-w-4xl mx-auto relative border-l-2 border-gray-700 pl-10">
-                <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">Cursando (Dez/2026)</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Graduação em Inteligência Artificial</h3>
-                    <p class="italic text-gray-400">UNIFAEL</p>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-slate-900/40">
+            <h2 class="section-title">Serviços & Consultoria PJ</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card h-full">
+                    <div class="text-5xl text-cyan-400 mb-4"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Consultoria em Tecnologia e IA</h3>
+                    <p class="text-sm text-gray-400">Análise de processos e desenvolvimento de estratégias para implementar automação, otimização e soluções de Inteligência Artificial que geram resultados mensuráveis.</p>
                 </div>
-                 <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">2024</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Pós-graduação em Economia e Gestão Empresarial</h3>
-                    <p class="italic text-gray-400">Anhanguera</p>
+                <div class="skill-card h-full">
+                    <div class="text-5xl text-cyan-400 mb-4"><i class="fas fa-code-branch"></i></div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Desenvolvimento de Soluções</h3>
+                    <p class="text-sm text-gray-400">Criação de sistemas web, aplicativos corporativos (Python, AppSheet) e modelos de Machine Learning para resolver desafios específicos e automatizar workflows.</p>
                 </div>
-                <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">2023</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Bacharelado em Engenharia de Computação</h3>
-                    <p class="italic text-gray-400">Descomplica Faculdade Digital</p>
-                </div>
-                <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">2019</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Pós-graduação em Gestão e Liderança Organizacional</h3>
-                    <p class="italic text-gray-400">Descomplica</p>
-                </div>
-                <div class="mb-12 relative">
-                     <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">2011</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Graduação em Gestão de Recursos Humanos</h3>
-                    <p class="italic text-gray-400">UNINTER</p>
-                </div>
-                <div class="relative">
-                     <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-cyan-500 flex items-center justify-center"><i class="fas fa-graduation-cap text-cyan-400"></i></div>
-                    <p class="text-sm font-medium text-cyan-400">2008</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Técnico em Informática</h3>
-                    <p class="italic text-gray-400">IFMT</p>
+                <div class="skill-card h-full">
+                    <div class="text-5xl text-cyan-400 mb-4"><i class="fas fa-bullhorn"></i></div>
+                    <h3 class="font-bold text-xl mb-2 text-white">Design, Vídeo & Marketing Digital</h3>
+                    <p class="text-sm text-gray-400">Gestão de campanhas de tráfego pago (Google Ads, Meta Ads). Como designer gráfico e editor de vídeo, crio a identidade visual completa da sua marca, desde logos e artes até vídeos institucionais e para redes sociais.</p>
                 </div>
             </div>
         </section>
@@ -199,182 +165,151 @@
         <section id="projects" class="py-20">
             <h2 class="section-title">Projetos em Destaque</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
                 <div class="card">
                     <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">Industrial Sentinel</h3>
-                        <p class="text-sm mb-5 text-gray-400">Web app com Machine Learning para prever falhas em máquinas industriais, permitindo uma manutenção proativa.</p>
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-400">Industrial Sentinel (IA)</h3>
+                        <p class="text-sm mb-5 text-gray-400">Solução de Machine Learning para prever falhas em máquinas industriais, permitindo uma manutenção proativa e reduzindo custos operacionais.</p>
                     </div>
                     <div class="p-8 pt-0">
                         <div class="mb-5">
-                            <span class="inline-block bg-teal-900 text-teal-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Python</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Scikit-learn</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Streamlit</span>
+                            <span class="inline-block bg-cyan-900 text-cyan-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Python</span>
+                            <span class="inline-block bg-slate-700 text-slate-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Machine Learning</span>
                         </div>
-                        <a href="https://github.com/RomarioDelphin/Sentinela_Industrial" target="_blank" class="font-bold text-cyan-400 hover:underline">Ver no GitHub <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="https://github.com/RomarioDelphin/Sentinela_Industrial" target="_blank" class="font-bold text-blue-400 hover:underline">Ver no GitHub <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                <!-- Project 2 -->
                 <div class="card">
                     <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">CNPJ Lookup com IA</h3>
-                        <p class="text-sm mb-5 text-gray-400">App full-stack para avaliação de risco de empresas em tempo real, utilizando um "termômetro de IA".</p>
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-400">Análise de Risco de CNPJ (IA)</h3>
+                        <p class="text-sm mb-5 text-gray-400">Aplicação full-stack que interpreta dados públicos para avaliação de risco de empresas em tempo real, com um "termômetro de IA".</p>
                     </div>
                      <div class="p-8 pt-0">
                         <div class="mb-5">
-                             <span class="inline-block bg-teal-900 text-teal-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Python</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Flask</span>
-                             <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">IA</span>
+                            <span class="inline-block bg-cyan-900 text-cyan-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Python</span>
+                             <span class="inline-block bg-slate-700 text-slate-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Flask</span>
+                             <span class="inline-block bg-slate-700 text-slate-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">API</span>
                         </div>
-                        <a href="https://github.com/RomarioDelphin/Consulta-de-CNPJ-com-An-lise-IA" target="_blank" class="font-bold text-cyan-400 hover:underline">Ver no GitHub <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="https://github.com/RomarioDelphin/Consulta-de-CNPJ-com-An-lise-IA" target="_blank" class="font-bold text-blue-400 hover:underline">Ver no GitHub <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                <!-- Project 3: AppSheet Ponto Eletrônico -->
                 <div class="card">
                     <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">Ponto Eletrônico Georreferenciado</h3>
-                        <p class="text-sm mb-5 text-gray-400">Solução em AppSheet para registro de ponto de equipes externas, capturando CPF e foto com metadados de geolocalização (GPS) para validação e gestão do RH.</p>
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-400">Ponto Eletrônico (No-Code)</h3>
+                        <p class="text-sm mb-5 text-gray-400">Solução em AppSheet para registro de ponto de equipes externas, capturando CPF, foto e geolocalização (GPS) para validação pelo RH.</p>
                     </div>
                     <div class="p-8 pt-0">
                         <div class="mb-5">
                             <span class="inline-block bg-green-900 text-green-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">AppSheet</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">No-Code</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Geolocalização</span>
+                            <span class="inline-block bg-slate-700 text-slate-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Automação</span>
                         </div>
-                    </div>
-                </div>
-                <!-- Project 4: AppSheet Auditorias -->
-                <div class="card">
-                    <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">Plataforma de Auditoria e Conformidade</h3>
-                        <p class="text-sm mb-5 text-gray-400">App para digitalizar processos de inspeção de Qualidade e Segurança. Registra não-conformidades, atribui tarefas corretivas e notifica equipes via workflows automatizados.</p>
-                    </div>
-                    <div class="p-8 pt-0">
-                        <div class="mb-5">
-                            <span class="inline-block bg-green-900 text-green-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">AppSheet</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Dashboards</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Automação</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5: AppSheet Portaria -->
-                <div class="card">
-                    <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">Controle de Acesso Veicular com OCR</h3>
-                        <p class="text-sm mb-5 text-gray-400">Sistema que utiliza OCR para ler placas de veículos. Consulta um banco de dados em AppSheet para validação e aciona a liberação automática de portões para veículos autorizados.</p>
-                    </div>
-                    <div class="p-8 pt-0">
-                        <div class="mb-5">
-                            <span class="inline-block bg-green-900 text-green-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">AppSheet</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">OCR</span>
-                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">Hardware Integration</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6 -->
-                <div class="card">
-                     <div class="p-8 flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-400">Consulta CNPJ Simples</h3>
-                        <p class="text-sm mb-5 text-gray-400">Web app para buscar dados de empresas via API. Exemplo prático de integração API e UI dinâmica.</p>
-                    </div>
-                     <div class="p-8 pt-0">
-                         <div class="mb-5">
-                             <span class="inline-block bg-yellow-900 text-yellow-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">JavaScript</span>
-                             <span class="inline-block bg-blue-900 text-blue-300 text-xs font-semibold mr-2 px-3 py-1 rounded-full">HTML/CSS</span>
-                        </div>
-                        <a href="https://github.com/RomarioDelphin/consultacnpj" target="_blank" class="font-bold text-cyan-400 hover:underline">Ver no GitHub <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title">Experiência Profissional</h2>
-            <div class="max-w-4xl mx-auto relative border-l-2 border-gray-700 pl-10">
-                <!-- Experience Item 1 -->
-                <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-teal-500 flex items-center justify-center"><i class="fas fa-briefcase text-teal-400"></i></div>
-                    <p class="text-sm font-medium text-teal-400">Set/2021 - Jul/2024</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Gerente de Unidade de Negócios</h3>
-                    <p class="italic text-gray-400">INPEV - Mato Grosso</p>
-                    <p class="mt-2 text-gray-300">Liderança integral da unidade com responsabilidade total sobre o P&L, operações, produção e RH.</p>
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Coluna Gestão -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center"><i class="fas fa-chart-line text-cyan-400 mr-3"></i> Formação em Gestão & Negócios</h3>
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2024</p>
+                            <h4 class="font-bold text-white">Pós-graduação em Economia e Gestão Empresarial</h4>
+                            <p class="text-sm italic text-gray-400">Anhanguera</p>
+                        </div>
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2019</p>
+                            <h4 class="font-bold text-white">Pós-graduação em Gestão e Liderança Organizacional</h4>
+                            <p class="text-sm italic text-gray-400">Descomplica</p>
+                        </div>
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2011</p>
+                            <h4 class="font-bold text-white">Graduação em Gestão de Recursos Humanos</h4>
+                            <p class="text-sm italic text-gray-400">UNINTER</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Experience Item 2 -->
-                <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-teal-500 flex items-center justify-center"><i class="fas fa-gavel text-teal-400"></i></div>
-                    <p class="text-sm font-medium text-teal-400">Fev/2019 - Atual</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Assessor Legislativo</h3>
-                    <p class="italic text-gray-400">Câmara Municipal Querência - Mato Grosso</p>
-                    <p class="mt-2 text-gray-300">Suporte técnico e político ao processo legislativo e acompanhamento orçamentário.</p>
+
+                <!-- Coluna Tecnologia -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center"><i class="fas fa-cogs text-cyan-400 mr-3"></i> Formação em Tecnologia & Inovação</h3>
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">Cursando (Dez/2026)</p>
+                            <h4 class="font-bold text-white">Graduação em Inteligência Artificial</h4>
+                            <p class="text-sm italic text-gray-400">UNIFAEL</p>
+                        </div>
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2023</p>
+                            <h4 class="font-bold text-white">Pós-graduação em Engenharia Industrial 4.0</h4>
+                            <p class="text-sm italic text-gray-400">Anhanguera</p>
+                        </div>
+                        <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2022</p>
+                            <h4 class="font-bold text-white">Bacharelado em Engenharia de Computação</h4>
+                            <p class="text-sm italic text-gray-400">Descomplica Faculdade Digital</p>
+                        </div>
+                         <div class="bg-slate-900/50 border border-slate-700 p-4 rounded-lg">
+                            <p class="text-sm font-semibold text-cyan-400">2010</p>
+                            <h4 class="font-bold text-white">Técnico em Informática</h4>
+                            <p class="text-sm italic text-gray-400">IFMT</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Experience Item 3 -->
-                 <div class="mb-12 relative">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-teal-500 flex items-center justify-center"><i class="fas fa-cogs text-teal-400"></i></div>
-                    <p class="text-sm font-medium text-teal-400">Out/2018 - Mai/2020</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Analista Regional de Operações Sênior</h3>
-                    <p class="italic text-gray-400">Cargill - Mato Grosso</p>
-                    <p class="mt-2 text-gray-300">Planejamento operacional regional para otimização de custos e produtividade.</p>
-                </div>
-                 <!-- Experience Item 4 -->
-                <div class="relative">
-                     <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-teal-500 flex items-center justify-center"><i class="fas fa-users text-teal-400"></i></div>
-                    <p class="text-sm font-medium text-teal-400">Set/2015 - Out/2018</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Supervisor de Recursos Humanos</h3>
-                    <p class="italic text-gray-400">Fazenda Tanguro, Grupo Amaggi - Mato Grosso</p>
-                    <p class="mt-2 text-gray-300">Supervisão de todos os subsistemas de RH como parceiro estratégico do negócio.</p>
-                </div>
+                
             </div>
         </section>
 
         <!-- Volunteer Section -->
         <section id="volunteer" class="py-20">
-            <h2 class="section-title">Voluntariado</h2>
-            <div class="max-w-4xl mx-auto relative border-l-2 border-gray-700 pl-10">
-                <div class="relative text-center md:text-left">
-                    <div class="absolute -left-[49px] mt-1.5 w-8 h-8 bg-gray-800 rounded-full border-4 border-teal-500 flex items-center justify-center"><i class="fas fa-hands-helping text-teal-400"></i></div>
-                    <p class="text-sm font-medium text-teal-400">Ago 2019 - Presente</p>
-                    <h3 class="text-2xl font-bold text-white mt-1">Fundador</h3>
-                    <p class="italic text-gray-400">Querência Empregos</p>
-                    <p class="mt-4 text-gray-300">
+            <h2 class="section-title">Iniciativa Social & Voluntariado</h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="bg-slate-900/50 border border-slate-700 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-white flex items-center justify-center"><i class="fas fa-hands-helping text-cyan-400 mr-3"></i> Fundador, Querência Empregos</h3>
+                    <p class="italic text-gray-400 mt-1">2019 - Presente</p>
+                    <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
                         Idealizei e fundei este projeto para criar uma ponte 100% gratuita entre empresas e profissionais em Querência e no Vale do Araguaia. Além de divulgar vagas e contribuir para mais de 165 contratações, o projeto oferece suporte sindical, orientação jurídica e acolhimento psicológico com parceiros voluntários.
                     </p>
-                    <a href="https://chat.whatsapp.com/C4g7r4v9Lem3gb9ZQHyaC8?mode=ems_copy_t" target="_blank" class="mt-6 inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-2 px-6 rounded-full hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        <i class="fab fa-whatsapp mr-2"></i> Aceder ao Grupo
+                    <a href="https://chat.whatsapp.com/C4g7r4v9Lem3gb9ZQHyaC8" target="_blank" class="mt-6 inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-2 px-6 rounded-full hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i> Conhecer o Projeto
                     </a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Contact Section -->
-    <footer id="contact" class="hero-gradient-bg border-t border-gray-800">
+    <footer id="contact" class="bg-slate-900/40 border-t border-slate-800">
         <div class="container mx-auto px-6 py-16 text-center">
-            <h2 class="text-4xl font-bold mb-4 text-white">Vamos Conversar?</h2>
-            <p class="max-w-2xl mx-auto mb-8 text-gray-300">Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato.</p>
+            <h2 class="text-4xl font-bold mb-4 text-white">Vamos Construir Algo Juntos?</h2>
+            <p class="max-w-2xl mx-auto mb-8 text-gray-300">Seja para uma oportunidade de liderança ou para desenvolver uma solução digital para sua empresa, estou aberto a novas colaborações. Entre em contato.</p>
             <a href="mailto:romariodelphinmartins@gmail.com" class="btn-primary">
-                Enviar E-mail
+                Enviar um E-mail
             </a>
             <div class="mt-12 flex justify-center space-x-6">
-                <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/RomarioDelphin" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
-                 <a href="tel:+5566981155486" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fas fa-phone"></i></a>
+                <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/RomarioDelphin" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
+                <a href="tel:+5566981155486" class="text-gray-400 hover:text-cyan-400 transition-colors text-3xl"><i class="fas fa-phone"></i></a>
             </div>
             <p class="mt-12 text-sm text-gray-500">&copy; 2025 Romário Delphin Martins. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a, .hidden.md\\:flex a');
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a, .glass-nav a').forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 if(e.currentTarget.href.includes("#")) {
                    mobileMenu.classList.add('hidden');
