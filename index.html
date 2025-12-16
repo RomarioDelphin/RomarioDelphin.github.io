@@ -27,8 +27,8 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Fonte específica para o texto do livro (Serifada para leitura) */
-        .book-font {
+        /* Fonte específica para o texto do livro/artigos (Serifada para leitura) */
+        .reader-font {
             font-family: 'Merriweather', serif;
         }
 
@@ -78,6 +78,24 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #475569; 
         }
+
+        /* Estilo para código dentro dos artigos */
+        pre {
+            background-color: #1e293b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            border: 1px solid #334155;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #e2e8f0;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .code-keyword { color: #c084fc; } /* Roxo */
+        .code-string { color: #22d3ee; } /* Ciano */
+        .code-comment { color: #64748b; font-style: italic; } /* Cinza */
     </style>
 </head>
 <body class="antialiased selection:bg-cyan-500 selection:text-white overflow-x-hidden">
@@ -90,8 +108,9 @@
             </a>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <!-- Reordenei aqui para dar prioridade ao Livro também no menu -->
+                <a href="#book" class="hover:text-cyan-400 transition-colors font-semibold text-cyan-400">Livro Oficial</a>
                 <a href="#research" class="hover:text-cyan-400 transition-colors">Pesquisa & Artigos</a>
-                <a href="#book" class="hover:text-cyan-400 transition-colors">Livros</a>
                 <a href="#projects" class="hover:text-cyan-400 transition-colors">Projetos</a>
                 <a href="#trajectory" class="hover:text-cyan-400 transition-colors">Trajetória</a>
             </div>
@@ -113,10 +132,10 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-4">
+            <a href="#book" class="block text-cyan-400 font-bold">Livro Oficial</a>
             <a href="#research" class="block text-slate-300 hover:text-cyan-400">Pesquisa</a>
-            <a href="#book" class="block text-slate-300 hover:text-cyan-400">Livros</a>
             <a href="#projects" class="block text-slate-300 hover:text-cyan-400">Projetos</a>
-            <a href="#contact" class="block text-cyan-400 font-bold">Contato</a>
+            <a href="#contact" class="block text-slate-300 hover:text-cyan-400">Contato</a>
         </div>
     </nav>
 
@@ -159,7 +178,7 @@
                     <div class="absolute inset-0 border-2 border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
                     <div class="absolute inset-2 border-2 border-dashed border-blue-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
                     
-                    <!-- Profile Image (Updated) -->
+                    <!-- Profile Image -->
                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg" 
                          alt="Romário Delphin" 
                          class="absolute inset-4 w-[calc(100%-32px)] h-[calc(100%-32px)] object-cover rounded-full border-4 border-slate-900 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
@@ -177,7 +196,7 @@
         </div>
     </section>
 
-    <!-- BOOK SECTION -->
+    <!-- BOOK SECTION (Já está acima dos artigos, mantido aqui) -->
     <section id="book" class="py-20 bg-slate-900/50 border-y border-slate-800">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
@@ -210,8 +229,8 @@
                         <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="btn-glow bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2">
                             <i class="fas fa-download"></i> Baixar E-book Grátis
                         </a>
-                        <!-- Botão que abre o Modal -->
-                        <button onclick="openBookModal()" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center gap-2">
+                        <!-- Botão que abre o Modal do Livro -->
+                        <button onclick="openModal('modal-book')" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center gap-2">
                             <i class="fas fa-eye"></i> Ler Preview (Cap. 1)
                         </button>
                     </div>
@@ -251,10 +270,11 @@
                 <p class="text-slate-400 mb-6 leading-relaxed">
                     A ciência por trás do Prompt Perfeito. Uma análise técnica sobre Next Token Prediction, barreiras estocásticas e meus 3 frameworks proprietários (PCC, Few-Shot, Meta-Prompt).
                 </p>
-                <a href="#" class="text-white font-semibold border-b border-cyan-500 pb-1 hover:text-cyan-400">Ler Artigo Completo</a>
+                <!-- Botão que abre o Modal do Artigo 1 -->
+                <button onclick="openModal('modal-article-prompt')" class="text-white font-semibold border-b border-cyan-500 pb-1 hover:text-cyan-400 text-left">Ler Artigo Completo</button>
             </div>
 
-            <!-- Article 2: GovTech -->
+            <!-- Article 2: GovTech (Placeholder para futuro) -->
             <div class="glass-card p-8 rounded-2xl hover:border-blue-500/50 transition-all group">
                 <div class="flex justify-between items-start mb-6">
                     <span class="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">GovTech</span>
@@ -266,7 +286,7 @@
                 <p class="text-slate-400 mb-6 leading-relaxed">
                     Como a implementação de Agentes de IA no sistema SAPL está transformando a fiscalização orçamentária de dias para segundos. Um estudo de caso real.
                 </p>
-                <a href="#" class="text-white font-semibold border-b border-blue-500 pb-1 hover:text-blue-400">Ler Estudo de Caso</a>
+                <button class="text-slate-500 font-semibold border-b border-slate-700 pb-1 cursor-not-allowed">Em Breve</button>
             </div>
         </div>
     </section>
@@ -381,157 +401,230 @@
         </div>
     </footer>
 
-    <!-- MODAL DO LIVRO (Invisível por padrão) -->
-    <div id="book-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Fundo Escuro -->
-        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity transition-all duration-300" onclick="closeBookModal()"></div>
+    <!-- ================= MODAIS ================= -->
 
+    <!-- MODAL 1: PREVIEW DO LIVRO -->
+    <div id="modal-book" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-book')"></div>
         <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                
-                <!-- Conteúdo do Modal -->
-                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
+            <div class="flex min-h-full items-center justify-center p-4">
+                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-3xl">
                     
-                    <!-- Cabeçalho do Modal -->
+                    <!-- Header -->
                     <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
                         <div class="flex items-center gap-3">
                             <i class="fas fa-book-open text-cyan-400"></i>
-                            <h3 class="text-lg font-bold text-white">Preview: Capítulo 1</h3>
+                            <h3 class="text-lg font-bold text-white">Preview: A Revolução Silenciosa</h3>
                         </div>
-                        <button type="button" onclick="closeBookModal()" class="text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg p-2 transition-colors">
-                            <i class="fas fa-times text-xl"></i>
-                        </button>
+                        <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
                     </div>
 
-                    <!-- Corpo do Texto (Scrollável) -->
-                    <div class="px-8 py-8 text-slate-300 leading-relaxed book-font max-h-[70vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
-                        
+                    <!-- Conteúdo do Livro -->
+                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[70vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
                         <div class="text-center mb-10">
                             <p class="text-cyan-500 font-bold tracking-widest text-xs uppercase mb-2">Capítulo 1</p>
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 brand-font">O Campo Conectado</h2>
                             <p class="text-xl text-slate-400 italic">Da Intuição aos Dados</p>
                             <div class="w-16 h-1 bg-cyan-500 mx-auto mt-6 rounded-full"></div>
                         </div>
-
                         <p class="mb-6 text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-400 first-letter:mr-1 first-letter:float-left">
-                            Durante décadas, a imagem romântica do agricultor foi a de um homem observando o horizonte, sentindo a umidade do vento e decidindo, com base na experiência acumulada de gerações, que "amanhã é dia de plantar". Essa intuição, forjada no barro e no sol, construiu o agronegócio brasileiro e o transformou em uma potência global.
+                            Durante décadas, a imagem romântica do agricultor foi a de um homem observando o horizonte...
                         </p>
-
-                        <p class="mb-6">
-                            Mas eu tenho uma notícia dura para lhe dar: <strong class="text-white">a intuição, sozinha, não paga mais a conta.</strong>
-                        </p>
-
-                        <p class="mb-6">
-                            O agronegócio deixou de ser uma atividade de "terra e enxada" para se tornar uma indústria a céu aberto de alta complexidade financeira. Antigamente, as margens de lucro permitiam erros. Se chovesse na hora errada ou se a praga consumisse 5% da lavoura, o lucro final amortecia o golpe. Hoje, com o custo dos insumos dolarizados, o preço do diesel nas alturas e a volatilidade das commodities, <strong class="text-white">a margem de erro é zero.</strong>
-                        </p>
-
-                        <p class="mb-6">
-                            Neste cenário, confiar apenas no "eu acho" é um suicídio financeiro em câmera lenta. O produtor que acorda de manhã e toma decisões baseadas apenas no que ele vê a olho nu está operando no escuro, enquanto seus concorrentes estão usando visão noturna.
-                        </p>
-
-                        <p class="mb-8">
-                            A transição do "Agricultor Tradicional" para o "Produtor 4.0" não é uma questão de comprar tratores mais bonitos; é uma mudança de mentalidade sobre o que é o ativo mais valioso da fazenda. Antes, era a terra. Hoje, são os dados.
-                        </p>
-
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">A Engenharia da Previsibilidade: A IA na Prática</h3>
-
-                        <p class="mb-6">
-                            Muitos líderes do agro com quem converso ainda veem a Inteligência Artificial como algo abstrato, uma "nuvem" distante da realidade do maquinário pesado. Como alguém que veio da engenharia e do chão de fábrica, eu não tenho paciência para abstrações. Vamos falar de dinheiro, eficiência e turnaround operacional.
-                        </p>
-
-                        <p class="mb-6">
-                            A aplicação mais imediata e brutalmente lucrativa da IA no campo é a <strong class="text-cyan-400">Manutenção Preditiva</strong>.
-                        </p>
-
-                        <p class="mb-6">
-                            Imagine uma colheitadeira de última geração. Ela não é apenas um veículo; é uma fábrica sobre rodas que custa milhões de reais. Cada minuto que essa máquina passa parada na oficina durante a janela de colheita não é apenas um custo de reparo; é um custo de oportunidade gigantesco. A soja no campo está perdendo umidade ou passando do ponto, e o caminhão está parado esperando.
-                        </p>
-
-                        <p class="mb-6">
-                            No modelo tradicional (reativo), você espera a máquina quebrar para consertar. No modelo preventivo, você troca peças com base em horas de uso, muitas vezes desperdiçando componentes que ainda tinham vida útil.
-                        </p>
-                        
-                        <p class="mb-6">
-                            Com a Inteligência Artificial e a Internet das Coisas (IoT), instalamos sensores de vibração, temperatura e acústica nos componentes críticos da colheitadeira. Esses sensores enviam dados em tempo real para um algoritmo. A IA, que aprendeu o padrão de "saúde" daquela máquina, detecta uma variação infinitesimal na vibração de um rolamento – uma variação que nenhum mecânico humano ouviria.
-                        </p>
-
+                        <p class="mb-6">Mas eu tenho uma notícia dura para lhe dar: <strong class="text-white">a intuição, sozinha, não paga mais a conta.</strong></p>
+                        <p class="mb-6">O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, com o custo dos insumos dolarizados... <strong class="text-white">a margem de erro é zero.</strong></p>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">A Engenharia da Previsibilidade</h3>
+                        <p class="mb-6">Muitos líderes do agro ainda veem a IA como algo abstrato... A aplicação mais imediata é a <strong class="text-cyan-400">Manutenção Preditiva</strong>.</p>
                         <div class="bg-slate-800/50 p-6 rounded-lg border-l-4 border-red-500 mb-8 italic text-slate-200">
                             "O sistema emite um alerta: Falha crítica prevista no eixo X em 48 horas."
                         </div>
-
-                        <p class="mb-6">
-                            A equipe de manutenção agenda a parada programada para o intervalo de almoço, a peça já está separada e a troca é feita em 20 minutos. A quebra catastrófica, que deixaria a máquina parada por três dias esperando uma peça chegar da capital, nunca acontece.
-                        </p>
-
-                        <p class="mb-8">
-                            Isso não é ficção científica. Isso é redução direta de OPEX (Despesas Operacionais). É a diferença entre fechar o balanço no vermelho ou no azul. A IA não substituiu o mecânico; ela deu a ele um "superpoder" de audição e previsão, ampliando sua capacidade de manter a frota ativa.
-                        </p>
-
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">O Ultimato: 2 Anos para a Irrelevância</h3>
-                        
-                        <p class="mb-6">
-                            Aqui retomamos a tese central deste livro, e preciso ser enfático: <strong class="text-white">O relógio está correndo.</strong>
-                        </p>
-
-                        <p class="mb-6">
-                            Existe uma seleção natural econômica acontecendo agora. O produtor que utiliza IA para fazer manutenção preditiva e agricultura de precisão está reduzindo seu custo por saca produzida drasticamente. Ele consegue ser rentável mesmo quando o preço da commodity cai no mercado internacional.
-                        </p>
-
-                        <p class="mb-6">
-                            O produtor vizinho, que ignora a tecnologia e continua operando na base da intuição e da média, carrega uma estrutura de custos pesada e ineficiente. Quando o preço da commodity oscilar para baixo (e ele sempre oscila), a margem desse produtor tradicional desaparecerá.
-                        </p>
-
-                        <p class="mb-8">
-                            Não é uma questão de se ele vai quebrar, mas de quando. Pelas minhas análises de mercado e tendências de custo, dou a esse modelo obsoleto uma sobrevida de, no máximo, <strong class="text-red-400">2 anos</strong>.
-                        </p>
-
+                        <p class="mb-8">Isso não é ficção científica. Isso é redução direta de OPEX...</p>
                     </div>
 
-                    <!-- Rodapé do Modal -->
-                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
-                        <p class="text-sm text-slate-400">Gostou do que leu?</p>
-                        <div class="flex gap-4 w-full sm:w-auto">
-                            <button type="button" onclick="closeBookModal()" class="w-full sm:w-auto border border-slate-600 text-slate-300 hover:bg-slate-700 font-bold py-2 px-6 rounded-lg transition-colors">
-                                Fechar
-                            </button>
-                            <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="w-full sm:w-auto bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg transition-colors text-center">
-                                Baixar Livro Completo
-                            </a>
-                        </div>
+                    <!-- Footer -->
+                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-t border-slate-700">
+                        <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white font-bold">Fechar</button>
+                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg">Baixar Livro Completo</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- MODAL 2: ARTIGO TÉCNICO (PROMPT ENGINEERING) -->
+    <div id="modal-article-prompt" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-article-prompt')"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4">
+                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-4xl">
+                    
+                    <!-- Header Artigo -->
+                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-file-alt text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-white">Artigo Técnico</h3>
+                        </div>
+                        <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                    </div>
+
+                    <!-- Conteúdo Artigo -->
+                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[80vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
+                        
+                        <div class="mb-8 border-b border-slate-700 pb-8">
+                            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 brand-font leading-tight">Programando em Linguagem Natural: A Ciência por trás do Prompt Perfeito</h1>
+                            <div class="flex items-center gap-4 text-sm text-slate-400 flex-wrap">
+                                <span><i class="far fa-user mr-1"></i> Romário Delphin</span>
+                                <span><i class="far fa-clock mr-1"></i> 8 min de leitura</span>
+                                <span class="bg-cyan-900/30 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800">IA Research</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. A Barreira da Comunicação: Probabilidade vs. Intenção</h3>
+                        <p class="mb-4">A maior falha observada na adoção de tecnologias de IA Generativa não reside na capacidade do modelo, mas na incompetência técnica do operador em formular a query. Para dominar a engenharia de prompt, é imperativo abandonar a antropomorfização da máquina.</p>
+                        <p class="mb-4">Uma Large Language Model (LLM) não pensa. Ela não possui cognição, moralidade ou intenção. Tecnicamente, estamos lidando com um motor estocástico de inferência baseado em <strong>Next Token Prediction</strong> (Predição do Próximo Token). O modelo calcula, em um espaço vetorial multidimensional, qual é o fragmento de texto (token) com a maior probabilidade estatística de seguir o anterior, baseado nos pesos ajustados durante o seu treinamento.</p>
+                        <p class="mb-4">O erro fundamental do usuário médio é tratar a IA como um oráculo ou um motor de busca (Google).</p>
+                        <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                            <li><strong>Google:</strong> Recupera informação existente indexada.</li>
+                            <li><strong>LLM:</strong> Processa, sintetiza e gera nova informação baseada em padrões.</li>
+                        </ul>
+                        <p class="mb-4">Quando um usuário insere um prompt vago, ele aumenta a "entropia" (desordem) da resposta. Se os parâmetros de entrada são ruídos, a inferência será ruidosa. Este é o princípio clássico da ciência da computação: GIGO (Garbage In, Garbage Out). Sem restrições sintáticas e semânticas claras, o modelo tende a "alucinar" — um termo técnico para a geração de dados plausíveis, porém factualmente incorretos, gerados para satisfazer a probabilidade estatística da completude do texto.</p>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Mecânica do Comando: O Prompt como Código</h3>
+                        <p class="mb-4">Para obter resultados de alta performance, devemos encarar a Língua Portuguesa (ou Inglesa) como uma linguagem de programação não compilada. O prompt é o código-fonte; a LLM é o interpretador.</p>
+                        
+                        <h4 class="text-xl font-bold text-white mb-2 mt-6">A Janela de Contexto e o Mecanismo de Atenção</h4>
+                        <p class="mb-4">O processamento de um prompt ocorre dentro da Context Window (Janela de Contexto). A arquitetura Transformer, base das LLMs modernas, utiliza Mecanismos de Atenção (Self-Attention). Isso significa que o modelo atribui "pesos" diferentes para cada palavra da sua instrução para entender a relação entre elas.</p>
+                        <p class="mb-4">Se o seu prompt é um bloco de texto contínuo e desestruturado, você dilui a "atenção" do modelo. Para maximizar a aderência à instrução, é necessário utilizar delimitadores. Caracteres como ###, """, --- ou tags XML (&lt;instrucao&gt;, &lt;contexto&gt;) funcionam como sinalizadores sintáticos. Eles permitem que o modelo distinga inequivocamente o que é a Regra de Negócio (System Instruction) do que é o Dado de Entrada (Input Data).</p>
+
+                        <div class="bg-slate-800 p-4 border-l-4 border-yellow-500 mb-6">
+                            <strong>A Regra de Ouro:</strong> Nunca peça. Comande. E ao comandar, segmente.
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Arquétipos de Prompts de Alta Performance</h3>
+                        <p class="mb-4">Abaixo, apresento três frameworks técnicos que desenvolvi para mitigar a variância estocástica e forçar o modelo a operar com lógica quase determinística.</p>
+
+                        <!-- Framework A -->
+                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">A) Framework 1: O "Persona-Chain-Constraint" (PCC)</h4>
+                        <p class="mb-4 text-sm text-slate-400">Aplicação: Tarefas complexas que exigem raciocínio lógico e redução de erros.</p>
+                        <p class="mb-4">Este framework utiliza três pilares: Persona (Expertise), Chain of Thought (Passo a passo) e Negative Constraints (O que não fazer).</p>
+                        
+                        <pre><code class="text-sm"><span class="code-comment"># ROLE</span>
+Atue como um Arquiteto de Software Sênior especializado em Microsserviços e Escalabilidade. Sua linguagem deve ser técnica, direta e focada em trade-offs de design patterns.
+
+<span class="code-comment"># CONTEXT</span>
+Estou projetando um sistema de e-commerce que precisa suportar picos de 100.000 requisições por segundo (Black Friday).
+
+<span class="code-comment"># TASK</span>
+Proponha uma arquitetura de alto nível para o módulo de "Checkout".
+
+<span class="code-comment"># CHAIN OF THOUGHT (Execute passo a passo)</span>
+1. Analise os requisitos de latência e consistência de dados (ACID vs. BASE).
+2. Selecione as tecnologias de banco de dados apropriadas para cada componente.
+3. Desenhe o fluxo de comunicação entre serviços (Síncrono vs. Assíncrono).
+4. Liste os potenciais pontos únicos de falha (SPOF) e como mitigá-los.
+
+<span class="code-comment"># CONSTRAINTS (Negative Prompting)</span>
+- NÃO sugira arquiteturas monolíticas.
+- NÃO forneça explicações genéricas ou introdutórias sobre o que é um microsserviço.
+- NÃO use linguagem de marketing. Foque puramente em engenharia.
+- Mantenha a resposta estruturada em Markdown.</code></pre>
+
+                        <!-- Framework B -->
+                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">B) Framework 2: A Técnica "Few-Shot Prompting"</h4>
+                        <p class="mb-4 text-sm text-slate-400">Aplicação: Padronização de saídas (Outputs) e Classificação.</p>
+                        <p class="mb-4">Os modelos são "Few-Shot Learners" (aprendizes com poucos exemplos). Em vez de escrever parágrafos explicando, forneça exemplos do padrão desejado.</p>
+
+                        <pre><code class="text-sm"><span class="code-comment"># INSTRUÇÃO</span>
+Analise o sentimento dos comentários de usuários abaixo e extraia a entidade mencionada e a categoria do problema. Responda APENAS no formato JSON.
+
+<span class="code-comment"># EXEMPLO 1</span>
+Input: "O aplicativo fecha sozinho toda vez que tento pagar o boleto."
+Output: {"sentimento": "Negativo", "entidade": "App Mobile", "categoria": "Crash/Bug", "urgencia": "Alta"}
+
+<span class="code-comment"># EXEMPLO 2</span>
+Input: "Adorei a nova interface, ficou muito mais rápida para encontrar meus investimentos."
+Output: {"sentimento": "Positivo", "entidade": "UX/UI", "categoria": "Performance", "urgencia": "Baixa"}
+
+<span class="code-comment"># EXEMPLO 3</span>
+Input: "O suporte demorou 3 dias para responder meu email sobre a senha esquecida."
+Output: {"sentimento": "Negativo", "entidade": "Suporte ao Cliente", "categoria": "SLA/Atendimento", "urgencia": "Média"}
+
+<span class="code-comment"># TAREFA ATUAL</span>
+Input: "Não consigo gerar o relatório em PDF, o botão fica cinza e nada acontece."
+Output:</code></pre>
+
+                        <!-- Framework C -->
+                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">C) Framework 3: O "Meta-Prompt de Refinamento" (Maiêutica Socrática)</h4>
+                        <p class="mb-4 text-sm text-slate-400">Aplicação: Estratégia, Brainstorming Crítico e Melhoria de Prompts.</p>
+                        <p class="mb-4">Antes de solicitar a execução, utilizamos a IA como um consultor crítico para validar a própria solicitação. Isso força uma camada de reflexão antes da inferência final.</p>
+
+                        <pre><code class="text-sm"><span class="code-comment"># ATIVAÇÃO DE META-COGNIÇÃO</span>
+Atue como um Especialista em Engenharia de Prompt e Consultor Estratégico.
+
+Eu tenho um objetivo: [INSERIR SEU OBJETIVO AQUI, EX: CRIAR UMA CAMPANHA DE MARKETING PARA GERAÇÃO Z].
+
+NÃO execute a tarefa ainda. Primeiro, siga este protocolo:
+
+1. **ANÁLISE:** Critique minha solicitação inicial. Identifique lacunas, ambiguidades ou falta de contexto que impediriam um resultado perfeito.
+2. **PERGUNTAS:** Liste até 5 perguntas críticas cujas respostas você precisa para gerar o melhor resultado possível.
+3. **REFINAMENTO:** Baseado na sua análise, sugira como eu deveria reescrever meu prompt para obter a máxima performance da IA.
+
+Aguardo suas perguntas e análise antes de prosseguirmos.</code></pre>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">4. Minha Conclusão como Pesquisador</h3>
+                        <p class="mb-4">A eficiência na era da Inteligência Artificial não será medida pela capacidade de codificar em Python ou C++, mas pela habilidade de orquestrar modelos de fundação através da linguagem natural.</p>
+                        <p class="mb-4">O Prompt é a nova sintaxe. Quem dominar a estruturação semântica, o uso de delimitadores e a arquitetura de Chain of Thought terá controle sobre a ferramenta mais poderosa de processamento de informação já criada. Quem ignorar a ciência por trás do prompt continuará recebendo alucinações estatísticas.</p>
+                        <p class="mb-8">A escolha é técnica, não mágica.</p>
+                        
+                        <p class="text-right italic text-slate-400 font-bold">Romário Delphin<br><span class="text-sm font-normal">Pesquisador em Inteligência Artificial & Especialista em LLMs</span></p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
+                        <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white font-bold w-full sm:w-auto text-center">Fechar Leitura</button>
+                        <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-sm w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                            <i class="fab fa-linkedin"></i> Comentar no LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS para Controlar Modais -->
     <script>
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('mobile-menu-btn');
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
 
-        // Modal Logic
-        function openBookModal() {
-            const modal = document.getElementById('book-modal');
-            modal.classList.remove('hidden');
-            // Impede a rolagem do fundo
-            document.body.style.overflow = 'hidden';
+        // Função Genérica para Abrir Qualquer Modal
+        function openModal(modalID) {
+            const modal = document.getElementById(modalID);
+            if(modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Trava a rolagem do fundo
+            }
         }
 
-        function closeBookModal() {
-            const modal = document.getElementById('book-modal');
-            modal.classList.add('hidden');
-            // Restaura a rolagem do fundo
-            document.body.style.overflow = 'auto';
+        // Função Genérica para Fechar
+        function closeModal(modalID) {
+            const modal = document.getElementById(modalID);
+            if(modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Destrava
+            }
         }
 
-        // Fecha o modal ao pressionar ESC
+        // Fechar com ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
-                closeBookModal();
+                // Fecha todos os modais abertos
+                document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+                    modal.classList.add('hidden');
+                });
+                document.body.style.overflow = 'auto';
             }
         });
     </script>
