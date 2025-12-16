@@ -15,16 +15,21 @@
     
     <!-- Fonts -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #020617; /* Slate 950 - Mais profundo */
+            background-color: #020617; /* Slate 950 */
             color: #e2e8f0;
         }
         
         h1, h2, h3, .brand-font {
             font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Fonte específica para o texto do livro (Serifada para leitura) */
+        .book-font {
+            font-family: 'Merriweather', serif;
         }
 
         .gradient-text {
@@ -57,6 +62,21 @@
         .btn-glow:hover {
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
             transform: translateY(-2px);
+        }
+
+        /* Scrollbar personalizada para o modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
         }
     </style>
 </head>
@@ -139,7 +159,7 @@
                     <div class="absolute inset-0 border-2 border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
                     <div class="absolute inset-2 border-2 border-dashed border-blue-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
                     
-                    <!-- Profile Image (Placeholder for your photo) -->
+                    <!-- Profile Image (Updated) -->
                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg" 
                          alt="Romário Delphin" 
                          class="absolute inset-4 w-[calc(100%-32px)] h-[calc(100%-32px)] object-cover rounded-full border-4 border-slate-900 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
@@ -157,7 +177,7 @@
         </div>
     </section>
 
-    <!-- BOOK SECTION (NEW FEATURE) -->
+    <!-- BOOK SECTION -->
     <section id="book" class="py-20 bg-slate-900/50 border-y border-slate-800">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
@@ -165,7 +185,6 @@
                 <!-- Book Cover Simulation -->
                 <div class="lg:w-1/3 flex justify-center">
                     <div class="relative group cursor-pointer w-64 md:w-80 aspect-[2/3] bg-gradient-to-br from-slate-800 to-slate-900 rounded-r-lg border-r-4 border-slate-700 book-shadow transform group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden">
-                         <!-- Place your book cover image here -->
                          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" 
                               alt="Capa do Livro A Revolução Silenciosa" 
                               class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
@@ -187,11 +206,13 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="btn-glow bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2">
-                            <i class="fas fa-download">https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing</i> Baixar E-book Grátis
-                        </button>
-                        <button class="border border-slate-600 hover:border-white text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors">
-                            Ler Preview (Cap. 1)
+                        <!-- Link direto para o Google Drive -->
+                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="btn-glow bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2">
+                            <i class="fas fa-download"></i> Baixar E-book Grátis
+                        </a>
+                        <!-- Botão que abre o Modal -->
+                        <button onclick="openBookModal()" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center gap-2">
+                            <i class="fas fa-eye"></i> Ler Preview (Cap. 1)
                         </button>
                     </div>
                     
@@ -360,6 +381,129 @@
         </div>
     </footer>
 
+    <!-- MODAL DO LIVRO (Invisível por padrão) -->
+    <div id="book-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Fundo Escuro -->
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity transition-all duration-300" onclick="closeBookModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                
+                <!-- Conteúdo do Modal -->
+                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
+                    
+                    <!-- Cabeçalho do Modal -->
+                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-book-open text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-white">Preview: Capítulo 1</h3>
+                        </div>
+                        <button type="button" onclick="closeBookModal()" class="text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg p-2 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Corpo do Texto (Scrollável) -->
+                    <div class="px-8 py-8 text-slate-300 leading-relaxed book-font max-h-[70vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
+                        
+                        <div class="text-center mb-10">
+                            <p class="text-cyan-500 font-bold tracking-widest text-xs uppercase mb-2">Capítulo 1</p>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 brand-font">O Campo Conectado</h2>
+                            <p class="text-xl text-slate-400 italic">Da Intuição aos Dados</p>
+                            <div class="w-16 h-1 bg-cyan-500 mx-auto mt-6 rounded-full"></div>
+                        </div>
+
+                        <p class="mb-6 text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-400 first-letter:mr-1 first-letter:float-left">
+                            Durante décadas, a imagem romântica do agricultor foi a de um homem observando o horizonte, sentindo a umidade do vento e decidindo, com base na experiência acumulada de gerações, que "amanhã é dia de plantar". Essa intuição, forjada no barro e no sol, construiu o agronegócio brasileiro e o transformou em uma potência global.
+                        </p>
+
+                        <p class="mb-6">
+                            Mas eu tenho uma notícia dura para lhe dar: <strong class="text-white">a intuição, sozinha, não paga mais a conta.</strong>
+                        </p>
+
+                        <p class="mb-6">
+                            O agronegócio deixou de ser uma atividade de "terra e enxada" para se tornar uma indústria a céu aberto de alta complexidade financeira. Antigamente, as margens de lucro permitiam erros. Se chovesse na hora errada ou se a praga consumisse 5% da lavoura, o lucro final amortecia o golpe. Hoje, com o custo dos insumos dolarizados, o preço do diesel nas alturas e a volatilidade das commodities, <strong class="text-white">a margem de erro é zero.</strong>
+                        </p>
+
+                        <p class="mb-6">
+                            Neste cenário, confiar apenas no "eu acho" é um suicídio financeiro em câmera lenta. O produtor que acorda de manhã e toma decisões baseadas apenas no que ele vê a olho nu está operando no escuro, enquanto seus concorrentes estão usando visão noturna.
+                        </p>
+
+                        <p class="mb-8">
+                            A transição do "Agricultor Tradicional" para o "Produtor 4.0" não é uma questão de comprar tratores mais bonitos; é uma mudança de mentalidade sobre o que é o ativo mais valioso da fazenda. Antes, era a terra. Hoje, são os dados.
+                        </p>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">A Engenharia da Previsibilidade: A IA na Prática</h3>
+
+                        <p class="mb-6">
+                            Muitos líderes do agro com quem converso ainda veem a Inteligência Artificial como algo abstrato, uma "nuvem" distante da realidade do maquinário pesado. Como alguém que veio da engenharia e do chão de fábrica, eu não tenho paciência para abstrações. Vamos falar de dinheiro, eficiência e turnaround operacional.
+                        </p>
+
+                        <p class="mb-6">
+                            A aplicação mais imediata e brutalmente lucrativa da IA no campo é a <strong class="text-cyan-400">Manutenção Preditiva</strong>.
+                        </p>
+
+                        <p class="mb-6">
+                            Imagine uma colheitadeira de última geração. Ela não é apenas um veículo; é uma fábrica sobre rodas que custa milhões de reais. Cada minuto que essa máquina passa parada na oficina durante a janela de colheita não é apenas um custo de reparo; é um custo de oportunidade gigantesco. A soja no campo está perdendo umidade ou passando do ponto, e o caminhão está parado esperando.
+                        </p>
+
+                        <p class="mb-6">
+                            No modelo tradicional (reativo), você espera a máquina quebrar para consertar. No modelo preventivo, você troca peças com base em horas de uso, muitas vezes desperdiçando componentes que ainda tinham vida útil.
+                        </p>
+                        
+                        <p class="mb-6">
+                            Com a Inteligência Artificial e a Internet das Coisas (IoT), instalamos sensores de vibração, temperatura e acústica nos componentes críticos da colheitadeira. Esses sensores enviam dados em tempo real para um algoritmo. A IA, que aprendeu o padrão de "saúde" daquela máquina, detecta uma variação infinitesimal na vibração de um rolamento – uma variação que nenhum mecânico humano ouviria.
+                        </p>
+
+                        <div class="bg-slate-800/50 p-6 rounded-lg border-l-4 border-red-500 mb-8 italic text-slate-200">
+                            "O sistema emite um alerta: Falha crítica prevista no eixo X em 48 horas."
+                        </div>
+
+                        <p class="mb-6">
+                            A equipe de manutenção agenda a parada programada para o intervalo de almoço, a peça já está separada e a troca é feita em 20 minutos. A quebra catastrófica, que deixaria a máquina parada por três dias esperando uma peça chegar da capital, nunca acontece.
+                        </p>
+
+                        <p class="mb-8">
+                            Isso não é ficção científica. Isso é redução direta de OPEX (Despesas Operacionais). É a diferença entre fechar o balanço no vermelho ou no azul. A IA não substituiu o mecânico; ela deu a ele um "superpoder" de audição e previsão, ampliando sua capacidade de manter a frota ativa.
+                        </p>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">O Ultimato: 2 Anos para a Irrelevância</h3>
+                        
+                        <p class="mb-6">
+                            Aqui retomamos a tese central deste livro, e preciso ser enfático: <strong class="text-white">O relógio está correndo.</strong>
+                        </p>
+
+                        <p class="mb-6">
+                            Existe uma seleção natural econômica acontecendo agora. O produtor que utiliza IA para fazer manutenção preditiva e agricultura de precisão está reduzindo seu custo por saca produzida drasticamente. Ele consegue ser rentável mesmo quando o preço da commodity cai no mercado internacional.
+                        </p>
+
+                        <p class="mb-6">
+                            O produtor vizinho, que ignora a tecnologia e continua operando na base da intuição e da média, carrega uma estrutura de custos pesada e ineficiente. Quando o preço da commodity oscilar para baixo (e ele sempre oscila), a margem desse produtor tradicional desaparecerá.
+                        </p>
+
+                        <p class="mb-8">
+                            Não é uma questão de se ele vai quebrar, mas de quando. Pelas minhas análises de mercado e tendências de custo, dou a esse modelo obsoleto uma sobrevida de, no máximo, <strong class="text-red-400">2 anos</strong>.
+                        </p>
+
+                    </div>
+
+                    <!-- Rodapé do Modal -->
+                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
+                        <p class="text-sm text-slate-400">Gostou do que leu?</p>
+                        <div class="flex gap-4 w-full sm:w-auto">
+                            <button type="button" onclick="closeBookModal()" class="w-full sm:w-auto border border-slate-600 text-slate-300 hover:bg-slate-700 font-bold py-2 px-6 rounded-lg transition-colors">
+                                Fechar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="w-full sm:w-auto bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg transition-colors text-center">
+                                Baixar Livro Completo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
@@ -368,7 +512,28 @@
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
+
+        // Modal Logic
+        function openBookModal() {
+            const modal = document.getElementById('book-modal');
+            modal.classList.remove('hidden');
+            // Impede a rolagem do fundo
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookModal() {
+            const modal = document.getElementById('book-modal');
+            modal.classList.add('hidden');
+            // Restaura a rolagem do fundo
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fecha o modal ao pressionar ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeBookModal();
+            }
+        });
     </script>
 </body>
 </html>
-
