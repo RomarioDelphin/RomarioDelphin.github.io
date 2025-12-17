@@ -79,6 +79,15 @@
             background: #475569; 
         }
 
+        /* Ocultar Scrollbar do Slider (mas manter funcionalidade) */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Estilo para código dentro dos artigos */
         pre {
             background-color: #1e293b;
@@ -108,7 +117,6 @@
             </a>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <!-- Reordenei aqui para dar prioridade ao Livro também no menu -->
                 <a href="#book" class="hover:text-cyan-400 transition-colors font-semibold text-cyan-400">Livro Oficial</a>
                 <a href="#research" class="hover:text-cyan-400 transition-colors">Pesquisa & Artigos</a>
                 <a href="#projects" class="hover:text-cyan-400 transition-colors">Projetos</a>
@@ -196,7 +204,7 @@
         </div>
     </section>
 
-    <!-- BOOK SECTION (Já está acima dos artigos, mantido aqui) -->
+    <!-- BOOK SECTION -->
     <section id="book" class="py-20 bg-slate-900/50 border-y border-slate-800">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
@@ -250,44 +258,73 @@
         </div>
     </section>
 
-    <!-- RESEARCH & ARTICLES -->
-    <section id="research" class="py-20 container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
-            <i class="fas fa-microscope text-cyan-400"></i>
-            Pesquisa & Artigos
-        </h2>
+    <!-- RESEARCH & ARTICLES SLIDER (MODIFICADO COM CARROSSEL) -->
+    <section id="research" class="py-20 container mx-auto px-6 relative group">
+        
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                    <i class="fas fa-microscope text-cyan-400"></i>
+                    Pesquisa & Artigos
+                </h2>
+                <p class="text-slate-400">Análises técnicas e estudos de caso em profundidade.</p>
+            </div>
+            
+            <!-- Slider Controls -->
+            <div class="flex gap-2">
+                <button onclick="slideLeft()" class="w-10 h-10 rounded-full border border-slate-600 text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button onclick="slideRight()" class="w-10 h-10 rounded-full border border-slate-600 text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Article 1: Prompt Engineering -->
-            <div class="glass-card p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                <div class="flex justify-between items-start mb-6">
-                    <span class="bg-cyan-900/30 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-800">Engenharia de Prompt</span>
-                    <i class="fas fa-arrow-right text-slate-600 group-hover:text-cyan-400 -rotate-45 group-hover:rotate-0 transition-transform"></i>
+        <!-- Slider Container -->
+        <div id="sliderContainer" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scroll-smooth hide-scrollbar">
+            
+            <!-- Article 1: GovTech (NOVO) -->
+            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between h-auto">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">Case GovTech</span>
+                        <span class="text-xs text-slate-500">Jan 2025</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                        O Fim da Burocracia Invisível
+                    </h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                        Estudo de caso real: Como a implementação de Agentes de IA no sistema SAPL transformou a fiscalização orçamentária de 48 horas para 45 segundos.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
-                    Programando em Linguagem Natural
-                </h3>
-                <p class="text-slate-400 mb-6 leading-relaxed">
-                    A ciência por trás do Prompt Perfeito. Uma análise técnica sobre Next Token Prediction, barreiras estocásticas e meus 3 frameworks proprietários (PCC, Few-Shot, Meta-Prompt).
-                </p>
-                <!-- Botão que abre o Modal do Artigo 1 -->
-                <button onclick="openModal('modal-article-prompt')" class="text-white font-semibold border-b border-cyan-500 pb-1 hover:text-cyan-400 text-left">Ler Artigo Completo</button>
+                <button onclick="openModal('modal-article-govtech')" class="text-white font-semibold border-b border-blue-500 pb-1 hover:text-blue-400 text-left w-max">Ler Estudo de Caso</button>
             </div>
 
-            <!-- Article 2: GovTech (Placeholder para futuro) -->
-            <div class="glass-card p-8 rounded-2xl hover:border-blue-500/50 transition-all group">
-                <div class="flex justify-between items-start mb-6">
-                    <span class="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">GovTech</span>
-                    <i class="fas fa-arrow-right text-slate-600 group-hover:text-blue-400 -rotate-45 group-hover:rotate-0 transition-transform"></i>
+            <!-- Article 2: Prompt Engineering -->
+            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col justify-between h-auto">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-cyan-900/30 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-800">Engenharia de Prompt</span>
+                        <span class="text-xs text-slate-500">Dez 2024</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                        Programando em Linguagem Natural
+                    </h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                        A ciência por trás do Prompt Perfeito. Uma análise técnica sobre Next Token Prediction, barreiras estocásticas e meus 3 frameworks proprietários.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                    O Fim da Burocracia Invisível
-                </h3>
-                <p class="text-slate-400 mb-6 leading-relaxed">
-                    Como a implementação de Agentes de IA no sistema SAPL está transformando a fiscalização orçamentária de dias para segundos. Um estudo de caso real.
-                </p>
-                <button class="text-slate-500 font-semibold border-b border-slate-700 pb-1 cursor-not-allowed">Em Breve</button>
+                <button onclick="openModal('modal-article-prompt')" class="text-white font-semibold border-b border-cyan-500 pb-1 hover:text-cyan-400 text-left w-max">Ler Artigo Técnico</button>
             </div>
+
+            <!-- Placeholder for Next Article (EM BREVE) -->
+            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl border border-slate-800 border-dashed flex flex-col justify-center items-center text-center opacity-60 hover:opacity-100 transition-opacity">
+                <i class="fas fa-pen-nib text-4xl text-slate-600 mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">Em Breve</h3>
+                <p class="text-slate-500 text-sm">Novas pesquisas sobre IA no Agronegócio estão sendo compiladas.</p>
+            </div>
+
         </div>
     </section>
 
@@ -409,8 +446,6 @@
         <div class="fixed inset-0 z-10 overflow-y-auto">
             <div class="flex min-h-full items-center justify-center p-4">
                 <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-3xl">
-                    
-                    <!-- Header -->
                     <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
                         <div class="flex items-center gap-3">
                             <i class="fas fa-book-open text-cyan-400"></i>
@@ -418,8 +453,6 @@
                         </div>
                         <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
                     </div>
-
-                    <!-- Conteúdo do Livro -->
                     <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[70vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
                         <div class="text-center mb-10">
                             <p class="text-cyan-500 font-bold tracking-widest text-xs uppercase mb-2">Capítulo 1</p>
@@ -439,8 +472,6 @@
                         </div>
                         <p class="mb-8">Isso não é ficção científica. Isso é redução direta de OPEX...</p>
                     </div>
-
-                    <!-- Footer -->
                     <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-t border-slate-700">
                         <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white font-bold">Fechar</button>
                         <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg">Baixar Livro Completo</a>
@@ -456,8 +487,6 @@
         <div class="fixed inset-0 z-10 overflow-y-auto">
             <div class="flex min-h-full items-center justify-center p-4">
                 <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-4xl">
-                    
-                    <!-- Header Artigo -->
                     <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
                         <div class="flex items-center gap-3">
                             <i class="fas fa-file-alt text-cyan-400"></i>
@@ -465,10 +494,7 @@
                         </div>
                         <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
                     </div>
-
-                    <!-- Conteúdo Artigo -->
                     <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[80vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
-                        
                         <div class="mb-8 border-b border-slate-700 pb-8">
                             <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 brand-font leading-tight">Programando em Linguagem Natural: A Ciência por trás do Prompt Perfeito</h1>
                             <div class="flex items-center gap-4 text-sm text-slate-400 flex-wrap">
@@ -477,108 +503,29 @@
                                 <span class="bg-cyan-900/30 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800">IA Research</span>
                             </div>
                         </div>
-
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. A Barreira da Comunicação: Probabilidade vs. Intenção</h3>
-                        <p class="mb-4">A maior falha observada na adoção de tecnologias de IA Generativa não reside na capacidade do modelo, mas na incompetência técnica do operador em formular a query. Para dominar a engenharia de prompt, é imperativo abandonar a antropomorfização da máquina.</p>
-                        <p class="mb-4">Uma Large Language Model (LLM) não pensa. Ela não possui cognição, moralidade ou intenção. Tecnicamente, estamos lidando com um motor estocástico de inferência baseado em <strong>Next Token Prediction</strong> (Predição do Próximo Token). O modelo calcula, em um espaço vetorial multidimensional, qual é o fragmento de texto (token) com a maior probabilidade estatística de seguir o anterior, baseado nos pesos ajustados durante o seu treinamento.</p>
-                        <p class="mb-4">O erro fundamental do usuário médio é tratar a IA como um oráculo ou um motor de busca (Google).</p>
-                        <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
-                            <li><strong>Google:</strong> Recupera informação existente indexada.</li>
-                            <li><strong>LLM:</strong> Processa, sintetiza e gera nova informação baseada em padrões.</li>
-                        </ul>
-                        <p class="mb-4">Quando um usuário insere um prompt vago, ele aumenta a "entropia" (desordem) da resposta. Se os parâmetros de entrada são ruídos, a inferência será ruidosa. Este é o princípio clássico da ciência da computação: GIGO (Garbage In, Garbage Out). Sem restrições sintáticas e semânticas claras, o modelo tende a "alucinar" — um termo técnico para a geração de dados plausíveis, porém factualmente incorretos, gerados para satisfazer a probabilidade estatística da completude do texto.</p>
-
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Mecânica do Comando: O Prompt como Código</h3>
-                        <p class="mb-4">Para obter resultados de alta performance, devemos encarar a Língua Portuguesa (ou Inglesa) como uma linguagem de programação não compilada. O prompt é o código-fonte; a LLM é o interpretador.</p>
-                        
-                        <h4 class="text-xl font-bold text-white mb-2 mt-6">A Janela de Contexto e o Mecanismo de Atenção</h4>
-                        <p class="mb-4">O processamento de um prompt ocorre dentro da Context Window (Janela de Contexto). A arquitetura Transformer, base das LLMs modernas, utiliza Mecanismos de Atenção (Self-Attention). Isso significa que o modelo atribui "pesos" diferentes para cada palavra da sua instrução para entender a relação entre elas.</p>
-                        <p class="mb-4">Se o seu prompt é um bloco de texto contínuo e desestruturado, você dilui a "atenção" do modelo. Para maximizar a aderência à instrução, é necessário utilizar delimitadores. Caracteres como ###, """, --- ou tags XML (&lt;instrucao&gt;, &lt;contexto&gt;) funcionam como sinalizadores sintáticos. Eles permitem que o modelo distinga inequivocamente o que é a Regra de Negócio (System Instruction) do que é o Dado de Entrada (Input Data).</p>
-
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. A Barreira da Comunicação</h3>
+                        <p class="mb-4">A maior falha observada na adoção de tecnologias de IA Generativa não reside na capacidade do modelo, mas na incompetência técnica do operador. Uma LLM não pensa; ela processa probabilidades estatísticas (Next Token Prediction).</p>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Mecânica do Comando</h3>
+                        <p class="mb-4">O prompt é o código-fonte; a LLM é o interpretador. Se o seu prompt é um bloco desestruturado, você dilui a "atenção" (Self-Attention) do modelo.</p>
                         <div class="bg-slate-800 p-4 border-l-4 border-yellow-500 mb-6">
-                            <strong>A Regra de Ouro:</strong> Nunca peça. Comande. E ao comandar, segmente.
+                            <strong>A Regra de Ouro:</strong> Nunca peça. Comande. E ao comandar, segmente com delimitadores (###, """).
                         </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Arquétipos de Alta Performance</h3>
+                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">Framework: Persona-Chain-Constraint (PCC)</h4>
+                        <pre><code class="text-sm"># ROLE
+Atue como um Arquiteto de Software Sênior.
 
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Arquétipos de Prompts de Alta Performance</h3>
-                        <p class="mb-4">Abaixo, apresento três frameworks técnicos que desenvolvi para mitigar a variância estocástica e forçar o modelo a operar com lógica quase determinística.</p>
+# CONTEXT
+Estou projetando um sistema de e-commerce (Black Friday).
 
-                        <!-- Framework A -->
-                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">A) Framework 1: O "Persona-Chain-Constraint" (PCC)</h4>
-                        <p class="mb-4 text-sm text-slate-400">Aplicação: Tarefas complexas que exigem raciocínio lógico e redução de erros.</p>
-                        <p class="mb-4">Este framework utiliza três pilares: Persona (Expertise), Chain of Thought (Passo a passo) e Negative Constraints (O que não fazer).</p>
-                        
-                        <pre><code class="text-sm"><span class="code-comment"># ROLE</span>
-Atue como um Arquiteto de Software Sênior especializado em Microsserviços e Escalabilidade. Sua linguagem deve ser técnica, direta e focada em trade-offs de design patterns.
+# CHAIN OF THOUGHT
+1. Analise requisitos de latência.
+2. Selecione tecnologias de banco de dados.
 
-<span class="code-comment"># CONTEXT</span>
-Estou projetando um sistema de e-commerce que precisa suportar picos de 100.000 requisições por segundo (Black Friday).
-
-<span class="code-comment"># TASK</span>
-Proponha uma arquitetura de alto nível para o módulo de "Checkout".
-
-<span class="code-comment"># CHAIN OF THOUGHT (Execute passo a passo)</span>
-1. Analise os requisitos de latência e consistência de dados (ACID vs. BASE).
-2. Selecione as tecnologias de banco de dados apropriadas para cada componente.
-3. Desenhe o fluxo de comunicação entre serviços (Síncrono vs. Assíncrono).
-4. Liste os potenciais pontos únicos de falha (SPOF) e como mitigá-los.
-
-<span class="code-comment"># CONSTRAINTS (Negative Prompting)</span>
-- NÃO sugira arquiteturas monolíticas.
-- NÃO forneça explicações genéricas ou introdutórias sobre o que é um microsserviço.
-- NÃO use linguagem de marketing. Foque puramente em engenharia.
-- Mantenha a resposta estruturada em Markdown.</code></pre>
-
-                        <!-- Framework B -->
-                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">B) Framework 2: A Técnica "Few-Shot Prompting"</h4>
-                        <p class="mb-4 text-sm text-slate-400">Aplicação: Padronização de saídas (Outputs) e Classificação.</p>
-                        <p class="mb-4">Os modelos são "Few-Shot Learners" (aprendizes com poucos exemplos). Em vez de escrever parágrafos explicando, forneça exemplos do padrão desejado.</p>
-
-                        <pre><code class="text-sm"><span class="code-comment"># INSTRUÇÃO</span>
-Analise o sentimento dos comentários de usuários abaixo e extraia a entidade mencionada e a categoria do problema. Responda APENAS no formato JSON.
-
-<span class="code-comment"># EXEMPLO 1</span>
-Input: "O aplicativo fecha sozinho toda vez que tento pagar o boleto."
-Output: {"sentimento": "Negativo", "entidade": "App Mobile", "categoria": "Crash/Bug", "urgencia": "Alta"}
-
-<span class="code-comment"># EXEMPLO 2</span>
-Input: "Adorei a nova interface, ficou muito mais rápida para encontrar meus investimentos."
-Output: {"sentimento": "Positivo", "entidade": "UX/UI", "categoria": "Performance", "urgencia": "Baixa"}
-
-<span class="code-comment"># EXEMPLO 3</span>
-Input: "O suporte demorou 3 dias para responder meu email sobre a senha esquecida."
-Output: {"sentimento": "Negativo", "entidade": "Suporte ao Cliente", "categoria": "SLA/Atendimento", "urgencia": "Média"}
-
-<span class="code-comment"># TAREFA ATUAL</span>
-Input: "Não consigo gerar o relatório em PDF, o botão fica cinza e nada acontece."
-Output:</code></pre>
-
-                        <!-- Framework C -->
-                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">C) Framework 3: O "Meta-Prompt de Refinamento" (Maiêutica Socrática)</h4>
-                        <p class="mb-4 text-sm text-slate-400">Aplicação: Estratégia, Brainstorming Crítico e Melhoria de Prompts.</p>
-                        <p class="mb-4">Antes de solicitar a execução, utilizamos a IA como um consultor crítico para validar a própria solicitação. Isso força uma camada de reflexão antes da inferência final.</p>
-
-                        <pre><code class="text-sm"><span class="code-comment"># ATIVAÇÃO DE META-COGNIÇÃO</span>
-Atue como um Especialista em Engenharia de Prompt e Consultor Estratégico.
-
-Eu tenho um objetivo: [INSERIR SEU OBJETIVO AQUI, EX: CRIAR UMA CAMPANHA DE MARKETING PARA GERAÇÃO Z].
-
-NÃO execute a tarefa ainda. Primeiro, siga este protocolo:
-
-1. **ANÁLISE:** Critique minha solicitação inicial. Identifique lacunas, ambiguidades ou falta de contexto que impediriam um resultado perfeito.
-2. **PERGUNTAS:** Liste até 5 perguntas críticas cujas respostas você precisa para gerar o melhor resultado possível.
-3. **REFINAMENTO:** Baseado na sua análise, sugira como eu deveria reescrever meu prompt para obter a máxima performance da IA.
-
-Aguardo suas perguntas e análise antes de prosseguirmos.</code></pre>
-
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">4. Minha Conclusão como Pesquisador</h3>
-                        <p class="mb-4">A eficiência na era da Inteligência Artificial não será medida pela capacidade de codificar em Python ou C++, mas pela habilidade de orquestrar modelos de fundação através da linguagem natural.</p>
-                        <p class="mb-4">O Prompt é a nova sintaxe. Quem dominar a estruturação semântica, o uso de delimitadores e a arquitetura de Chain of Thought terá controle sobre a ferramenta mais poderosa de processamento de informação já criada. Quem ignorar a ciência por trás do prompt continuará recebendo alucinações estatísticas.</p>
+# CONSTRAINTS
+- NÃO sugira arquiteturas monolíticas.</code></pre>
                         <p class="mb-8">A escolha é técnica, não mágica.</p>
-                        
-                        <p class="text-right italic text-slate-400 font-bold">Romário Delphin<br><span class="text-sm font-normal">Pesquisador em Inteligência Artificial & Especialista em LLMs</span></p>
                     </div>
-
-                    <!-- Footer -->
                     <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
                         <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white font-bold w-full sm:w-auto text-center">Fechar Leitura</button>
                         <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-sm w-full sm:w-auto text-center flex items-center justify-center gap-2">
@@ -590,7 +537,72 @@ Aguardo suas perguntas e análise antes de prosseguirmos.</code></pre>
         </div>
     </div>
 
-    <!-- JS para Controlar Modais -->
+    <!-- MODAL 3: ARTIGO GOVTECH (NOVO!) -->
+    <div id="modal-article-govtech" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-article-govtech')"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4">
+                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-4xl">
+                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-university text-blue-400"></i>
+                            <h3 class="text-lg font-bold text-white">Case Study: GovTech</h3>
+                        </div>
+                        <button onclick="closeModal('modal-article-govtech')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                    </div>
+                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[80vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
+                        <div class="mb-8 border-b border-slate-700 pb-8">
+                            <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-2 block">Transformação Digital</span>
+                            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 brand-font leading-tight">O Fim da Burocracia Invisível</h1>
+                            <h2 class="text-xl text-slate-400 font-light mb-6">Como a implementação de Agentes de IA no sistema SAPL está transformando a fiscalização orçamentária de dias para segundos.</h2>
+                            <div class="flex items-center gap-4 text-sm text-slate-400">
+                                <span><i class="far fa-user mr-1"></i> Romário Delphin</span>
+                                <span><i class="far fa-calendar-alt mr-1"></i> Jan 2025</span>
+                                <span class="bg-blue-900/30 text-blue-400 px-2 py-0.5 rounded border border-blue-800">Estudo de Caso Real</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. O Contexto: A Montanha de Papel Digital</h3>
+                        <p class="mb-4">A administração pública brasileira vive um paradoxo. Nunca se produziu tanto dado, mas nunca foi tão difícil transformá-lo em informação útil. Em uma Câmara Municipal típica, o volume de Diários Oficiais, empenhos, licitações e projetos de lei cria uma "névoa de dados".</p>
+                        <p class="mb-4">O problema central não é a falta de transparência, é a <strong>infoxicação</strong>. Um fiscal humano levaria semanas para cruzar manualmente os dados de uma única licitação com o histórico de preços de mercado e a lei orçamentária (LOA).</p>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Solução: Integração SAPL + Agentes de IA</h3>
+                        <p class="mb-4">Como Head de Projetos de Inovação, liderei a implementação de uma arquitetura que conecta o <strong>SAPL (Sistema de Apoio ao Processo Legislativo)</strong> a Agentes de Inteligência Artificial baseados em LLMs.</p>
+                        <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
+                            <h4 class="font-bold text-white mb-2">Como funciona a arquitetura:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                <li><strong>Ingestão:</strong> O sistema varre os PDFs e XMLs do Diário Oficial e do Portal da Transparência.</li>
+                                <li><strong>Vetorização:</strong> Transforma textos jurídicos complexos em vetores matemáticos pesquisáveis (Embeddings).</li>
+                                <li><strong>Agente Auditor:</strong> Um bot especializado cruza os valores empenhados com a tabela de preços médios e alerta sobre desvios.</li>
+                            </ul>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Resultados: De Dias para Segundos</h3>
+                        <p class="mb-4">O impacto na rotina de fiscalização foi imediato e mensurável:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-800/50 p-4 rounded border border-slate-700">
+                                <p class="text-xs text-slate-400 uppercase">Tempo de Análise</p>
+                                <p class="text-2xl font-bold text-white"><span class="text-red-400 line-through text-lg mr-2">48 Horas</span> <i class="fas fa-arrow-right text-sm mx-2"></i> <span class="text-green-400">45 Segundos</span></p>
+                            </div>
+                            <div class="bg-slate-800/50 p-4 rounded border border-slate-700">
+                                <p class="text-xs text-slate-400 uppercase">Precisão na Busca</p>
+                                <p class="text-2xl font-bold text-white">Busca Semântica</p>
+                                <p class="text-xs text-slate-400">Encontra "compra de toner" mesmo se estiver escrito "suprimento de impressão".</p>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">Conclusão</h3>
+                        <p class="mb-4">A tecnologia GovTech não serve apenas para "modernizar" o computador da repartição. Ela serve para devolver ao cidadão a confiança de que cada centavo está sendo vigiado, não por olhos cansados, mas por algoritmos incansáveis.</p>
+                        <p class="mb-8 font-bold text-white">A burocracia invisível acabou. A era da transparência ativa começou.</p>
+                    </div>
+                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
+                        <button onclick="closeModal('modal-article-govtech')" class="text-slate-400 hover:text-white font-bold w-full sm:w-auto text-center">Fechar Leitura</button>
+                        <a href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-sm w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                            <i class="fab fa-linkedin"></i> Comentar no LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS para Controlar Modais e Slider -->
     <script>
         const menu = document.getElementById('mobile-menu');
         const btn = document.getElementById('mobile-menu-btn');
@@ -599,34 +611,42 @@ Aguardo suas perguntas e análise antes de prosseguirmos.</code></pre>
             menu.classList.toggle('hidden');
         });
 
-        // Função Genérica para Abrir Qualquer Modal
+        // --- Lógica dos Modais ---
         function openModal(modalID) {
             const modal = document.getElementById(modalID);
             if(modal) {
                 modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Trava a rolagem do fundo
+                document.body.style.overflow = 'hidden'; 
             }
         }
 
-        // Função Genérica para Fechar
         function closeModal(modalID) {
             const modal = document.getElementById(modalID);
             if(modal) {
                 modal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // Destrava
+                document.body.style.overflow = 'auto'; 
             }
         }
 
-        // Fechar com ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
-                // Fecha todos os modais abertos
                 document.querySelectorAll('[id^="modal-"]').forEach(modal => {
                     modal.classList.add('hidden');
                 });
                 document.body.style.overflow = 'auto';
             }
         });
+
+        // --- Lógica do Slider ---
+        function slideLeft() {
+            const container = document.getElementById('sliderContainer');
+            container.scrollLeft -= 350; // Ajuste a quantidade de scroll conforme necessário
+        }
+
+        function slideRight() {
+            const container = document.getElementById('sliderContainer');
+            container.scrollLeft += 350;
+        }
     </script>
 </body>
 </html>
