@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Romário Delphin. Pesquisador em IA, Autor de 'A Revolução Silenciosa' e Especialista em Agronegócio 4.0.">
-    <meta name="keywords" content="Romário Delphin, Inteligência Artificial, Agronegócio, GovTech, Livro IA, Engenharia de Prompt">
-    <title>Romário Delphin | Pesquisador em IA & Estrategista</title>
+    <meta name="description" content="Portfólio de Romário Delphin. Pesquisador em IA, Autor e Executivo.">
+    <title>Romário Delphin | Central Intelligence</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,638 +14,699 @@
     
     <!-- Fonts -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap');
         
+        :root {
+            --primary: #06b6d4; /* Cyan 500 */
+            --primary-glow: rgba(6, 182, 212, 0.5);
+            --bg-dark: #000205;
+            --surface: #0a0c10;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #020617; /* Slate 950 */
-            color: #e2e8f0;
+            background-color: var(--bg-dark);
+            color: #cbd5e1;
+            overflow-x: hidden;
+            margin: 0;
         }
+
+        /* Canvas Background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none; /* Deixa clicar através dele */
+            opacity: 0.6;
+        }
+
+        h1, h2, h3, .title-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .mono-font {
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Hero Animations */
+        .hero-avatar-container {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+        }
+        .hero-avatar-container::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        /* Tech Rings (Static visual anchor) */
+        .tech-ring {
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Glass Panel Enhanced */
+        .glass-panel {
+            background: rgba(10, 15, 25, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-panel:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Tilt Effect Container */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        .tilt-content {
+            transform: translateZ(20px);
+        }
+
+        /* Scroll Animation Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar Hide */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Scrollbar for Modals */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
         
-        h1, h2, h3, .brand-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Fonte específica para o texto do livro/artigos (Serifada para leitura) */
-        .reader-font {
-            font-family: 'Merriweather', serif;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        /* Typewriter Cursor */
+        .cursor-blink {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #06b6d4;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
         }
-
-        .glass-nav {
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-        }
-
-        .book-shadow {
-            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5), 
-                        0 0 20px rgba(34, 211, 238, 0.2); 
-        }
-
-        .btn-glow {
-            transition: all 0.3s ease;
-        }
-        .btn-glow:hover {
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Scrollbar personalizada para o modal */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #334155; 
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #475569; 
-        }
-
-        /* Ocultar Scrollbar do Slider (mas manter funcionalidade) */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Estilo para código dentro dos artigos */
-        pre {
-            background-color: #1e293b;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-            border: 1px solid #334155;
-            margin-bottom: 1.5rem;
-            font-size: 0.875rem;
-            color: #e2e8f0;
-        }
-        code {
-            font-family: 'Courier New', Courier, monospace;
-        }
-        .code-keyword { color: #c084fc; } /* Roxo */
-        .code-string { color: #22d3ee; } /* Ciano */
-        .code-comment { color: #64748b; font-style: italic; } /* Cinza */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
-<body class="antialiased selection:bg-cyan-500 selection:text-white overflow-x-hidden">
+<body class="selection:bg-cyan-500 selection:text-black">
 
-    <!-- Navbar -->
-    <nav class="glass-nav sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-white brand-font">
-                R<span class="text-cyan-400">.</span>Delphin
+    <!-- CANVAS BACKGROUND (REDE NEURAL VIVA) -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVBAR CENTRADA -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white tracking-widest title-font flex items-center gap-2">
+                <span class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
+                R<span class="text-cyan-500">.</span>DELPHIN
             </a>
             
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#book" class="hover:text-cyan-400 transition-colors font-semibold text-cyan-400">Livro Oficial</a>
-                <a href="#research" class="hover:text-cyan-400 transition-colors">Pesquisa & Artigos</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-slate-300">
+                <a href="#bio" class="hover:text-cyan-400 transition-colors">Bio</a>
+                <a href="#books" class="hover:text-cyan-400 transition-colors">Livros</a>
+                <a href="#research" class="hover:text-cyan-400 transition-colors">Pesquisa</a>
                 <a href="#projects" class="hover:text-cyan-400 transition-colors">Projetos</a>
-                <a href="#trajectory" class="hover:text-cyan-400 transition-colors">Trajetória</a>
             </div>
 
-            <div class="hidden md:flex gap-4">
-                <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-slate-400 hover:text-white transition-colors text-lg">
+            <div class="flex items-center gap-4">
+                <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-slate-400 hover:text-white transition-colors text-xl">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="#contact" class="bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 px-5 py-2 rounded-full text-sm font-semibold hover:bg-cyan-500 hover:text-white transition-all">
-                    Consultoria
-                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-4">
-            <a href="#book" class="block text-cyan-400 font-bold">Livro Oficial</a>
-            <a href="#research" class="block text-slate-300 hover:text-cyan-400">Pesquisa</a>
-            <a href="#projects" class="block text-slate-300 hover:text-cyan-400">Projetos</a>
-            <a href="#contact" class="block text-slate-300 hover:text-cyan-400">Contato</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden">
-        <!-- Background Effects -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl hidden flex-col justify-center items-center gap-8 text-2xl font-bold text-white transition-all">
+        <a href="#bio" class="hover:text-cyan-400" onclick="toggleMenu()">Bio</a>
+        <a href="#books" class="hover:text-cyan-400" onclick="toggleMenu()">Livros</a>
+        <a href="#research" class="hover:text-cyan-400" onclick="toggleMenu()">Pesquisa</a>
+        <a href="#projects" class="hover:text-cyan-400" onclick="toggleMenu()">Projetos</a>
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-slate-500"><i class="fas fa-times"></i></button>
+    </div>
 
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
+    <!-- HERO SECTION (CENTRALIZADO) -->
+    <section id="bio" class="relative pt-40 pb-32 text-center overflow-hidden min-h-screen flex flex-col justify-center">
+        <!-- Tech Rings Animation -->
+        <div class="tech-ring w-[350px] h-[350px] animate-[spin_20s_linear_infinite] border-cyan-500/20"></div>
+        <div class="tech-ring w-[550px] h-[550px] border-dashed animate-[spin_30s_linear_infinite_reverse] opacity-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10 reveal">
             
-            <div class="md:w-3/5 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-bold tracking-widest text-cyan-400 uppercase bg-cyan-950/50 rounded-full border border-cyan-800">
-                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                    Pesquisador & Executivo
-                </div>
+            <!-- Avatar -->
+            <div class="hero-avatar-container mb-10 group">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg" 
+                     alt="Romário Delphin" 
+                     class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-slate-900 shadow-2xl relative z-10 filter grayscale group-hover:grayscale-0 transition-all duration-700">
                 
-                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-                    A Convergência entre <br>
-                    <span class="gradient-text">Agro, Dados e Futuro.</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                    Não sou um teórico de laboratório. Sou um <strong>Executivo de P&L</strong> que migrou para a fronteira da <strong>Inteligência Artificial</strong> para resolver dores reais de negócio.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#book" class="btn-glow bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2">
-                        <i class="fas fa-book-open"></i> Ver meu Livro
-                    </a>
-                    <a href="https://github.com/RomarioDelphin" target="_blank" class="glass-card text-white font-semibold py-3 px-8 rounded-lg hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
+                <!-- Floating Labels (Animated) -->
+                <span class="absolute top-0 right-[-10px] md:right-[-30px] bg-slate-900 border border-slate-700 text-cyan-400 text-[10px] md:text-xs px-3 py-1 rounded-full font-mono animate-bounce delay-100 shadow-lg shadow-cyan-500/20">
+                    <span id="typewriter-1"></span><span class="cursor-blink"></span>
+                </span>
             </div>
 
-            <div class="md:w-2/5 flex justify-center relative">
-                <div class="relative w-72 h-72 md:w-96 md:h-96">
-                    <!-- Tech Ring Animation -->
-                    <div class="absolute inset-0 border-2 border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                    <div class="absolute inset-2 border-2 border-dashed border-blue-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                    
-                    <!-- Profile Image -->
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg" 
-                         alt="Romário Delphin" 
-                         class="absolute inset-4 w-[calc(100%-32px)] h-[calc(100%-32px)] object-cover rounded-full border-4 border-slate-900 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
-                    
-                    <!-- Floating Badge -->
-                    <div class="absolute bottom-0 right-0 bg-slate-900 border border-slate-700 p-3 rounded-xl shadow-lg flex items-center gap-3 animate-bounce">
-                        <i class="fas fa-brain text-cyan-400 text-2xl"></i>
-                        <div class="text-left">
-                            <p class="text-xs text-slate-400">Especialidade</p>
-                            <p class="text-sm font-bold text-white">Engenharia de Prompt</p>
-                        </div>
-                    </div>
-                </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight title-font">
+                ROMÁRIO DELPHIN
+            </h1>
+            
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+                A convergência entre a força do <strong class="text-white">Agronegócio</strong> e a inteligência dos <strong class="text-gradient">Dados</strong>.
+                <br class="hidden md:block">Traduzindo código em lucro operacional e governança pública.
+            </p>
+
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="#books" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:scale-105">
+                    Ver Obras Publicadas
+                </a>
+                <a href="#contact" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white py-3 px-8 rounded-full transition-all hover:bg-white/5">
+                    Consultoria Estratégica
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- BOOK SECTION -->
-    <section id="book" class="py-20 bg-slate-900/50 border-y border-slate-800">
+    <!-- SECTION: BOOKS & LIBRARY -->
+    <section id="books" class="py-24 border-t border-b border-white/5 relative z-10">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
-                
-                <!-- Book Cover Simulation -->
-                <div class="lg:w-1/3 flex justify-center">
-                    <div class="relative group cursor-pointer w-64 md:w-80 aspect-[2/3] bg-gradient-to-br from-slate-800 to-slate-900 rounded-r-lg border-r-4 border-slate-700 book-shadow transform group-hover:-translate-y-2 transition-transform duration-500 overflow-hidden">
-                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" 
-                              alt="Capa do Livro A Revolução Silenciosa" 
-                              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                              onerror="this.src='https://placehold.co/400x600/1e293b/FFF?text=Capa+do+Livro'">
-                         
-                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                            <p class="text-white font-bold text-lg">Edição 2025</p>
-                         </div>
-                    </div>
-                </div>
+            
+            <div class="text-center mb-16 reveal">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase mb-2 block">Biblioteca Oficial</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white">Publicações</h2>
+            </div>
 
-                <div class="lg:w-2/3 text-left">
-                    <span class="text-cyan-400 font-bold tracking-wider text-sm uppercase mb-2 block">Lançamento Exclusivo</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">A Revolução Silenciosa</h2>
-                    <h3 class="text-xl text-slate-300 mb-6 font-light">Como a Inteligência Artificial está redefinindo o Agronegócio e a Gestão Pública.</h3>
-                    
-                    <p class="text-slate-400 mb-8 leading-relaxed text-lg">
-                        Este não é um livro teórico. É um manual de sobrevivência para gestores. Compilo minha experiência prática em Turnaround e Tecnologia para mostrar que a IA não substitui o humano, ela o amplia. Descubra como a manutenção preditiva e a auditoria algorítmica estão salvando bilhões.
+            <!-- 1. DESTAQUE (LIVRO ATUAL - TILT EFFECT) -->
+            <div id="tilt-book-card" class="glass-panel p-8 md:p-12 rounded-3xl max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 mb-20 relative overflow-hidden reveal tilt-card">
+                <!-- Glow Effect -->
+                <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-cyan-900/20 via-transparent to-transparent -z-10"></div>
+
+                <div class="w-64 md:w-80 shrink-0 perspective-1000 tilt-content">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" 
+                         alt="Capa do Livro" class="rounded-lg shadow-2xl shadow-cyan-900/40 border border-white/10 transform transition-transform duration-100">
+                </div>
+                
+                <div class="text-left flex-1 tilt-content">
+                    <div class="inline-flex items-center gap-2 mb-4 bg-cyan-950/30 border border-cyan-800/50 px-3 py-1 rounded text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span> Lançamento
+                    </div>
+                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 title-font leading-tight">A Revolução Silenciosa</h3>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed font-light">
+                        O manual definitivo de sobrevivência para gestores. Descubra como a manutenção preditiva e a auditoria algorítmica estão salvando bilhões no Agro e no Setor Público. 
                     </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <!-- Link direto para o Google Drive -->
-                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="btn-glow bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center gap-2">
-                            <i class="fas fa-download"></i> Baixar E-book Grátis
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-white text-black hover:bg-slate-200 transition-colors font-bold py-3 px-8 rounded-full text-sm uppercase tracking-widest shadow-lg hover:shadow-white/20">
+                            <i class="fas fa-download mr-2"></i> Baixar PDF
                         </a>
-                        <!-- Botão que abre o Modal do Livro -->
-                        <button onclick="openModal('modal-book')" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center gap-2">
-                            <i class="fas fa-eye"></i> Ler Preview (Cap. 1)
+                        <button onclick="openModal('modal-book')" class="text-white border border-white/20 hover:bg-white/10 py-3 px-8 rounded-full transition-colors text-sm font-bold uppercase tracking-widest">
+                            Ler Preview
                         </button>
                     </div>
-                    
-                    <div class="mt-8 flex gap-8 border-t border-slate-800 pt-6">
-                        <div>
-                            <p class="text-2xl font-bold text-white">25+</p>
-                            <p class="text-xs text-slate-500 uppercase">Páginas de Conteúdo</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-bold text-white">3</p>
-                            <p class="text-xs text-slate-500 uppercase">Frameworks Práticos</p>
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <!-- 2. FUTUROS LANÇAMENTOS (SLIDER) -->
+            <div class="max-w-6xl mx-auto reveal">
+                <h3 class="text-xl text-white mb-8 font-bold flex items-center gap-3">
+                    <i class="fas fa-layer-group text-slate-600"></i> Próximos Títulos & Pesquisas
+                </h3>
+                
+                <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x">
+                    
+                    <!-- Future Book 1 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-cyan-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-tractor text-slate-400 text-2xl group-hover:text-cyan-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">Agro 5.0</h4>
+                        <p class="text-slate-500 text-sm px-4">Arquitetura de Dados para Fazendas Autônomas.</p>
+                        <span class="mt-auto text-[10px] text-cyan-500 uppercase tracking-widest bg-cyan-950/30 px-2 py-1 rounded">Em Breve</span>
+                    </div>
+
+                    <!-- Future Book 2 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-purple-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-city text-slate-400 text-2xl group-hover:text-purple-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">Cidades Cognitivas</h4>
+                        <p class="text-slate-500 text-sm px-4">IA aplicada à gestão municipal inteligente.</p>
+                        <span class="mt-auto text-[10px] text-purple-500 uppercase tracking-widest bg-purple-950/30 px-2 py-1 rounded">Em Pesquisa</span>
+                    </div>
+
+                    <!-- Future Book 3 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-green-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code text-slate-400 text-2xl group-hover:text-green-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">Prompt Engineering</h4>
+                        <p class="text-slate-500 text-sm px-4">O guia técnico definitivo para executivos.</p>
+                        <span class="mt-auto text-[10px] text-green-500 uppercase tracking-widest bg-green-950/30 px-2 py-1 rounded">Em Breve</span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- RESEARCH & ARTICLES SLIDER (MODIFICADO COM CARROSSEL) -->
-    <section id="research" class="py-20 container mx-auto px-6 relative group">
-        
-        <div class="flex justify-between items-end mb-12">
+    <!-- RESEARCH SLIDER (ARTIGOS) -->
+    <section id="research" class="py-24 container mx-auto px-6 reveal">
+        <div class="flex justify-between items-end mb-12 max-w-6xl mx-auto">
             <div>
-                <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-                    <i class="fas fa-microscope text-cyan-400"></i>
-                    Pesquisa & Artigos
-                </h2>
-                <p class="text-slate-400">Análises técnicas e estudos de caso em profundidade.</p>
+                <span class="text-purple-500 font-mono text-sm tracking-widest uppercase block mb-2">Laboratório</span>
+                <h2 class="text-4xl font-bold text-white">Estudos de Caso</h2>
             </div>
             
-            <!-- Slider Controls -->
+            <!-- Controls -->
             <div class="flex gap-2">
-                <button onclick="slideLeft()" class="w-10 h-10 rounded-full border border-slate-600 text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors">
+                <button onclick="document.getElementById('articleSlider').scrollLeft -= 300" class="w-10 h-10 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button onclick="slideRight()" class="w-10 h-10 rounded-full border border-slate-600 text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors">
+                <button onclick="document.getElementById('articleSlider').scrollLeft += 300" class="w-10 h-10 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Slider Container -->
-        <div id="sliderContainer" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scroll-smooth hide-scrollbar">
+        <div id="articleSlider" class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x max-w-6xl mx-auto scroll-smooth">
             
-            <!-- Article 1: GovTech (NOVO) -->
-            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between h-auto">
+            <!-- Article 1: GovTech -->
+            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-govtech')">
                 <div>
                     <div class="flex justify-between items-start mb-6">
-                        <span class="bg-blue-900/30 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-800">Case GovTech</span>
-                        <span class="text-xs text-slate-500">Jan 2025</span>
+                        <span class="text-blue-400 text-[10px] font-bold border border-blue-900 bg-blue-950/30 px-2 py-1 rounded uppercase tracking-widest">GovTech</span>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                        O Fim da Burocracia Invisível
-                    </h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
-                        Estudo de caso real: Como a implementação de Agentes de IA no sistema SAPL transformou a fiscalização orçamentária de 48 horas para 45 segundos.
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">O Fim da Burocracia Invisível</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Case Real: Como Agentes de IA no SAPL reduziram o tempo de auditoria de 48 horas para 45 segundos.
                     </p>
                 </div>
-                <button onclick="openModal('modal-article-govtech')" class="text-white font-semibold border-b border-blue-500 pb-1 hover:text-blue-400 text-left w-max">Ler Estudo de Caso</button>
+                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-blue-400 transition-colors">Ler Estudo</span>
             </div>
 
-            <!-- Article 2: Prompt Engineering -->
-            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl hover:border-cyan-500/50 transition-all flex flex-col justify-between h-auto">
+            <!-- Article 2: Prompt -->
+            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-prompt')">
                 <div>
                     <div class="flex justify-between items-start mb-6">
-                        <span class="bg-cyan-900/30 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-800">Engenharia de Prompt</span>
-                        <span class="text-xs text-slate-500">Dez 2024</span>
+                        <span class="text-cyan-400 text-[10px] font-bold border border-cyan-900 bg-cyan-950/30 px-2 py-1 rounded uppercase tracking-widest">Engenharia</span>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
-                        Programando em Linguagem Natural
-                    </h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
-                        A ciência por trás do Prompt Perfeito. Uma análise técnica sobre Next Token Prediction, barreiras estocásticas e meus 3 frameworks proprietários.
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">Programando em Linguagem Natural</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        A ciência por trás do Prompt Perfeito. Frameworks técnicos para controle de alucinação em LLMs.
                     </p>
                 </div>
-                <button onclick="openModal('modal-article-prompt')" class="text-white font-semibold border-b border-cyan-500 pb-1 hover:text-cyan-400 text-left w-max">Ler Artigo Técnico</button>
-            </div>
-
-            <!-- Placeholder for Next Article (EM BREVE) -->
-            <div class="min-w-[90%] md:min-w-[48%] lg:min-w-[400px] snap-center glass-card p-8 rounded-2xl border border-slate-800 border-dashed flex flex-col justify-center items-center text-center opacity-60 hover:opacity-100 transition-opacity">
-                <i class="fas fa-pen-nib text-4xl text-slate-600 mb-4"></i>
-                <h3 class="text-xl font-bold text-white mb-2">Em Breve</h3>
-                <p class="text-slate-500 text-sm">Novas pesquisas sobre IA no Agronegócio estão sendo compiladas.</p>
+                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-cyan-400 transition-colors">Ler Artigo</span>
             </div>
 
         </div>
     </section>
 
-    <!-- PROJECTS PORTFOLIO -->
-    <section id="projects" class="py-20 bg-slate-900/30 border-t border-slate-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-12">Projetos Técnicos</h2>
+    <!-- SECTION: PROJECTS GRID -->
+    <section id="projects" class="py-24 border-t border-white/5 bg-black reveal">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-green-500 font-mono text-sm tracking-widest uppercase">Portfolio</span>
+                <h2 class="text-3xl font-bold text-white mt-2">Arquitetura de Soluções</h2>
+            </div>
+            
             <div class="grid md:grid-cols-3 gap-6">
-                
-                <!-- Card 1 -->
-                <div class="glass-card p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-cyan-400 text-xl">
-                        <i class="fas fa-cogs"></i>
+                <!-- Project 1 -->
+                <div class="glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group">
+                    <div class="mb-6 flex justify-between items-start">
+                        <i class="fas fa-cogs text-3xl text-cyan-500 group-hover:rotate-90 transition-transform duration-700"></i>
+                        <span class="text-[10px] font-mono text-slate-500">v1.0</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Industrial Sentinel</h3>
-                    <p class="text-slate-400 text-sm mb-4">Modelo de Machine Learning para prever falhas em motores industriais (Manutenção Preditiva).</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">Python</span>
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">Scikit-Learn</span>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-green-400 text-xl">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Fiscal Risk AI</h3>
-                    <p class="text-slate-400 text-sm mb-4">API que cruza dados de CNPJ para gerar score de risco de fornecedores automaticamente.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">Flask</span>
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">Data Science</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Industrial Sentinel</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">ML para manutenção preditiva em motores industriais.</p>
+                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
+                        <span class="bg-slate-800 px-2 py-1 rounded">Python</span>
+                        <span class="bg-slate-800 px-2 py-1 rounded">Scikit</span>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 text-purple-400 text-xl">
-                        <i class="fas fa-eye"></i>
+                <!-- Project 2 -->
+                <div class="glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group">
+                    <div class="mb-6 flex justify-between items-start">
+                        <i class="fas fa-shield-alt text-3xl text-green-500"></i>
+                        <span class="text-[10px] font-mono text-slate-500">v2.1</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">OCR Access Control</h3>
-                    <p class="text-slate-400 text-sm mb-4">Visão computacional para leitura de placas e automação de portaria integrada.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">OpenCV</span>
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded">AppSheet</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Fiscal Risk AI</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Compliance automatizado via cruzamento de CNPJ.</p>
+                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
+                        <span class="bg-slate-800 px-2 py-1 rounded">Flask</span>
+                        <span class="bg-slate-800 px-2 py-1 rounded">Data</span>
                     </div>
                 </div>
-
+                <!-- Project 3 -->
+                <div class="glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group">
+                    <div class="mb-6 flex justify-between items-start">
+                        <i class="fas fa-eye text-3xl text-purple-500"></i>
+                        <span class="text-[10px] font-mono text-slate-500">IoT</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">OCR Access</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Visão computacional para portarias.</p>
+                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
+                        <span class="bg-slate-800 px-2 py-1 rounded">OpenCV</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- TRAJECTORY (TIMELINE) -->
-    <section id="trajectory" class="py-20 container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-white mb-12 text-center">Trajetória Executiva</h2>
-        <div class="max-w-3xl mx-auto space-y-8 border-l border-slate-700 pl-8 relative">
+    <section id="trajectory" class="py-24 container mx-auto px-6 reveal">
+        <h2 class="text-3xl font-bold text-white mb-16 text-center title-font">Log de Carreira</h2>
+        <div class="max-w-4xl mx-auto border-l-2 border-slate-800 pl-10 relative space-y-12">
             
             <!-- Item 1 -->
-            <div class="relative">
-                <span class="absolute -left-[41px] top-0 w-5 h-5 bg-cyan-500 rounded-full border-4 border-slate-900"></span>
-                <p class="text-cyan-400 text-sm font-bold mb-1">2024 - Atual</p>
-                <h3 class="text-xl font-bold text-white">Head de Inovação & Projetos (Advisor)</h3>
-                <p class="text-slate-500 text-sm mb-2">Câmara Municipal de Querência</p>
-                <p class="text-slate-400">Liderança na transformação digital. Implementação de IA para análise jurídica e fiscal, garantindo transparência e agilidade.</p>
+            <div class="relative group">
+                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-cyan-500 rounded-full group-hover:bg-cyan-500 group-hover:shadow-[0_0_15px_#00f3ff] transition-all"></span>
+                <p class="text-cyan-400 font-mono text-xs mb-2 font-bold tracking-widest">2024 -- CURRENT</p>
+                <h3 class="text-2xl font-bold text-white">Head de Inovação (Advisor)</h3>
+                <p class="text-slate-500 text-sm mb-3 font-medium">Câmara Municipal de Querência</p>
+                <p class="text-slate-400 text-lg font-light">Deploy de IA para análise jurídica e fiscal. Transformação digital com foco em transparência.</p>
             </div>
 
             <!-- Item 2 -->
-            <div class="relative">
-                <span class="absolute -left-[41px] top-0 w-5 h-5 bg-slate-600 rounded-full border-4 border-slate-900"></span>
-                <p class="text-slate-500 text-sm font-bold mb-1">2021 - 2024</p>
-                <h3 class="text-xl font-bold text-white">Gerente de Unidade (Plant Manager)</h3>
-                <p class="text-slate-500 text-sm mb-2">inpEV</p>
-                <p class="text-slate-400">Responsável por Turnaround que elevou faturamento em 35%. Gestão integral de P&L, CAPEX/OPEX e implementação de IoT.</p>
+            <div class="relative group">
+                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
+                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">2021 -- 2024</p>
+                <h3 class="text-2xl font-bold text-white">Plant Manager</h3>
+                <p class="text-slate-500 text-sm mb-3 font-medium">inpEV</p>
+                <p class="text-slate-400 text-lg font-light">Execução de Turnaround (+35% receita). Gestão integral de P&L e liderança de equipe.</p>
             </div>
 
             <!-- Item 3 -->
-            <div class="relative">
-                <span class="absolute -left-[41px] top-0 w-5 h-5 bg-slate-600 rounded-full border-4 border-slate-900"></span>
-                <p class="text-slate-500 text-sm font-bold mb-1">2017 - 2019</p>
-                <h3 class="text-xl font-bold text-white">Analista de Operações Sênior</h3>
-                <p class="text-slate-500 text-sm mb-2">Cargill</p>
-                <p class="text-slate-400">Liderança de projetos logísticos com redução de 27% nos custos operacionais.</p>
+            <div class="relative group">
+                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
+                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">2017 -- 2019</p>
+                <h3 class="text-2xl font-bold text-white">Analista Sênior de Operações</h3>
+                <p class="text-slate-500 text-sm mb-3 font-medium">Cargill</p>
+                <p class="text-slate-400 text-lg font-light">Otimização logística de commodities. Redução de 27% em custos operacionais.</p>
             </div>
 
         </div>
     </section>
 
-    <!-- CTA / FOOTER -->
-    <footer id="contact" class="py-20 bg-gradient-to-t from-cyan-950/30 to-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">Vamos escalar sua operação?</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-                Disponível para consultoria estratégica, palestras sobre IA e oportunidades de liderança em Cuiabá/MT.
+    <!-- FOOTER -->
+    <footer id="contact" class="py-24 border-t border-white/5 text-center bg-[#000205] reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 title-font">Vamos Conectar?</h2>
+            <p class="text-slate-400 mb-12 max-w-lg mx-auto text-lg">
+                Disponível para liderança estratégica e consultorias de IA no Brasil.
             </p>
             
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                <a href="https://wa.me/5566981155486" class="btn-glow bg-emerald-600 text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
+                <a href="https://wa.me/5566981155486" class="bg-white text-black font-bold py-4 px-10 rounded-full hover:bg-cyan-400 transition-colors shadow-lg hover:shadow-cyan-500/50">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                 </a>
-                <a href="mailto:romariodelphinmartins@gmail.com" class="bg-slate-800 text-white px-8 py-3 rounded-full font-bold border border-slate-700 hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
-                    <i class="fas fa-envelope"></i> Enviar E-mail
+                <a href="mailto:romariodelphinmartins@gmail.com" class="border border-white/20 text-white font-bold py-4 px-10 rounded-full hover:border-white transition-colors">
+                    Email
                 </a>
             </div>
 
-            <div class="flex justify-center gap-6 text-2xl text-slate-500 mb-8">
-                <a href="https://linkedin.com/in/romariodelphin" class="hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/RomarioDelphin" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
-            </div>
-
-            <p class="text-slate-600 text-sm">© 2025 Romário Delphin. Code & Research.</p>
+            <p class="text-slate-600 text-xs font-mono">© 2025 Romário Delphin. Code & Strategy.</p>
         </div>
     </footer>
 
-    <!-- ================= MODAIS ================= -->
+    <!-- ================= MODAIS (CONTEÚDO COMPLETO) ================= -->
 
-    <!-- MODAL 1: PREVIEW DO LIVRO -->
-    <div id="modal-book" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-book')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4">
-                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-3xl">
-                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-book-open text-cyan-400"></i>
-                            <h3 class="text-lg font-bold text-white">Preview: A Revolução Silenciosa</h3>
-                        </div>
-                        <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+    <!-- MODAL LIVRO -->
+    <div id="modal-book" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+        <div class="min-h-screen flex justify-center py-10 px-4">
+            <div class="w-full max-w-3xl relative">
+                <button onclick="closeModal('modal-book')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
+                
+                <div class="text-slate-300 font-serif text-lg leading-loose space-y-6 pt-10">
+                    <div class="text-center mb-10 font-sans border-b border-slate-800 pb-8">
+                        <span class="text-cyan-500 font-bold tracking-widest text-xs uppercase">Capítulo 01</span>
+                        <h2 class="text-4xl font-bold text-white mt-2">O Campo Conectado</h2>
                     </div>
-                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[70vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
-                        <div class="text-center mb-10">
-                            <p class="text-cyan-500 font-bold tracking-widest text-xs uppercase mb-2">Capítulo 1</p>
-                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 brand-font">O Campo Conectado</h2>
-                            <p class="text-xl text-slate-400 italic">Da Intuição aos Dados</p>
-                            <div class="w-16 h-1 bg-cyan-500 mx-auto mt-6 rounded-full"></div>
-                        </div>
-                        <p class="mb-6 text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-cyan-400 first-letter:mr-1 first-letter:float-left">
-                            Durante décadas, a imagem romântica do agricultor foi a de um homem observando o horizonte...
-                        </p>
-                        <p class="mb-6">Mas eu tenho uma notícia dura para lhe dar: <strong class="text-white">a intuição, sozinha, não paga mais a conta.</strong></p>
-                        <p class="mb-6">O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, com o custo dos insumos dolarizados... <strong class="text-white">a margem de erro é zero.</strong></p>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-10 brand-font border-l-4 border-cyan-500 pl-4">A Engenharia da Previsibilidade</h3>
-                        <p class="mb-6">Muitos líderes do agro ainda veem a IA como algo abstrato... A aplicação mais imediata é a <strong class="text-cyan-400">Manutenção Preditiva</strong>.</p>
-                        <div class="bg-slate-800/50 p-6 rounded-lg border-l-4 border-red-500 mb-8 italic text-slate-200">
-                            "O sistema emite um alerta: Falha crítica prevista no eixo X em 48 horas."
-                        </div>
-                        <p class="mb-8">Isso não é ficção científica. Isso é redução direta de OPEX...</p>
+                    <p><strong class="text-white text-xl">A INTUIÇÃO NÃO PAGA A CONTA.</strong></p>
+                    <p>O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, <strong class="text-white">a margem de erro é zero.</strong></p>
+                    <div class="bg-cyan-900/10 border-l-4 border-cyan-500 p-6 my-8 italic text-cyan-100 font-sans text-base">
+                        "O sistema emite um alerta: Falha crítica prevista no eixo X em 48 horas."
                     </div>
-                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-t border-slate-700">
-                        <button onclick="closeModal('modal-book')" class="text-slate-400 hover:text-white font-bold">Fechar</button>
-                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg">Baixar Livro Completo</a>
+                    <p>Isso não é ficção científica. Isso é redução direta de OPEX.</p>
+                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800 font-sans">
+                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="text-cyan-400 font-bold uppercase tracking-widest hover:text-white transition-colors">Download PDF Completo</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 2: ARTIGO TÉCNICO (PROMPT ENGINEERING) -->
-    <div id="modal-article-prompt" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-article-prompt')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4">
-                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-4xl">
-                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-file-alt text-cyan-400"></i>
-                            <h3 class="text-lg font-bold text-white">Artigo Técnico</h3>
+    <!-- MODAL ARTIGO GOVTECH -->
+    <div id="modal-article-govtech" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+        <div class="min-h-screen flex justify-center py-10 px-4">
+            <div class="w-full max-w-3xl relative">
+                <button onclick="closeModal('modal-article-govtech')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
+                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
+                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Case Study</span>
+                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">O Fim da Burocracia Invisível</h1>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="border border-white/10 p-4 text-center rounded-lg">
+                            <p class="text-xs text-slate-500 uppercase">Antes</p>
+                            <p class="text-3xl font-bold text-white">48 Horas</p>
                         </div>
-                        <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                        <div class="border border-blue-500/30 bg-blue-900/10 p-4 text-center rounded-lg">
+                            <p class="text-xs text-blue-400 uppercase">Agora</p>
+                            <p class="text-3xl font-bold text-blue-400">45 Segundos</p>
+                        </div>
                     </div>
-                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[80vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
-                        <div class="mb-8 border-b border-slate-700 pb-8">
-                            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 brand-font leading-tight">Programando em Linguagem Natural: A Ciência por trás do Prompt Perfeito</h1>
-                            <div class="flex items-center gap-4 text-sm text-slate-400 flex-wrap">
-                                <span><i class="far fa-user mr-1"></i> Romário Delphin</span>
-                                <span><i class="far fa-clock mr-1"></i> 8 min de leitura</span>
-                                <span class="bg-cyan-900/30 text-cyan-400 px-2 py-0.5 rounded border border-cyan-800">IA Research</span>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. A Barreira da Comunicação</h3>
-                        <p class="mb-4">A maior falha observada na adoção de tecnologias de IA Generativa não reside na capacidade do modelo, mas na incompetência técnica do operador. Uma LLM não pensa; ela processa probabilidades estatísticas (Next Token Prediction).</p>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Mecânica do Comando</h3>
-                        <p class="mb-4">O prompt é o código-fonte; a LLM é o interpretador. Se o seu prompt é um bloco desestruturado, você dilui a "atenção" (Self-Attention) do modelo.</p>
-                        <div class="bg-slate-800 p-4 border-l-4 border-yellow-500 mb-6">
-                            <strong>A Regra de Ouro:</strong> Nunca peça. Comande. E ao comandar, segmente com delimitadores (###, """).
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Arquétipos de Alta Performance</h3>
-                        <h4 class="text-xl font-bold text-cyan-400 mb-2 mt-8">Framework: Persona-Chain-Constraint (PCC)</h4>
-                        <pre><code class="text-sm"># ROLE
+                    <p>O problema central da gestão pública não é a falta de transparência, é a <strong>infoxicação</strong>.</p>
+                    <h3 class="text-xl text-white font-bold mt-8">A Solução</h3>
+                    <p>Implementamos uma arquitetura que conecta o SAPL a Agentes de IA (LLMs) para auditoria semântica.</p>
+                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
+                        <a href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" class="text-blue-400 hover:text-white font-bold uppercase tracking-widest">Ver no LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ARTIGO PROMPT -->
+    <div id="modal-article-prompt" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+        <div class="min-h-screen flex justify-center py-10 px-4">
+            <div class="w-full max-w-3xl relative">
+                <button onclick="closeModal('modal-article-prompt')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
+                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
+                    <span class="text-purple-500 font-bold text-xs uppercase tracking-widest">Engenharia</span>
+                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">Programando em Linguagem Natural</h1>
+                    <h3 class="text-xl text-white font-bold mt-8">1. A Barreira da Comunicação</h3>
+                    <p>Uma LLM não pensa; ela processa probabilidades estatísticas (Next Token Prediction).</p>
+                    <h3 class="text-xl text-white font-bold mt-8">2. Framework PCC</h3>
+                    <pre class="bg-slate-900 p-4 rounded text-sm text-cyan-300 overflow-x-auto border border-slate-800 font-mono mt-4"><code># ROLE
 Atue como um Arquiteto de Software Sênior.
-
 # CONTEXT
-Estou projetando um sistema de e-commerce (Black Friday).
-
-# CHAIN OF THOUGHT
-1. Analise requisitos de latência.
-2. Selecione tecnologias de banco de dados.
-
-# CONSTRAINTS
-- NÃO sugira arquiteturas monolíticas.</code></pre>
-                        <p class="mb-8">A escolha é técnica, não mágica.</p>
-                    </div>
-                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
-                        <button onclick="closeModal('modal-article-prompt')" class="text-slate-400 hover:text-white font-bold w-full sm:w-auto text-center">Fechar Leitura</button>
-                        <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-sm w-full sm:w-auto text-center flex items-center justify-center gap-2">
-                            <i class="fab fa-linkedin"></i> Comentar no LinkedIn
-                        </a>
+Estou projetando um sistema de e-commerce.</code></pre>
+                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
+                        <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie/" target="_blank" class="text-purple-400 hover:text-white font-bold uppercase tracking-widest">Ver no LinkedIn</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 3: ARTIGO GOVTECH (NOVO!) -->
-    <div id="modal-article-govtech" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-article-govtech')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4">
-                <div class="relative transform overflow-hidden rounded-2xl bg-slate-900 border border-slate-700 text-left shadow-2xl w-full max-w-4xl">
-                    <div class="bg-slate-800 px-6 py-4 flex justify-between items-center border-b border-slate-700 sticky top-0 z-20">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-university text-blue-400"></i>
-                            <h3 class="text-lg font-bold text-white">Case Study: GovTech</h3>
-                        </div>
-                        <button onclick="closeModal('modal-article-govtech')" class="text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
-                    </div>
-                    <div class="px-8 py-8 text-slate-300 leading-relaxed reader-font max-h-[80vh] overflow-y-auto custom-scrollbar bg-[#0f172a]">
-                        <div class="mb-8 border-b border-slate-700 pb-8">
-                            <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-2 block">Transformação Digital</span>
-                            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 brand-font leading-tight">O Fim da Burocracia Invisível</h1>
-                            <h2 class="text-xl text-slate-400 font-light mb-6">Como a implementação de Agentes de IA no sistema SAPL está transformando a fiscalização orçamentária de dias para segundos.</h2>
-                            <div class="flex items-center gap-4 text-sm text-slate-400">
-                                <span><i class="far fa-user mr-1"></i> Romário Delphin</span>
-                                <span><i class="far fa-calendar-alt mr-1"></i> Jan 2025</span>
-                                <span class="bg-blue-900/30 text-blue-400 px-2 py-0.5 rounded border border-blue-800">Estudo de Caso Real</span>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">1. O Contexto: A Montanha de Papel Digital</h3>
-                        <p class="mb-4">A administração pública brasileira vive um paradoxo. Nunca se produziu tanto dado, mas nunca foi tão difícil transformá-lo em informação útil. Em uma Câmara Municipal típica, o volume de Diários Oficiais, empenhos, licitações e projetos de lei cria uma "névoa de dados".</p>
-                        <p class="mb-4">O problema central não é a falta de transparência, é a <strong>infoxicação</strong>. Um fiscal humano levaria semanas para cruzar manualmente os dados de uma única licitação com o histórico de preços de mercado e a lei orçamentária (LOA).</p>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">2. A Solução: Integração SAPL + Agentes de IA</h3>
-                        <p class="mb-4">Como Head de Projetos de Inovação, liderei a implementação de uma arquitetura que conecta o <strong>SAPL (Sistema de Apoio ao Processo Legislativo)</strong> a Agentes de Inteligência Artificial baseados em LLMs.</p>
-                        <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-blue-500 mb-6">
-                            <h4 class="font-bold text-white mb-2">Como funciona a arquitetura:</h4>
-                            <ul class="list-disc list-inside space-y-2 text-slate-300">
-                                <li><strong>Ingestão:</strong> O sistema varre os PDFs e XMLs do Diário Oficial e do Portal da Transparência.</li>
-                                <li><strong>Vetorização:</strong> Transforma textos jurídicos complexos em vetores matemáticos pesquisáveis (Embeddings).</li>
-                                <li><strong>Agente Auditor:</strong> Um bot especializado cruza os valores empenhados com a tabela de preços médios e alerta sobre desvios.</li>
-                            </ul>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">3. Resultados: De Dias para Segundos</h3>
-                        <p class="mb-4">O impacto na rotina de fiscalização foi imediato e mensurável:</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            <div class="bg-slate-800/50 p-4 rounded border border-slate-700">
-                                <p class="text-xs text-slate-400 uppercase">Tempo de Análise</p>
-                                <p class="text-2xl font-bold text-white"><span class="text-red-400 line-through text-lg mr-2">48 Horas</span> <i class="fas fa-arrow-right text-sm mx-2"></i> <span class="text-green-400">45 Segundos</span></p>
-                            </div>
-                            <div class="bg-slate-800/50 p-4 rounded border border-slate-700">
-                                <p class="text-xs text-slate-400 uppercase">Precisão na Busca</p>
-                                <p class="text-2xl font-bold text-white">Busca Semântica</p>
-                                <p class="text-xs text-slate-400">Encontra "compra de toner" mesmo se estiver escrito "suprimento de impressão".</p>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4 mt-8 brand-font">Conclusão</h3>
-                        <p class="mb-4">A tecnologia GovTech não serve apenas para "modernizar" o computador da repartição. Ela serve para devolver ao cidadão a confiança de que cada centavo está sendo vigiado, não por olhos cansados, mas por algoritmos incansáveis.</p>
-                        <p class="mb-8 font-bold text-white">A burocracia invisível acabou. A era da transparência ativa começou.</p>
-                    </div>
-                    <div class="bg-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-700">
-                        <button onclick="closeModal('modal-article-govtech')" class="text-slate-400 hover:text-white font-bold w-full sm:w-auto text-center">Fechar Leitura</button>
-                        <a href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-sm w-full sm:w-auto text-center flex items-center justify-center gap-2">
-                            <i class="fab fa-linkedin"></i> Comentar no LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JS para Controlar Modais e Slider -->
+    <!-- JS: SCROLL REVEAL & INTERACTIVITY -->
     <script>
-        const menu = document.getElementById('mobile-menu');
-        const btn = document.getElementById('mobile-menu-btn');
+        // --- 1. PARTICLE CANVAS LOGIC ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        const particleCount = 60; // Número de nós
+        const connectionDistance = 150; // Distância para conectar
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Velocidade lenta
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                // Rebater nas bordas
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)'; // Ciano transparente
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Criar partículas
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        // Mouse interaction
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
         });
 
-        // --- Lógica dos Modais ---
-        function openModal(modalID) {
-            const modal = document.getElementById(modalID);
-            if(modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; 
-            }
-        }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                
+                // Conectar partículas próximas
+                particles.forEach((p2, index2) => {
+                    if (index === index2) return;
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
 
-        function closeModal(modalID) {
-            const modal = document.getElementById(modalID);
-            if(modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
-            }
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                document.querySelectorAll('[id^="modal-"]').forEach(modal => {
-                    modal.classList.add('hidden');
+                    if (distance < connectionDistance) {
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
                 });
-                document.body.style.overflow = 'auto';
+
+                // Conectar ao mouse
+                if (mouse.x) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distMouse = Math.sqrt(dx*dx + dy*dy);
+                    if (distMouse < 200) {
+                         ctx.strokeStyle = `rgba(124, 58, 237, ${1 - distMouse / 200})`; // Roxo ao interagir
+                         ctx.beginPath();
+                         ctx.moveTo(p.x, p.y);
+                         ctx.lineTo(mouse.x, mouse.y);
+                         ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+
+        // --- 2. TYPEWRITER EFFECT ---
+        const textElement = document.getElementById('typewriter-1');
+        const textToType = "AI_Researcher_&_Executive";
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                textElement.innerHTML += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
             }
+        }
+        setTimeout(typeWriter, 1000); // Começa após 1s
+
+        // --- 3. 3D TILT EFFECT ---
+        const card = document.getElementById('tilt-book-card');
+        if(card) {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg rotation
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        }
+
+        // --- STANDARD LOGIC ---
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMenu);
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
         });
 
-        // --- Lógica do Slider ---
-        function slideLeft() {
-            const container = document.getElementById('sliderContainer');
-            container.scrollLeft -= 350; // Ajuste a quantidade de scroll conforme necessário
-        }
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        function slideRight() {
-            const container = document.getElementById('sliderContainer');
-            container.scrollLeft += 350;
-        }
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
