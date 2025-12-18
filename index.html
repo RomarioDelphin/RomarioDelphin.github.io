@@ -29,18 +29,9 @@
             color: #cbd5e1;
             overflow-x: hidden;
             margin: 0;
-        }
-
-        /* Canvas Background */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none; /* Deixa clicar através dele */
-            opacity: 0.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.08) 0%, transparent 25%);
         }
 
         h1, h2, h3, .title-font {
@@ -71,7 +62,6 @@
             50% { opacity: 0.6; transform: scale(1.05); }
         }
 
-        /* Tech Rings (Static visual anchor) */
         .tech-ring {
             border: 1px solid rgba(6, 182, 212, 0.15);
             border-radius: 50%;
@@ -91,7 +81,7 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .glass-panel:hover {
-            border-color: rgba(6, 182, 212, 0.5);
+            border-color: rgba(6, 182, 212, 0.4);
             transform: translateY(-5px);
             box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
         }
@@ -143,6 +133,18 @@
             margin-left: 2px;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Canvas Background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body class="selection:bg-cyan-500 selection:text-black">
@@ -328,7 +330,22 @@
 
         <div id="articleSlider" class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x max-w-6xl mx-auto scroll-smooth">
             
-            <!-- Article 1: GovTech -->
+            <!-- Article 1: SAPL / Querência (NOVO DESTAQUE) -->
+            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-sapl')">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-green-400 text-[10px] font-bold border border-green-900 bg-green-950/30 px-2 py-1 rounded uppercase tracking-widest">Querência-MT</span>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">Legislativo Inteligente</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Como a digitalização e o SAPL transformaram o processo decisório da Câmara Municipal. De pilhas de papel à inteligência de dados.
+                    </p>
+                </div>
+                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-green-400 transition-colors">Ler Estudo</span>
+            </div>
+
+            <!-- Article 2: GovTech -->
             <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-govtech')">
                 <div>
                     <div class="flex justify-between items-start mb-6">
@@ -337,13 +354,13 @@
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">O Fim da Burocracia Invisível</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Case Real: Como Agentes de IA no SAPL reduziram o tempo de auditoria de 48 horas para 45 segundos.
+                        Como Agentes de IA reduziram o tempo de auditoria fiscal de 48 horas para 45 segundos.
                     </p>
                 </div>
-                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-blue-400 transition-colors">Ler Estudo</span>
+                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-blue-400 transition-colors">Ler Artigo</span>
             </div>
 
-            <!-- Article 2: Prompt -->
+            <!-- Article 3: Prompt -->
             <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-prompt')">
                 <div>
                     <div class="flex justify-between items-start mb-6">
@@ -489,6 +506,57 @@
                     <p>Isso não é ficção científica. Isso é redução direta de OPEX.</p>
                     <div class="flex justify-center mt-12 pt-8 border-t border-slate-800 font-sans">
                         <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="text-cyan-400 font-bold uppercase tracking-widest hover:text-white transition-colors">Download PDF Completo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ARTIGO SAPL (NOVO ARTIGO) -->
+    <div id="modal-article-sapl" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+        <div class="min-h-screen flex justify-center py-10 px-4">
+            <div class="w-full max-w-3xl relative">
+                <button onclick="closeModal('modal-article-sapl')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
+                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
+                    <span class="text-green-500 font-bold text-xs uppercase tracking-widest">Case Study: Querência</span>
+                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">Legislativo Inteligente: A Digitalização do Processo Decisório</h1>
+                    
+                    <h3 class="text-xl text-white font-bold mt-8">De pilhas de papel à transparência em tempo real: Como a implementação correta do SAPL prepara Câmaras Municipais para a Era da IA.</h3>
+
+                    <h3 class="text-xl text-white font-bold mt-8">1. O "Apagão" Analógico</h3>
+                    <p>Ainda hoje, em muitas casas legislativas do Brasil, a democracia tramita na velocidade do papel. Um Projeto de Lei (PL) físico viaja de mesa em mesa, aguardando carimbos, assinaturas e despachos.</p>
+                    <p>O problema não é apenas a lentidão. É a <strong>opacidade</strong>. Como um cidadão pode fiscalizar uma emenda que está "na gaveta da comissão"? Como um vereador pode analisar o histórico de votações se os dados estão trancados em arquivos de aço?</p>
+                    <p>Recentemente, liderei a implementação do <strong>SAPL (Sistema de Apoio ao Processo Legislativo)</strong>, desenvolvido pelo Interlegis/Senado Federal, em Querência-MT. Mas não se tratou apenas de instalar um software. Foi uma reengenharia completa do processo legislativo.</p>
+
+                    <h3 class="text-xl text-white font-bold mt-8">2. A Arquitetura da Informação (O Segredo Técnico)</h3>
+                    <p>Muitos gestores erram ao achar que basta "digitalizar o PDF". Isso é transformar burocracia física em burocracia digital. O verdadeiro salto acontece na <strong>estruturação dos dados</strong>.</p>
+                    <p>No nosso projeto, configuramos a "espinha dorsal" do sistema para garantir integridade e rastreabilidade:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Mapeamento Granular:</strong> Definimos rigidamente os Tipos de Matéria (PLOs, Requerimentos, Moções) e seus Ritos de Tramitação. O sistema não permite "jeitinhos"; ou segue o Regimento Interno, ou trava.</li>
+                        <li><strong>Autores e Atores:</strong> Configuramos cada parlamentar, comissão e membro da mesa diretora não como nomes soltos, mas como entidades do sistema. Isso permite saber, com um clique, a produtividade exata de cada mandato.</li>
+                        <li><strong>Sessão Plenária em Tempo Real:</strong> Configuramos o módulo de Sessão Plenária para que a pauta, a votação e a ata sejam geradas automaticamente. O resultado da votação vai para o portal no mesmo segundo em que o presidente bate o martelo.</li>
+                    </ul>
+
+                    <h3 class="text-xl text-white font-bold mt-8">3. Preparando o Terreno para a Inteligência Artificial</h3>
+                    <p>Aqui entra a visão de futuro. Por que insistimos tanto em dados estruturados (XML, banco de dados relacional) em vez de apenas texto solto?</p>
+                    <div class="bg-green-900/10 border-l-4 border-green-500 p-6 my-8 italic text-green-100 font-sans text-base">
+                        "Porque você não pode aplicar Inteligência Artificial em bagunça."
+                    </div>
+                    <p>Ao implementarmos o SAPL de forma técnica e rigorosa, criamos um <strong>Datalake Legislativo</strong>. Agora, temos a base pronta para os próximos passos da nossa roadmap de inovação:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Auditoria Automática:</strong> Agentes de IA que leem o Projeto de Lei assim que ele é protocolado e cruzam com a Lei Orgânica para sugerir correções de constitucionalidade.</li>
+                        <li><strong>Resumo Cidadão:</strong> LLMs que traduzem o "juridiquês" das atas em textos simples para a população via WhatsApp.</li>
+                        <li><strong>Busca Semântica:</strong> Permitir que o vereador pesquise por "projetos sobre saúde mental" e o sistema encontre tudo, mesmo que a palavra exata não esteja no título.</li>
+                    </ul>
+
+                    <h3 class="text-xl text-white font-bold mt-8">Conclusão</h3>
+                    <p>Modernizar o legislativo não é luxo tecnológico. É uma obrigação de eficiência e transparência. Em Querência, saímos da era do papel para a era do dado estruturado. O próximo passo é a era da Inteligência.</p>
+                    <p>A ferramenta (SAPL) é gratuita e fornecida pelo Senado. O que falta em muitos municípios não é recurso, é liderança técnica para implementar a cultura digital.</p>
+
+                    <p class="text-sm italic text-slate-400 mt-6">Sobre o Autor: Romário Delphin é Head de Inovação e Projetos, atuando como Advisor na modernização de processos legislativos. Especialista em unir a robustez do SAPL com a vanguarda da Inteligência Artificial.</p>
+
+                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
+                        <a href="https://www.linkedin.com/pulse/legislativo-inteligente-digitaliza%C3%A7%C3%A3o-do-processo-rom%C3%A1rio-delphin-wo7uf" target="_blank" class="text-green-400 hover:text-white font-bold uppercase tracking-widest">Ver Mais no LinkedIn</a>
                     </div>
                 </div>
             </div>
