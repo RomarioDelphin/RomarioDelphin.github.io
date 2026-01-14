@@ -56,3 +56,42 @@ if (distance < connectionDistance) {
     ctx.lineTo(p2.x, p2.y);
     ctx.stroke();
 }
+
+```
+
+### 2. Efeito de Vidro (Glassmorphism)
+
+As "janelas" dos projetos utilizam CSS moderno para criar o efeito fosco sobre o fundo em movimento:
+
+```css
+.glass-panel {
+    background: rgba(10, 15, 25, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+```
+
+---
+
+## 🚀 Como Rodar Localmente
+
+Como o projeto não utiliza bundlers complexos (como Webpack ou Vite), ele é extremamente simples de testar.
+
+### 1. Clone o Repositório
+
+```bash
+git clone [https://github.com/RomarioDelphin/RomarioDelphin.github.io.git](https://github.com/RomarioDelphin/RomarioDelphin.github.io.git)
+
+```
+
+### 2. Execute
+
+Basta clicar duas vezes no arquivo `index.html` ou usar a extensão "Live Server" do VS Code.
+
+---
+
+<div align="center">
+<p>Design & Engenharia por <strong>Romário Delphin</strong>.</p>
+<p>© 2026 RAM.IO Holdings.</p>
+</div>
