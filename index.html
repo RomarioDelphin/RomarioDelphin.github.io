@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Romário Delphin. Pesquisador em IA, Autor e Executivo.">
-    <!-- Meta Tags para Social Media (WhatsApp/LinkedIn) -->
+    <meta name="description" content="Portfólio e Currículo de Romário Delphin. Especialista em Eficiência Industrial, IA e Gestão de Operações.">
+    <!-- Meta Tags para Social Media -->
     <meta property="og:title" content="Romário Delphin | Central Intelligence & RAM.IO">
-    <meta property="og:description" content="Portfólio Oficial. Pesquisador em IA, Autor e Executivo. Conheça o ecossistema RAM.IO.">
+    <meta property="og:description" content="Estrategista de Operações, Engenheiro e Autor. Conheça a jornada completa.">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg">
     <title>Romário Delphin | Central Intelligence & RAM.IO</title>
     
@@ -16,12 +16,11 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Fonts -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap');
         
         :root {
-            --primary: #06b6d4; /* Cyan 500 */
+            --primary: #06b6d4;
             --primary-glow: rgba(6, 182, 212, 0.5);
             --bg-dark: #000205;
             --surface: #0a0c10;
@@ -32,56 +31,18 @@
             background-color: var(--bg-dark);
             color: #cbd5e1;
             overflow-x: hidden;
-            margin: 0;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 25%),
                 radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.08) 0%, transparent 25%);
         }
 
-        h1, h2, h3, .title-font {
-            font-family: 'Outfit', sans-serif;
-        }
+        h1, h2, h3, .title-font { font-family: 'Outfit', sans-serif; }
+        .mono-font { font-family: 'Space Mono', monospace; }
 
-        .mono-font {
-            font-family: 'Space Mono', monospace;
-        }
-
-        /* Hero Animations */
-        .hero-avatar-container {
-            position: relative;
-            display: inline-block;
-            z-index: 10;
-        }
-        .hero-avatar-container::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-            z-index: -1;
-            animation: pulse-glow 3s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-        }
-
-        .tech-ring {
-            border: 1px solid rgba(6, 182, 212, 0.15);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Glass Panel Enhanced */
         .glass-panel {
             background: rgba(10, 15, 25, 0.7);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .glass-panel:hover {
@@ -90,768 +51,461 @@
             box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
         }
 
-        /* Tilt Effect Container */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-        }
-        .tilt-content {
-            transform: translateZ(20px);
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Scroll Animation Class */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Scrollbar Hide */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Custom Scrollbar for Modals */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-        
-        /* Gradient Text */
         .text-gradient {
             background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Typewriter Cursor */
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.6; }
+        
         .cursor-blink {
-            display: inline-block;
-            width: 2px;
-            height: 1em;
-            background-color: #06b6d4;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-            margin-left: 2px;
+            display: inline-block; width: 2px; height: 1em; background-color: #06b6d4;
+            animation: blink 1s infinite; vertical-align: middle; margin-left: 2px;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* Canvas Background */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.6;
+        /* Timeline Journey Styles */
+        .journey-line {
+            position: absolute; left: 20px; top: 0; bottom: 0; width: 2px;
+            background: linear-gradient(to bottom, var(--primary), #818cf8, transparent);
+        }
+        @media (min-width: 768px) { .journey-line { left: 50%; } }
+
+        /* Avatar Position Fix - Tighter Wrapper */
+        .hero-avatar-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            width: 176px; /* w-44 */
+            height: 176px;
+        }
+        @media (min-width: 768px) {
+            .hero-avatar-wrapper { width: 240px; height: 240px; } /* w-60 */
         }
         
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .hero-avatar-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulse-glow 3s infinite;
+            border-radius: 50%;
         }
-        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Exp Card Dot */
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            left: -41px; /* Adjust based on border padding */
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="selection:bg-cyan-500 selection:text-black">
 
-    <!-- CANVAS BACKGROUND (REDE NEURAL VIVA) -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- NAVBAR CENTRADA -->
-    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5" id="navbar">
         <div class="container mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white tracking-widest title-font flex items-center gap-2">
                 <span class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
                 R<span class="text-cyan-500">.</span>DELPHIN
             </a>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-slate-300">
+            <div class="hidden md:flex space-x-6 text-[10px] uppercase font-bold tracking-widest text-slate-400">
                 <a href="#bio" class="hover:text-cyan-400 transition-colors">Bio</a>
-                <a href="#books" class="hover:text-cyan-400 transition-colors">Livros</a>
-                <a href="#research" class="hover:text-cyan-400 transition-colors">Pesquisa</a>
-                <a href="#holdings" class="hover:text-cyan-400 transition-colors">Holdings</a>
+                <a href="#journey" class="hover:text-cyan-400 transition-colors">Jornada</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experiência</a>
+                <a href="#education" class="hover:text-cyan-400 transition-colors">Formação</a>
                 <a href="#projects" class="hover:text-cyan-400 transition-colors">Projetos</a>
-                <a href="#tools" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold"><i class="fas fa-bolt mr-1"></i> Ferramentas</a>
+                <a href="#tools" class="hover:text-cyan-400 transition-colors text-cyan-400"><i class="fas fa-bolt mr-1"></i> Ferramentas</a>
             </div>
-
-            <div class="flex items-center gap-4">
-                <a href="https://linkedin.com/in/romariodelphin" target="_blank" class="text-slate-400 hover:text-white transition-colors text-xl">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/RomarioDelphin" target="_blank" class="text-slate-400 hover:text-white transition-colors text-xl">
-                    <i class="fab fa-github"></i>
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl hidden flex-col justify-center items-center gap-8 text-2xl font-bold text-white transition-all">
-        <a href="#bio" class="hover:text-cyan-400" onclick="toggleMenu()">Bio</a>
-        <a href="#books" class="hover:text-cyan-400" onclick="toggleMenu()">Livros</a>
-        <a href="#research" class="hover:text-cyan-400" onclick="toggleMenu()">Pesquisa</a>
-        <a href="#holdings" class="hover:text-cyan-400" onclick="toggleMenu()">Holdings</a>
-        <a href="#projects" class="hover:text-cyan-400" onclick="toggleMenu()">Projetos</a>
-        <a href="#tools" class="hover:text-cyan-400" onclick="toggleMenu()">Ferramentas</a>
+        <a href="#bio" onclick="toggleMenu()">Bio</a>
+        <a href="#journey" onclick="toggleMenu()">Jornada</a>
+        <a href="#experience" onclick="toggleMenu()">Experiência</a>
+        <a href="#education" onclick="toggleMenu()">Formação</a>
+        <a href="#projects" onclick="toggleMenu()">Projetos</a>
+        <a href="#tools" onclick="toggleMenu()">Ferramentas</a>
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-slate-500"><i class="fas fa-times"></i></button>
     </div>
 
-    <!-- HERO SECTION (CENTRALIZADO) -->
-    <section id="bio" class="relative pt-40 pb-32 text-center overflow-hidden min-h-screen flex flex-col justify-center">
-        <!-- Tech Rings Animation -->
-        <div class="tech-ring w-[350px] h-[350px] animate-[spin_20s_linear_infinite] border-cyan-500/20"></div>
-        <div class="tech-ring w-[550px] h-[550px] border-dashed animate-[spin_30s_linear_infinite_reverse] opacity-20"></div>
-
+    <!-- HERO SECTION -->
+    <section id="bio" class="relative pt-40 pb-20 text-center min-h-screen flex flex-col justify-center">
         <div class="container mx-auto px-6 relative z-10 reveal">
             
-            <!-- Avatar -->
-            <div class="hero-avatar-container mb-10 group">
+            <!-- Avatar Container -->
+            <div class="hero-avatar-wrapper group">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyyJdOSaZ9jalWPaPeO7K0IAuF3ay5RcPq5v5taLKE_Bj_nQ3AV2utXGUD3Ufxx2IK34Tw9AwdCv9G0xyxMy5aVfNNBcnsODhpY7lXAwLx9uic13m05TGb96HI_warGUlUymPktmXh6KWlVqhviRi_NI3Eia5RJVqCniU8THGH6wO9B01LTwj8XvTXJhtf/s320/WhatsApp%20Image%202025-12-16%20at%2010.38.07.jpeg" 
                      alt="Romário Delphin" 
-                     class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-slate-900 shadow-2xl relative z-10 filter grayscale group-hover:grayscale-0 transition-all duration-700">
+                     class="w-full h-full rounded-full object-cover border-4 border-slate-900 shadow-2xl relative z-10 filter grayscale group-hover:grayscale-0 transition-all duration-700">
                 
-                <!-- Floating Labels (Animated) -->
-                <span class="absolute top-0 right-[-10px] md:right-[-30px] bg-slate-900 border border-slate-700 text-cyan-400 text-[10px] md:text-xs px-3 py-1 rounded-full font-mono animate-bounce delay-100 shadow-lg shadow-cyan-500/20">
+                <!-- Tag Flutuante -->
+                <span class="absolute -bottom-2 -right-4 md:bottom-2 md:-right-6 bg-slate-900 border border-slate-700 text-cyan-400 text-[10px] md:text-xs px-3 py-1.5 rounded-full font-mono shadow-xl shadow-cyan-500/20 z-20 whitespace-nowrap transform hover:scale-105 transition-transform">
                     <span id="typewriter-1"></span><span class="cursor-blink"></span>
                 </span>
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight title-font">
-                ROMÁRIO DELPHIN
-            </h1>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight title-font uppercase">ROMÁRIO DELPHIN</h1>
             
-            <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
-                A convergência entre a força do <strong class="text-white">Agronegócio</strong> e a inteligência dos <strong class="text-gradient">Dados</strong>.
-                <br class="hidden md:block">CEO da <strong class="text-cyan-400">RAM.IO</strong>. Traduzindo código em lucro operacional e governança pública.
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 font-light italic">
+                A convergência entre a força do <strong class="text-white">Agronegócio</strong> e a inteligência dos <strong class="text-gradient">Dados</strong>. <br>
+                CEO da <strong class="text-cyan-400">RAM.IO</strong>. Especialista em Eficiência Industrial & Otimização de Processos.
             </p>
 
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#books" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:scale-105">
-                    Ver Obras Publicadas
+            <!-- BIO BUTTONS -->
+            <div class="flex justify-center gap-5 flex-wrap mb-14">
+                <a href="https://www.linkedin.com/in/romariodelphin/" target="_blank" class="bg-[#0077b5] hover:bg-[#005c8d] text-white font-bold py-4 px-10 rounded-full transition-all flex items-center gap-3 shadow-lg hover:scale-105 uppercase text-xs tracking-widest">
+                    <i class="fab fa-linkedin text-xl"></i> LinkedIn
                 </a>
-                <a href="#holdings" class="border border-slate-600 hover:border-white text-slate-300 hover:text-white py-3 px-8 rounded-full transition-all hover:bg-white/5">
-                    RAM.IO Ecossistema
+                <a href="https://github.com/RomarioDelphin" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-10 rounded-full transition-all flex items-center gap-3 shadow-lg hover:scale-105 uppercase text-xs tracking-widest">
+                    <i class="fab fa-github text-xl"></i> GitHub
                 </a>
             </div>
+            
+            <div class="animate-bounce mt-10">
+                <a href="#journey" class="text-slate-500 hover:text-white transition-colors"><i class="fas fa-chevron-down text-2xl"></i></a>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION: BOOKS & LIBRARY -->
-    <section id="books" class="py-24 border-t border-b border-white/5 relative z-10">
-        <div class="container mx-auto px-6">
-            
-            <div class="text-center mb-16 reveal">
-                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase mb-2 block">Biblioteca Oficial</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white">Publicações</h2>
+    <!-- SECTION: THE JOURNEY (TIMELINE COMPLETA) -->
+    <section id="journey" class="py-24 bg-black/30 relative overflow-hidden border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-20 reveal">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase italic">The Path</span>
+                <h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">Arco de Evolução</h2>
+                <p class="text-slate-500 mt-4">A história por trás das decisões de carreira.</p>
             </div>
-
-            <!-- 1. DESTAQUE (LIVRO ATUAL - TILT EFFECT) -->
-            <div id="tilt-book-card" class="glass-panel p-8 md:p-12 rounded-3xl max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 mb-20 relative overflow-hidden reveal tilt-card">
-                <!-- Glow Effect -->
-                <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-cyan-900/20 via-transparent to-transparent -z-10"></div>
-
-                <div class="w-64 md:w-80 shrink-0 perspective-1000 tilt-content">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" 
-                         alt="Capa do Livro" class="rounded-lg shadow-2xl shadow-cyan-900/40 border border-white/10 transform transition-transform duration-100">
+            <div class="relative">
+                <div class="journey-line"></div>
+                
+                <!-- 2008 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-cyan-400 font-mono text-lg font-bold uppercase">2008: Hardware</h4><p class="text-slate-400 mt-2">Início como <strong>Técnico em Eletrônica (IFMT)</strong>. A base física da engenharia.</p></div>
+                    <div class="w-10 h-10 bg-cyan-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
                 </div>
                 
-                <div class="text-left flex-1 tilt-content">
-                    <div class="inline-flex items-center gap-2 mb-4 bg-cyan-950/30 border border-cyan-800/50 px-3 py-1 rounded text-cyan-400 text-xs font-bold uppercase tracking-widest">
-                        <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span> Lançamento
-                    </div>
-                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 title-font leading-tight">A Revolução Silenciosa</h3>
-                    <p class="text-slate-400 text-lg mb-8 leading-relaxed font-light">
-                        O manual definitivo de sobrevivência para gestores. Descubra como a manutenção preditiva e a auditoria algorítmica estão salvando bilhões no Agro e no Setor Público. 
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-white text-black hover:bg-slate-200 transition-colors font-bold py-3 px-8 rounded-full text-sm uppercase tracking-widest shadow-lg hover:shadow-white/20">
-                            <i class="fas fa-download mr-2"></i> Baixar PDF
-                        </a>
-                        <button onclick="openModal('modal-book')" class="text-white border border-white/20 hover:bg-white/10 py-3 px-8 rounded-full transition-colors text-sm font-bold uppercase tracking-widest">
-                            Ler Preview
-                        </button>
-                    </div>
+                <!-- 2011 -->
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
+                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-blue-400 font-mono text-lg font-bold uppercase">2011: Peopleware</h4><p class="text-slate-400 mt-2">Formação em <strong>Gestão de RH</strong>. Pivot para Recursos Humanos para entender como gerir o ativo mais complexo: as pessoas.</p></div>
+                    <div class="w-10 h-10 bg-blue-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
                 </div>
-            </div>
-
-            <!-- 2. FUTUROS LANÇAMENTOS (SLIDER) -->
-            <div class="max-w-6xl mx-auto reveal">
-                <h3 class="text-xl text-white mb-8 font-bold flex items-center gap-3">
-                    <i class="fas fa-layer-group text-slate-600"></i> Próximos Títulos & Pesquisas
-                </h3>
                 
-                <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x">
-                    
-                    <!-- Future Book 1 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-cyan-500/50">
-                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-tractor text-slate-400 text-2xl group-hover:text-cyan-400"></i>
-                        </div>
-                        <h4 class="text-white font-bold mb-2">Agro 5.0</h4>
-                        <p class="text-slate-500 text-sm px-4">Arquitetura de Dados para Fazendas Autônomas.</p>
-                        <span class="mt-auto text-[10px] text-cyan-500 uppercase tracking-widest bg-cyan-950/30 px-2 py-1 rounded">Em Breve</span>
-                    </div>
-
-                    <!-- Future Book 2 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-purple-500/50">
-                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-city text-slate-400 text-2xl group-hover:text-purple-400"></i>
-                        </div>
-                        <h4 class="text-white font-bold mb-2">Cidades Cognitivas</h4>
-                        <p class="text-slate-500 text-sm px-4">IA aplicada à gestão municipal inteligente.</p>
-                        <span class="mt-auto text-[10px] text-purple-500 uppercase tracking-widest bg-purple-950/30 px-2 py-1 rounded">Em Pesquisa</span>
-                    </div>
-
-                    <!-- Future Book 3 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 snap-center group border-dashed border-slate-700 hover:border-green-500/50">
-                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-code text-slate-400 text-2xl group-hover:text-green-400"></i>
-                        </div>
-                        <h4 class="text-white font-bold mb-2">Prompt Engineering</h4>
-                        <p class="text-slate-500 text-sm px-4">O guia técnico definitivo para executivos.</p>
-                        <span class="mt-auto text-[10px] text-green-500 uppercase tracking-widest bg-green-950/30 px-2 py-1 rounded">Em Breve</span>
-                    </div>
-
+                <!-- 2017 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-purple-400 font-mono text-lg font-bold uppercase">2017: Escala</h4><p class="text-slate-400 mt-2">Atuação na <strong>Cargill</strong> como Analista Sênior. Braço direito da Supervisão Regional, focando em padronização operacional.</p></div>
+                    <div class="w-10 h-10 bg-purple-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
                 </div>
-            </div>
 
-        </div>
-    </section>
-
-    <!-- RESEARCH SLIDER (ARTIGOS) -->
-    <section id="research" class="py-24 container mx-auto px-6 reveal">
-        <div class="flex justify-between items-end mb-12 max-w-6xl mx-auto">
-            <div>
-                <span class="text-purple-500 font-mono text-sm tracking-widest uppercase block mb-2">Laboratório</span>
-                <h2 class="text-4xl font-bold text-white">Estudos de Caso</h2>
-            </div>
-            
-            <!-- Controls -->
-            <div class="flex gap-2">
-                <button onclick="document.getElementById('articleSlider').scrollLeft -= 300" class="w-10 h-10 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button onclick="document.getElementById('articleSlider').scrollLeft += 300" class="w-10 h-10 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="articleSlider" class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x max-w-6xl mx-auto scroll-smooth">
-            
-            <!-- Article 1: SAPL / Querência (NOVO DESTAQUE) -->
-            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-sapl')">
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-green-400 text-[10px] font-bold border border-green-900 bg-green-950/30 px-2 py-1 rounded uppercase tracking-widest">Querência-MT</span>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">Legislativo Inteligente</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Como a digitalização e o SAPL transformaram o processo decisório da Câmara Municipal. De pilhas de papel à inteligência de dados.
-                    </p>
+                <!-- 2019 (Pós) -->
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
+                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-purple-400 font-mono text-lg font-bold uppercase">2019: Liderança</h4><p class="text-slate-400 mt-2">Pós-Graduação em <strong>Gestão e Liderança</strong>. Preparação estratégica para assumir desafios de gestão de equipes maiores.</p></div>
+                    <div class="w-10 h-10 bg-purple-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
                 </div>
-                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-green-400 transition-colors">Ler Estudo</span>
-            </div>
-
-            <!-- Article 2: GovTech -->
-            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-govtech')">
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-blue-400 text-[10px] font-bold border border-blue-900 bg-blue-950/30 px-2 py-1 rounded uppercase tracking-widest">GovTech</span>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">O Fim da Burocracia Invisível</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Como Agentes de IA reduziram o tempo de auditoria fiscal de 48 horas para 45 segundos.
-                    </p>
-                </div>
-                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-blue-400 transition-colors">Ler Artigo</span>
-            </div>
-
-            <!-- Article 3: Prompt -->
-            <div class="min-w-[320px] md:min-w-[400px] glass-panel p-8 rounded-2xl flex flex-col justify-between h-[380px] snap-center cursor-pointer group" onclick="openModal('modal-article-prompt')">
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-cyan-400 text-[10px] font-bold border border-cyan-900 bg-cyan-950/30 px-2 py-1 rounded uppercase tracking-widest">Engenharia</span>
-                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">Programando em Linguagem Natural</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        A ciência por trás do Prompt Perfeito. Frameworks técnicos para controle de alucinação em LLMs.
-                    </p>
-                </div>
-                <span class="text-white text-xs font-bold uppercase tracking-widest border-b border-slate-700 pb-1 w-max group-hover:border-cyan-400 transition-colors">Ler Artigo</span>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION: RAM.IO HOLDINGS (CORRECTED STRUCTURE) -->
-    <section id="holdings" class="py-20 border-t border-white/5 bg-black/50 reveal">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase">Estrutura Corporativa</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">RAM.IO Holdings</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Um hub de inovação multisetorial. Da educação pública à tecnologia agrícola.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- RAM.IO (Mothership) -->
-                <div class="glass-panel p-8 rounded-2xl border-cyan-500/30 relative group overflow-hidden flex flex-col">
-                    <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="mb-4 text-cyan-400 text-4xl"><i class="fas fa-microchip"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-1">RAM.IO</h3>
-                    <p class="text-xs text-cyan-500 font-bold uppercase tracking-wider mb-3">Mothership & Tech</p>
-                    <p class="text-slate-400 text-sm mb-4">Desenvolvimento de IA, LLMs proprietárias e arquitetura de software.</p>
-                    <div class="mt-auto border-t border-white/5 pt-4">
-                         <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Core Business</span>
-                    </div>
+                <!-- 2022 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-emerald-400 font-mono text-lg font-bold uppercase">2022: Engenharia</h4><p class="text-slate-400 mt-2">Conclusão de <strong>Engenharia da Computação</strong>. Saí da teoria para a construção de arquiteturas de software robustas.</p></div>
+                    <div class="w-10 h-10 bg-emerald-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
                 </div>
 
-                <!-- RAM.FLOW (Automation) -->
-                <div class="glass-panel p-8 rounded-2xl group hover:border-emerald-500/30 flex flex-col">
-                    <div class="mb-4 text-emerald-400 text-4xl"><i class="fas fa-network-wired"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-1">RAM.FLOW</h3>
-                    <p class="text-xs text-emerald-500 font-bold uppercase tracking-wider mb-3">Engenharia de Automação</p>
-                    <p class="text-slate-400 text-sm mb-4">Otimização de tempo e redução de custos operacionais através de inteligência artificial.</p>
-                    <ul class="text-xs text-slate-500 space-y-1 mt-auto border-t border-white/5 pt-4">
-                        <li><i class="fas fa-check text-emerald-500 mr-1"></i> Atendimento 24/7 (Chatbots)</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-1"></i> Setup CRM (Kommo/RD)</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-1"></i> Automação de Contratos</li>
-                    </ul>
+                <!-- 2023 -->
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
+                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-orange-500 font-mono text-lg font-bold uppercase">2023: Indústria 4.0</h4><p class="text-slate-400 mt-2">MBA Industrial. Integração de sensores IoT com sistemas de gestão.</p></div>
+                    <div class="w-10 h-10 bg-orange-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
                 </div>
 
-                <!-- RAM.STUDIO (Design) -->
-                <div class="glass-panel p-8 rounded-2xl group hover:border-purple-500/30 flex flex-col">
-                    <div class="mb-4 text-purple-400 text-4xl"><i class="fas fa-paint-brush"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-1">RAM.STUDIO</h3>
-                    <p class="text-xs text-purple-500 font-bold uppercase tracking-wider mb-3">Design & Branding</p>
-                    <p class="text-slate-400 text-sm mb-4">Comunicação visual de alta conversão para autoridade digital e lançamentos.</p>
-                    <ul class="text-xs text-slate-500 space-y-1 mt-auto border-t border-white/5 pt-4">
-                        <li><i class="fas fa-check text-purple-500 mr-1"></i> Branding Tech</li>
-                        <li><i class="fas fa-check text-purple-500 mr-1"></i> Landing Pages</li>
-                        <li><i class="fas fa-check text-purple-500 mr-1"></i> Fábrica de Criativos</li>
-                    </ul>
+                <!-- 2024 -->
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-amber-500 font-mono text-lg font-bold uppercase">2024: Business</h4><p class="text-slate-400 mt-2">Pós em <strong>Economia e Gestão</strong>. Foco em viabilidade financeira e ROI de tecnologia.</p></div>
+                    <div class="w-10 h-10 bg-amber-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
                 </div>
-
-                <!-- RAM.HUMAN (Education) -->
-                <div class="glass-panel p-8 rounded-2xl group hover:border-amber-500/30 flex flex-col">
-                    <div class="mb-4 text-amber-400 text-4xl"><i class="fas fa-users-cog"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-1">RAM.HUMAN</h3>
-                    <p class="text-xs text-amber-500 font-bold uppercase tracking-wider mb-3">Educação & Cultura</p>
-                    <p class="text-slate-400 text-sm mb-4">Capacitação de times e liderança para a era da Inteligência Artificial.</p>
-                    <ul class="text-xs text-slate-500 space-y-1 mt-auto border-t border-white/5 pt-4">
-                        <li><i class="fas fa-check text-amber-500 mr-1"></i> Palestras: Futuro do Trabalho</li>
-                        <li><i class="fas fa-check text-amber-500 mr-1"></i> Workshops "Mão na Massa"</li>
-                        <li><i class="fas fa-check text-amber-500 mr-1"></i> Consultoria RH Tech</li>
-                    </ul>
+                
+                <!-- 2027 -->
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
+                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-white font-mono text-lg font-bold uppercase">2027: Futuro IA</h4><p class="text-slate-400 mt-2">Graduação em <strong>IA</strong>. Otimização autônoma de sistemas complexos.</p></div>
+                    <div class="w-10 h-10 bg-white rounded-full z-10 border-4 border-black shadow-[0_0_15px_white] hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECTION: PROJECTS GRID (COMBINED OLD & NEW) -->
-    <section id="projects" class="py-24 border-t border-white/5 bg-black reveal">
+    <!-- SECTION: EXPERIÊNCIA PROFISSIONAL (8 ITENS) -->
+    <section id="experience" class="py-24 bg-[#000205] reveal border-t border-white/5">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16">
-                <span class="text-green-500 font-mono text-sm tracking-widest uppercase">Portfolio</span>
-                <h2 class="text-3xl font-bold text-white mt-2">Arquitetura de Soluções</h2>
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase">Professional Log</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 uppercase tracking-widest underline decoration-cyan-500 underline-offset-8">Experiência Profissional</h2>
             </div>
-            
-            <!-- NEW PROJECTS (SOFTWARE) -->
-            <h3 class="text-xl text-white font-bold mb-6 border-l-4 border-cyan-500 pl-4">Softwares Proprietários</h3>
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
+
+            <div class="relative border-l-2 border-slate-800 pl-10 ml-4 md:ml-10 space-y-16">
                 
-                <!-- Project 1: HumanDesk (CRM) -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer relative" onclick="openModal('modal-humandesk')">
-                    <div class="h-48 bg-slate-900 relative border-b border-white/10 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
-                        <!-- Mockup Mini -->
-                        <div class="w-3/4 h-3/4 bg-white rounded-t-lg shadow-2xl mt-8 p-3 transform group-hover:scale-105 transition-transform duration-500">
-                            <div class="flex gap-2 mb-2">
-                                <div class="w-2 h-2 rounded-full bg-red-400"></div>
-                                <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="h-2 bg-slate-100 rounded w-1/2"></div>
-                                <div class="flex gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-pink-500"></div>
-                                    <div class="flex-1 h-8 bg-slate-100 rounded-lg"></div>
-                                </div>
-                                <div class="flex gap-2 justify-end">
-                                    <div class="flex-1 h-8 bg-blue-100 rounded-lg"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-xl font-bold text-white">HumanDesk</h4>
-                            <span class="text-[10px] bg-blue-500/20 text-blue-400 border border-blue-500/50 px-2 py-1 rounded">CRM Híbrido</span>
-                        </div>
-                        <p class="text-slate-400 text-sm mb-4">Mesa de atendimento inteligente que mescla IA e humanos. Transbordo automático.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                                <i class="fab fa-react"></i> React <i class="fas fa-robot"></i> OpenAI
-                            </div>
-                            <!-- GITHUB LINK -->
-                            <a href="https://github.com/RomarioDelphin/barberflow" target="_blank" class="text-slate-400 hover:text-white transition-colors" title="Ver Código">
-                                <i class="fab fa-github text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
+                <!-- 1. Câmara -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Head de Inovação & Tecnologia</h3><span class="text-cyan-400 font-mono text-sm font-bold bg-cyan-900/20 px-2 py-1 rounded">NOV 2024 — JAN 2026</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Câmara Municipal de Querência</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Liderança da Transformação Digital Legislativa e integração de IA para automação documental.</li>
+                        <li>Modernização da infraestrutura de Cyber Security e Data Center institucional.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 2: AdminConsole (Engine) -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer relative" onclick="openModal('modal-engine')">
-                    <div class="h-48 bg-slate-900 relative border-b border-white/10 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent"></div>
-                        <i class="fas fa-cogs text-6xl text-slate-700 group-hover:text-purple-500 transition-colors duration-500 group-hover:rotate-90"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-xl font-bold text-white">Engine.OS</h4>
-                            <span class="text-[10px] bg-purple-500/20 text-purple-400 border border-purple-500/50 px-2 py-1 rounded">Setup</span>
-                        </div>
-                        <p class="text-slate-400 text-sm mb-4">Painel de configuração neural. Ajuste de temperatura e guardrails de segurança.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                                <i class="fas fa-shield-alt"></i> Guardrails <i class="fas fa-database"></i> Vector DB
-                            </div>
-                            <!-- GITHUB LINK -->
-                            <a href="https://github.com/RomarioDelphin/Gerador-de-Informacoes" target="_blank" class="text-slate-400 hover:text-white transition-colors" title="Ver Código">
-                                <i class="fab fa-github text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
+                <!-- 2. RAM.IO -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Fundador & Consultor</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">JAN 2019 — PRESENTE</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">RAM.IO - Laboratório de Inovação</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Desenvolvimento de agentes de IA e aplicações Low-code para gestão industrial.</li>
+                        <li>Consultoria técnica em infraestrutura e automação de processos.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 3: Dashboard (BI) -->
-                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer relative" onclick="openModal('modal-dashboard')">
-                    <div class="h-48 bg-slate-900 relative border-b border-white/10 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 to-transparent"></div>
-                        <!-- Mockup Charts -->
-                        <div class="flex items-end gap-2 h-20">
-                            <div class="w-4 h-10 bg-slate-700 group-hover:bg-emerald-500 transition-colors delay-75"></div>
-                            <div class="w-4 h-16 bg-slate-700 group-hover:bg-emerald-500 transition-colors delay-100"></div>
-                            <div class="w-4 h-12 bg-slate-700 group-hover:bg-emerald-500 transition-colors delay-150"></div>
-                            <div class="w-4 h-20 bg-slate-700 group-hover:bg-emerald-500 transition-colors delay-200"></div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-xl font-bold text-white">Live Dashboard</h4>
-                            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-2 py-1 rounded">Analytics</span>
-                        </div>
-                        <p class="text-slate-400 text-sm mb-4">BI em tempo real com projeção de faturamento 2026 e análise de conversão.</p>
-                        <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                            <i class="fas fa-chart-line"></i> Recharts <i class="fas fa-bolt"></i> Realtime
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- OLD PROJECTS (TECHNICAL) -->
-            <div class="flex justify-between items-end mb-6">
-                <h3 class="text-xl text-white font-bold border-l-4 border-slate-500 pl-4">Engenharia & Data Science</h3>
-                <!-- Controls -->
-                <div class="flex gap-2">
-                    <button onclick="document.getElementById('techSlider').scrollLeft -= 300" class="w-8 h-8 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
-                        <i class="fas fa-chevron-left text-xs"></i>
-                    </button>
-                    <button onclick="document.getElementById('techSlider').scrollLeft += 300" class="w-8 h-8 border border-slate-700 rounded-full text-slate-400 hover:bg-slate-800 flex items-center justify-center transition-all hover:border-white">
-                        <i class="fas fa-chevron-right text-xs"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div id="techSlider" class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x scroll-smooth">
-                <!-- Project 1: BarberFlow -->
-                <div class="min-w-[300px] md:min-w-[350px] glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group relative snap-center">
-                    <a href="https://github.com/RomarioDelphin/barberflow" target="_blank" class="absolute top-6 right-6 text-slate-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                    <div class="mb-6 flex justify-between items-start">
-                        <i class="fas fa-cut text-3xl text-cyan-500 group-hover:rotate-12 transition-transform duration-700"></i>
-                        <span class="text-[10px] font-mono text-slate-500">SaaS</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2">BarberFlow SaaS</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Gestão Inteligente de Fluxo (SaaS Vertical). Stack moderna com Docker.</p>
-                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">JS</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Web</span>
-                    </div>
+                <!-- 3. CR Agro -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Consultor de Tecnologia e Processos Operacionais</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">JUL 2024 — OUT 2024</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">CR Agro (Indústria Algodoeira)</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Desenvolvimento de sistema de rastreabilidade end-to-end do campo ao estoque.</li>
+                        <li>Automação de portaria e checklists veiculares via IoT e AppSheet.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 2: Industrial Sentinel -->
-                <div class="min-w-[300px] md:min-w-[350px] glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group relative snap-center">
-                    <a href="https://github.com/RomarioDelphin/Sentinela_Industrial" target="_blank" class="absolute top-6 right-6 text-slate-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                    <div class="mb-6 flex justify-between items-start">
-                        <i class="fas fa-cogs text-3xl text-orange-500 group-hover:rotate-90 transition-transform duration-700"></i>
-                        <span class="text-[10px] font-mono text-slate-500">v1.0</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2">Industrial Sentinel</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">ML para manutenção preditiva (IoT/Agro). Monitoramento em tempo real.</p>
-                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Python</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">AI</span>
-                    </div>
+                <!-- 4. inpEV -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Gerente de Unidade</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">NOV 2021 — JUN 2024</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">inpEV - Logística Reversa</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li><strong>Turnaround Operacional:</strong> Reestruturação total em 5 meses, normalizando produção.</li>
+                        <li>Gestão integral de P&L, pessoas e manutenção de equipamentos.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 3: Fiscal Risk AI -->
-                <div class="min-w-[300px] md:min-w-[350px] glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group relative snap-center">
-                    <a href="https://github.com/RomarioDelphin/Consulta-de-CNPJ-com-Analise-IA" target="_blank" class="absolute top-6 right-6 text-slate-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                    <div class="mb-6 flex justify-between items-start">
-                        <i class="fas fa-landmark text-3xl text-blue-500"></i>
-                        <span class="text-[10px] font-mono text-slate-500">GovTech</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2">Fiscal Risk AI</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Análise de Risco e Compliance (Termômetro IA) com Backend Python.</p>
-                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Flask</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Gov</span>
-                    </div>
+                <!-- 5. Storaze -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Analista de Suporte Especialista (N3) e Automação Industrial</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">AGO 2019 — NOV 2021</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Storaze (Projeto Eurochem Fertilizantes)</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Suporte crítico nacional para ERPs (SAP/Oracle/TOTVS) e redes industriais.</li>
+                        <li>Automação de sistemas de pesagem industrial e manutenção preditiva.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 4: Engine.OS (Gerador) -->
-                <div class="min-w-[300px] md:min-w-[350px] glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group relative snap-center">
-                    <a href="https://github.com/RomarioDelphin/Gerador-de-Informacoes" target="_blank" class="absolute top-6 right-6 text-slate-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                    <div class="mb-6 flex justify-between items-start">
-                        <i class="fas fa-tools text-3xl text-purple-500"></i>
-                        <span class="text-[10px] font-mono text-slate-500">Core</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2">Engine.OS (Mock Data)</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Utilitários e Dados Sintéticos para QA e Testes de Software.</p>
-                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Tools</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Utils</span>
-                    </div>
+                <!-- 6. Cargill -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Analista Regional Sênior</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">OUT 2017 — JUN 2019</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Cargill (Commodities)</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Auditoria e padronização operacional em 5 unidades estratégicas regionais.</li>
+                        <li>Digitalização de KPIs de campo para Dashboards de BI.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 5: Digital HQ (Source) -->
-                <div class="min-w-[300px] md:min-w-[350px] glass-panel p-8 rounded-2xl hover:bg-slate-900 transition-colors group relative snap-center">
-                    <a href="https://github.com/RomarioDelphin/RomarioDelphin.github.io" target="_blank" class="absolute top-6 right-6 text-slate-500 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                    <div class="mb-6 flex justify-between items-start">
-                        <i class="fas fa-globe text-3xl text-white"></i>
-                        <span class="text-[10px] font-mono text-slate-500">Portfolio</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2">Digital HQ (Source)</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Código-fonte deste portfólio. Frontend High-Perf com Canvas.</p>
-                    <div class="flex gap-2 text-[10px] uppercase font-bold text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Canvas</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">JS</span>
-                    </div>
+                <!-- 7. Grupo Echer -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Consultor de Processos e Estruturação de RH</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">MAR 2018 — JUL 2018</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Grupo Echer (Construção)</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Reestruturação completa de RH e bancarização de pagamentos manuais.</li>
+                        <li>Mitigação de passivos trabalhistas em alojamentos e planta.</li>
+                    </ul>
+                </div>
+
+                <!-- 8. Fazenda Tanguro -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Supervisor de RH</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">SET 2014 — OUT 2017</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Fazenda Tanguro</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
+                        <li>Gestão integral do ciclo do colaborador e grandes contingentes de safra.</li>
+                        <li>Implementação de controles digitais em ambiente rural.</li>
+                    </ul>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- TRAJECTORY (TIMELINE) -->
-    <section id="trajectory" class="py-24 container mx-auto px-6 reveal">
-        <h2 class="text-3xl font-bold text-white mb-16 text-center title-font">Log de Carreira</h2>
-        <div class="max-w-4xl mx-auto border-l-2 border-slate-800 pl-10 relative space-y-12">
-            
-            <!-- Item 1 -->
-            <div class="relative group">
-                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-cyan-500 rounded-full group-hover:bg-cyan-500 group-hover:shadow-[0_0_15px_#00f3ff] transition-all"></span>
-                <p class="text-cyan-400 font-mono text-xs mb-2 font-bold tracking-widest">NOV 2024 -- ATUAL</p>
-                <h3 class="text-2xl font-bold text-white">Head de Inovação & Tecnologia</h3>
-                <p class="text-slate-500 text-sm mb-3 font-medium">Câmara Municipal de Querência</p>
-                <p class="text-slate-400 text-lg font-light">Desenvolvimento de Agentes de IA para automação legislativa e modernização do Data Center (Cyber Security, Backups).</p>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="relative group">
-                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
-                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">JUL 2024 -- OUT 2024</p>
-                <h3 class="text-2xl font-bold text-white">Engenheiro de Soluções & Consultor</h3>
-                <p class="text-slate-500 text-sm mb-3 font-medium">CR Agro</p>
-                <p class="text-slate-400 text-lg font-light">Rastreabilidade End-to-End no Algodão e implementação de Banco Vetorial (Milvus) para Big Data do Agro.</p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="relative group">
-                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
-                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">NOV 2021 -- JUN 2024</p>
-                <h3 class="text-2xl font-bold text-white">Gerente de Unidade</h3>
-                <p class="text-slate-500 text-sm mb-3 font-medium">inpEV</p>
-                <p class="text-slate-400 text-lg font-light">Liderança em Indústria 4.0 (sensores IoT) e Gestão Data-Driven para redução de custos (OPEX).</p>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="relative group">
-                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
-                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">AGO 2019 -- NOV 2021</p>
-                <h3 class="text-2xl font-bold text-white">Especialista de TI & Suporte N3 (Industrial)</h3>
-                <p class="text-slate-500 text-sm mb-3 font-medium">Storaze (Eurochem)</p>
-                <p class="text-slate-400 text-lg font-light">Suporte crítico para fábricas e integração OT/IT (Balanças, TOTVS Protheus e SAP).</p>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="relative group">
-                <span class="absolute -left-[49px] top-1 w-4 h-4 bg-black border-2 border-slate-600 rounded-full group-hover:border-white transition-all"></span>
-                <p class="text-slate-500 font-mono text-xs mb-2 font-bold tracking-widest">OUT 2017 -- JUN 2019</p>
-                <h3 class="text-2xl font-bold text-white">Analista de Operações</h3>
-                <p class="text-slate-500 text-sm mb-3 font-medium">Cargill</p>
-                <p class="text-slate-400 text-lg font-light">Atuação na interface crítica entre TI e Operações Logísticas (S&OP).</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EDUCATION (NEW SECTION) -->
-    <section id="education" class="py-24 border-t border-white/5 bg-[#000205] reveal">
+    <!-- SECTION: EDUCATION (7 FORMAÇÕES) -->
+    <section id="education" class="py-24 border-t border-white/5 bg-black">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-blue-500 font-mono text-sm tracking-widest uppercase">Academic Background</span>
-                <h2 class="text-3xl font-bold text-white mt-2">Formação Acadêmica</h2>
+            <div class="text-center mb-16 reveal">
+                <span class="text-slate-500 font-mono text-sm tracking-widest uppercase">Academic Arsenal</span>
+                <h2 class="text-3xl font-bold text-white mt-2 uppercase tracking-widest">Log Acadêmico</h2>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Education 1 -->
-                <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-cyan-500 flex flex-col">
-                    <h4 class="text-lg font-bold text-white mb-1">Graduação em IA</h4>
-                    <p class="text-sm text-cyan-400 font-mono mb-4">2027</p>
-                    <p class="text-slate-400 text-sm mt-auto">UNIFAEL</p>
-                </div>
-
-                <!-- Education 2 -->
-                <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-blue-600 flex flex-col">
-                    <h4 class="text-lg font-bold text-white mb-1">Engenharia de Computação</h4>
-                    <p class="text-sm text-blue-500 font-mono mb-4">2022</p>
-                    <p class="text-slate-400 text-sm mt-auto">Descomplica (Bacharelado)</p>
-                </div>
-
-                <!-- Education 3 -->
-                <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-purple-600 flex flex-col">
-                    <h4 class="text-lg font-bold text-white mb-1">MBA Eng. Industrial 4.0</h4>
-                    <p class="text-sm text-purple-500 font-mono mb-4">2023</p>
-                    <p class="text-slate-400 text-sm mt-auto">Anhanguera Educacional</p>
-                </div>
-
-                <!-- Education 4 (User Added) -->
-                <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-slate-600 flex flex-col">
-                    <h4 class="text-lg font-bold text-white mb-1">Técnico em Eletrônica</h4>
-                    <p class="text-sm text-slate-500 font-mono mb-4">2008</p>
-                    <p class="text-slate-400 text-sm mt-auto">IFMT</p>
-                </div>
-
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto reveal">
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-slate-600"><h4 class="text-white font-bold text-sm uppercase">Técnico Eletrônica</h4><p class="text-slate-500 text-[10px] font-mono">CONCLUÍDO 2008 (IFMT)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-orange-600"><h4 class="text-white font-bold text-sm uppercase">Gestão de RH</h4><p class="text-orange-500 text-[10px] font-mono">CONCLUÍDO 2011</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-purple-600"><h4 class="text-white font-bold text-sm uppercase">Gestão e Liderança</h4><p class="text-purple-500 text-[10px] font-mono">CONCLUÍDO 2019 (PÓS)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-blue-600"><h4 class="text-white font-bold text-sm uppercase">Eng. Computação</h4><p class="text-blue-500 text-[10px] font-mono">CONCLUÍDO 2022</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-emerald-600"><h4 class="text-white font-bold text-sm uppercase">MBA Indústria 4.0</h4><p class="text-emerald-500 text-[10px] font-mono">CONCLUÍDO 2023</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-amber-500"><h4 class="text-white font-bold text-sm uppercase">Economia e Gestão</h4><p class="text-amber-500 text-[10px] font-mono">CONCLUÍDO 2024 (PÓS)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-cyan-500"><h4 class="text-white font-bold text-sm uppercase">Bacharelado IA</h4><p class="text-cyan-500 text-[10px] font-mono">CURSANDO (ATÉ 2027)</p></div>
             </div>
         </div>
     </section>
 
-    <!-- TOOLS SECTION (NEW) -->
-    <section id="tools" class="py-20 border-t border-white/5 bg-black reveal">
+    <!-- SECTION: BOOKS & PUBLICATIONS -->
+    <section id="books" class="py-24 border-t border-white/5 relative z-10 bg-[#050505]">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase"><i class="fas fa-bolt mr-2"></i>Live Tools</span>
-                <h2 class="text-3xl font-bold text-white mt-2">Ferramentas de Produtividade</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Utilitários desenvolvidos para agilizar processos de desenvolvimento e análise.</p>
+            <div class="text-center mb-16 reveal">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase mb-2 block">Biblioteca Oficial</span>
+                <h2 class="text-4xl font-bold text-white uppercase tracking-widest">Publicações</h2>
+            </div>
+            
+            <!-- Livro Atual -->
+            <div id="tilt-book-card" class="glass-panel p-8 md:p-12 rounded-3xl max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 mb-20 relative overflow-hidden reveal">
+                <div class="w-64 md:w-80 shrink-0"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" alt="Livro" class="rounded-lg shadow-2xl border border-white/10"></div>
+                <div class="text-left flex-1">
+                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">A Revolução Silenciosa</h3>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed font-light">O manual de sobrevivência definitiva para gestores modernos. Descubra como a Manutenção Preditiva e a Inteligência de Dados estão salvando bilhões no Agro.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-white text-black font-bold py-3 px-10 rounded-full text-sm uppercase tracking-widest hover:bg-cyan-500 transition-all">Baixar PDF</a>
+                        <button onclick="openModal('modal-book')" class="text-white border border-white/20 py-3 px-10 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">Ler Preview</button>
+                    </div>
+                </div>
             </div>
 
+            <!-- Próximos Títulos (Em Breve) -->
+            <div class="max-w-6xl mx-auto reveal">
+                <h3 class="text-xl text-white mb-8 font-bold flex items-center gap-3 uppercase tracking-widest border-b border-white/10 pb-4"><i class="fas fa-layer-group text-slate-500"></i> Em Breve</h3>
+                <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x">
+                    <!-- Book 1 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-cyan-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-tractor text-slate-400 text-2xl"></i></div>
+                        <h4 class="text-white font-bold mb-2">Agro 5.0</h4>
+                        <p class="text-slate-500 text-sm px-4 font-light">Arquitetura de Dados para Fazendas Autônomas.</p>
+                        <span class="mt-auto text-[10px] text-cyan-500 uppercase tracking-widest bg-cyan-950/30 px-2 py-1 rounded">2026</span>
+                    </div>
+                    <!-- Book 2 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-purple-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-city text-slate-400 text-2xl"></i></div>
+                        <h4 class="text-white font-bold mb-2">Cidades Cognitivas</h4>
+                        <p class="text-slate-500 text-sm px-4 font-light">IA aplicada à gestão municipal inteligente.</p>
+                        <span class="mt-auto text-[10px] text-purple-500 uppercase tracking-widest bg-purple-950/30 px-2 py-1 rounded">Em Pesquisa</span>
+                    </div>
+                    <!-- Book 3 -->
+                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-green-500/50">
+                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-code text-slate-400 text-2xl"></i></div>
+                        <h4 class="text-white font-bold mb-2">Prompt Engineering</h4>
+                        <p class="text-slate-500 text-sm px-4 font-light">O guia técnico definitivo para executivos.</p>
+                        <span class="mt-auto text-[10px] text-green-500 uppercase tracking-widest bg-green-950/30 px-2 py-1 rounded">Em Breve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: RESEARCH & CASE STUDIES -->
+    <section id="research" class="py-24 container mx-auto px-6 reveal border-t border-white/5 bg-black">
+        <div class="text-center mb-16">
+            <span class="text-purple-500 font-mono text-sm tracking-widest uppercase block mb-2 underline decoration-purple-900 underline-offset-4">Technical Research</span>
+            <h2 class="text-4xl font-bold text-white uppercase tracking-widest">Estudos de Caso</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="glass-panel p-8 rounded-2xl cursor-pointer group" onclick="openModal('modal-article-sapl')">
+                <span class="text-green-400 font-mono text-[10px] uppercase block mb-4 border border-green-900 bg-green-950/30 px-2 py-1 w-max">GovTech Case</span>
+                <h3 class="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors uppercase tracking-tight">Legislativo Inteligente</h3>
+                <p class="text-slate-400 text-sm font-light">Implementação de SAPL e preparação de dados para automação via LLM.</p>
+            </div>
+            <div class="glass-panel p-8 rounded-2xl cursor-pointer group" onclick="openModal('modal-article-govtech')">
+                <span class="text-blue-400 font-mono text-[10px] uppercase block mb-4 border border-blue-900 bg-blue-950/30 px-2 py-1 w-max">Process Efficiency</span>
+                <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors uppercase tracking-tight">Fim da Burocracia</h3>
+                <p class="text-slate-400 text-sm font-light">Redução de tempo de auditoria de 48h para 45s utilizando agentes de IA.</p>
+            </div>
+            <div class="glass-panel p-8 rounded-2xl cursor-pointer group" onclick="openModal('modal-article-prompt')">
+                <span class="text-cyan-400 font-mono text-[10px] uppercase block mb-4 border border-cyan-900 bg-cyan-950/30 px-2 py-1 w-max">AI Engineering</span>
+                <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors uppercase tracking-tight">Linguagem Natural</h3>
+                <p class="text-slate-400 text-sm font-light">Frameworks técnicos para controle de alucinação e segurança em IA Generativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: HOLDINGS -->
+    <section id="holdings" class="py-20 border-t border-white/5 bg-black/50 reveal">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-16 uppercase tracking-widest">RAM.IO Ecossistema</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass-panel p-8 rounded-2xl"><i class="fas fa-microchip text-cyan-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white">RAM.IO</h3><p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">Tech Mothership</p></div>
+                <div class="glass-panel p-8 rounded-2xl"><i class="fas fa-network-wired text-emerald-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white">RAM.FLOW</h3><p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">Automation</p></div>
+                <div class="glass-panel p-8 rounded-2xl"><i class="fas fa-paint-brush text-purple-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white">RAM.STUDIO</h3><p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">Design</p></div>
+                <div class="glass-panel p-8 rounded-2xl"><i class="fas fa-users-cog text-amber-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white">RAM.HUMAN</h3><p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">Education</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROJECTS -->
+    <section id="projects" class="py-24 border-t border-white/5 bg-black reveal">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-bold text-white mb-16 text-center uppercase tracking-widest">Arquitetura de Software</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer" onclick="openModal('modal-humandesk')">
+                    <div class="h-40 bg-slate-900 flex items-center justify-center border-b border-white/10"><i class="fas fa-headset text-5xl text-blue-500"></i></div>
+                    <div class="p-6"><h4 class="text-xl font-bold text-white uppercase">HumanDesk</h4><p class="text-slate-400 text-sm mt-2 font-light">CRM Híbrido: IA + Humanos.</p></div>
+                </div>
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer" onclick="openModal('modal-engine')">
+                    <div class="h-40 bg-slate-900 flex items-center justify-center border-b border-white/10"><i class="fas fa-robot text-5xl text-purple-500"></i></div>
+                    <div class="p-6"><h4 class="text-xl font-bold text-white uppercase">Engine.OS</h4><p class="text-slate-400 text-sm mt-2 font-light">Setup de Agentes Neurais.</p></div>
+                </div>
+                <div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer" onclick="openModal('modal-dashboard')">
+                    <div class="h-40 bg-slate-900 flex items-center justify-center border-b border-white/10"><i class="fas fa-chart-line text-5xl text-emerald-500"></i></div>
+                    <div class="p-6"><h4 class="text-xl font-bold text-white uppercase">Live Dashboard</h4><p class="text-slate-400 text-sm mt-2 font-light">BI Realtime 2026.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: TOOLS -->
+    <section id="tools" class="py-20 border-t border-white/5 bg-[#050505] reveal">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase mb-2 block"><i class="fas fa-bolt mr-2"></i>Live Utilities</span>
+            <h2 class="text-3xl font-bold text-white mb-16 uppercase tracking-widest">Ferramentas de Produtividade</h2>
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Tool 1: CNPJ -->
-                <div class="glass-panel p-8 rounded-2xl group hover:border-cyan-500/50 flex flex-col items-center text-center cursor-pointer transition-all" onclick="openModal('modal-tool-cnpj')">
-                    <div class="w-16 h-16 rounded-full bg-cyan-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-cyan-500/30">
-                        <i class="fas fa-search text-cyan-400 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Consulta CNPJ</h3>
-                    <p class="text-slate-400 text-sm mb-6">Validação e consulta de dados cadastrais em tempo real via API da ReceitaWS.</p>
-                    <button class="mt-auto bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-full text-sm transition-colors">
-                        Acessar Ferramenta
-                    </button>
+                <div class="glass-panel p-8 rounded-2xl cursor-pointer" onclick="openModal('modal-tool-cnpj')">
+                    <i class="fas fa-search text-cyan-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white uppercase">Consulta CNPJ</h3><p class="text-slate-400 text-sm mt-2">API BrasilAPI.</p>
                 </div>
-
-                <!-- Tool 2: Generator -->
-                <div class="glass-panel p-8 rounded-2xl group hover:border-purple-500/50 flex flex-col items-center text-center cursor-pointer transition-all" onclick="openModal('modal-tool-generator')">
-                    <div class="w-16 h-16 rounded-full bg-purple-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-purple-500/30">
-                        <i class="fas fa-random text-purple-400 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Gerador de Dados</h3>
-                    <p class="text-slate-400 text-sm mb-6">Geração de CPF, CNPJ e Cartões de Crédito válidos para testes de software (QA).</p>
-                    <button class="mt-auto bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-6 rounded-full text-sm transition-colors">
-                        Acessar Ferramenta
-                    </button>
+                <div class="glass-panel p-8 rounded-2xl cursor-pointer" onclick="openModal('modal-tool-generator')">
+                    <i class="fas fa-random text-purple-400 text-4xl mb-4"></i><h3 class="text-xl font-bold text-white uppercase">Gerador de Massa</h3><p class="text-slate-400 text-sm mt-2">QA Data Generator.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CLIENTS SECTION (UPDATED) -->
+    <!-- SECTION: CLIENTS -->
     <section id="clients" class="py-16 border-t border-white/5 bg-black">
         <div class="container mx-auto px-6 text-center">
             <p class="text-slate-500 text-xs font-mono uppercase tracking-widest mb-12">Trusted by / Nossos Clientes</p>
-            
             <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-12 opacity-80 max-w-5xl mx-auto">
-                
-                <!-- Client 1: ATAME -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center border border-blue-900/50 group-hover:border-blue-500/50 transition-colors">
-                        <i class="fas fa-university text-blue-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-blue-400 transition-colors font-sans uppercase tracking-wider">ATAME</h3>
-                </div>
-
-                <!-- Client 2: Tech-Agro -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-green-900/30 flex items-center justify-center border border-green-900/50 group-hover:border-green-500/50 transition-colors">
-                        <i class="fas fa-tractor text-green-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-green-400 transition-colors font-sans uppercase tracking-wider">Tech-Agro Tz</h3>
-                </div>
-
-                <!-- Client 3: WR Drones -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50 transition-colors">
-                        <i class="fas fa-helicopter text-slate-300 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">WR Drones</h3>
-                </div>
-
-                <!-- Client 4: Barbearia Nobre -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-amber-900/30 flex items-center justify-center border border-amber-900/50 group-hover:border-amber-500/50 transition-colors">
-                        <i class="fas fa-cut text-amber-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-amber-400 transition-colors font-serif uppercase tracking-wider">Barbearia Nobre</h3>
-                </div>
-
-                <!-- Client 5: SAPL -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center border border-cyan-900/50 group-hover:border-cyan-500/50 transition-colors">
-                        <i class="fas fa-landmark text-cyan-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-cyan-400 transition-colors font-sans uppercase tracking-wider">SAPL</h3>
-                </div>
-
-                <!-- Client 6: Prefeituras -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50 transition-colors">
-                        <i class="fas fa-building text-slate-300 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">Prefeituras</h3>
-                </div>
-
-                <!-- Client 7: Câmaras -->
-                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity">
-                    <div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50 transition-colors">
-                        <i class="fas fa-gavel text-slate-300 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">Câmaras Municipais</h3>
-                </div>
-
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center border border-blue-900/50 group-hover:border-blue-500/50"><i class="fas fa-university text-blue-400 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-blue-400 transition-colors font-sans uppercase tracking-wider">ATAME</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-green-900/30 flex items-center justify-center border border-green-900/50 group-hover:border-green-500/50"><i class="fas fa-tractor text-green-400 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-green-400 transition-colors font-sans uppercase tracking-wider">Tech-Agro Tz</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50"><i class="fas fa-helicopter text-slate-300 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">WR Drones</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-amber-900/30 flex items-center justify-center border border-amber-900/50 group-hover:border-amber-500/50"><i class="fas fa-cut text-amber-400 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-amber-400 transition-colors font-serif uppercase tracking-wider">Barbearia Nobre</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-cyan-900/30 flex items-center justify-center border border-cyan-900/50 group-hover:border-cyan-500/50"><i class="fas fa-landmark text-cyan-400 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-cyan-400 transition-colors font-sans uppercase tracking-wider">SAPL</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50"><i class="fas fa-building text-slate-300 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">Prefeituras</h3></div>
+                <div class="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"><div class="w-12 h-12 rounded-full bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-white/50"><i class="fas fa-gavel text-slate-300 text-xl"></i></div><h3 class="text-sm font-bold text-slate-400 group-hover:text-white transition-colors font-sans uppercase tracking-wider">Câmaras</h3></div>
             </div>
         </div>
     </section>
@@ -859,564 +513,131 @@
     <!-- FOOTER -->
     <footer id="contact" class="py-24 border-t border-white/5 text-center bg-[#000205] reveal">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 title-font">Vamos Conectar?</h2>
-            <p class="text-slate-400 mb-12 max-w-lg mx-auto text-lg">
-                Disponível para liderança estratégica e consultorias de IA no Brasil.
-            </p>
-            
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 title-font uppercase tracking-tighter">Vamos Conectar?</h2>
             <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
-                <a href="https://wa.me/5566981155486" class="bg-white text-black font-bold py-4 px-10 rounded-full hover:bg-cyan-400 transition-colors shadow-lg hover:shadow-cyan-500/50">
-                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                </a>
-                <a href="mailto:romariodelphinmartins@gmail.com" class="border border-white/20 text-white font-bold py-4 px-10 rounded-full hover:border-white transition-colors">
-                    Email
-                </a>
+                <a href="https://wa.me/5566981155486" target="_blank" class="bg-white text-black font-bold py-4 px-12 rounded-full hover:bg-cyan-400 transition-colors shadow-lg uppercase text-xs tracking-[0.2em]"><i class="fab fa-whatsapp mr-2"></i> WhatsApp</a>
+                <a href="mailto:queirozdelphin@gmail.com" class="border border-white/20 text-white font-bold py-4 px-12 rounded-full hover:border-white transition-colors uppercase text-xs tracking-[0.2em]">E-mail Direto</a>
             </div>
-
-            <p class="text-slate-600 text-xs font-mono">© 2026 RAM.IO Holdings. Todos os direitos reservados.</p>
+            <p class="text-slate-600 text-[10px] font-mono mt-16 uppercase tracking-[0.4em]">© 2026 RAM.IO Holdings. Goiânia - Brasil.</p>
         </div>
     </footer>
 
-    <!-- ================= MODAIS ================= -->
-
-    <!-- MODAL LIVRO -->
+    <!-- MODAIS -->
+    <!-- Modal Preview Livro -->
     <div id="modal-book" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
         <div class="min-h-screen flex justify-center py-10 px-4">
-            <div class="w-full max-w-3xl relative">
-                <button onclick="closeModal('modal-book')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
-                <div class="text-slate-300 font-serif text-lg leading-loose space-y-6 pt-10">
-                    <div class="text-center mb-10 font-sans border-b border-slate-800 pb-8">
-                        <span class="text-cyan-500 font-bold tracking-widest text-xs uppercase">Capítulo 01</span>
-                        <h2 class="text-4xl font-bold text-white mt-2">O Campo Conectado</h2>
-                    </div>
-                    <p><strong class="text-white text-xl">A INTUIÇÃO NÃO PAGA A CONTA.</strong></p>
-                    <p>O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, <strong class="text-white">a margem de erro é zero.</strong></p>
-                    <div class="bg-cyan-900/10 border-l-4 border-cyan-500 p-6 my-8 italic text-cyan-100 font-sans text-base">
-                        "O sistema emite um alerta: Falha crítica prevista no eixo X em 48 horas."
-                    </div>
-                    <p>Isso não é ficção científica. Isso é redução direta de OPEX.</p>
-                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800 font-sans">
-                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="text-cyan-400 font-bold uppercase tracking-widest hover:text-white transition-colors">Download PDF Completo</a>
-                    </div>
-                </div>
+            <div class="w-full max-w-3xl relative text-slate-300 font-serif text-lg leading-loose space-y-6 pt-10">
+                <button onclick="closeModal('modal-book')" class="fixed top-6 right-6 text-white text-4xl">&times;</button>
+                <div class="text-center mb-10 border-b border-slate-800 pb-8 font-sans"><span class="text-cyan-500 font-bold tracking-widest text-xs uppercase">Preview do Autor</span><h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">A Revolução Silenciosa</h2></div>
+                <p><strong class="text-white text-xl">A INTUIÇÃO NÃO PAGA A CONTA.</strong></p>
+                <p>O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, a margem de erro é zero. Como CEO da RAM.IO, Romário Delphin analisa neste livro como a convergência entre eletrônica industrial e inteligência artificial está ditando o futuro do lucro global.</p>
             </div>
         </div>
     </div>
 
-    <!-- MODAL ARTIGO SAPL -->
-    <div id="modal-article-sapl" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
-        <div class="min-h-screen flex justify-center py-10 px-4">
-            <div class="w-full max-w-3xl relative">
-                <button onclick="closeModal('modal-article-sapl')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
-                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
-                    <span class="text-green-500 font-bold text-xs uppercase tracking-widest">Case Study: Querência</span>
-                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">Legislativo Inteligente: A Digitalização do Processo Decisório</h1>
-                    <h3 class="text-xl text-white font-bold mt-8">De pilhas de papel à transparência em tempo real: Como a implementação correta do SAPL prepara Câmaras Municipais para a Era da IA.</h3>
-                    <!-- Conteúdo resumido para brevidade no código, mas mantendo a estrutura -->
-                    <p>Ainda hoje, em muitas casas legislativas do Brasil, a democracia tramita na velocidade do papel...</p>
-                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
-                        <a href="https://www.linkedin.com/pulse/legislativo-inteligente-digitaliza%C3%A7%C3%A3o-do-processo-rom%C3%A1rio-delphin-wo7uf" target="_blank" class="text-green-400 hover:text-white font-bold uppercase tracking-widest">Ver Mais no LinkedIn</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Modal CNPJ -->
+    <div id="modal-tool-cnpj" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-2xl bg-slate-900 border border-cyan-500/30 rounded-2xl p-8 relative">
+            <button onclick="closeModal('modal-tool-cnpj')" class="absolute top-4 right-4 text-white text-2xl transition-transform hover:rotate-90">&times;</button>
+            <h2 class="text-2xl font-bold text-white mb-6 uppercase tracking-widest"><i class="fas fa-search text-cyan-400"></i> Consulta CNPJ</h2>
+            <form id="cnpj-form" class="flex gap-4 mb-6"><input type="text" id="cnpj" required placeholder="Digite o CNPJ" class="flex-1 bg-slate-800 border border-slate-700 rounded-lg p-4 text-white focus:border-cyan-500 outline-none transition-all uppercase text-sm"><button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 px-8 rounded-lg uppercase text-xs tracking-widest">Consultar</button></form>
+            <div id="company-data" class="text-slate-300 space-y-4 hidden font-sans border-t border-white/10 pt-6"></div>
         </div>
     </div>
 
-    <!-- MODAL ARTIGO GOVTECH -->
-    <div id="modal-article-govtech" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
-        <div class="min-h-screen flex justify-center py-10 px-4">
-            <div class="w-full max-w-3xl relative">
-                <button onclick="closeModal('modal-article-govtech')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
-                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
-                    <span class="text-blue-500 font-bold text-xs uppercase tracking-widest">Case Study</span>
-                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">O Fim da Burocracia Invisível</h1>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="border border-white/10 p-4 text-center rounded-lg">
-                            <p class="text-xs text-slate-500 uppercase">Antes</p>
-                            <p class="text-3xl font-bold text-white">48 Horas</p>
-                        </div>
-                        <div class="border border-blue-500/30 bg-blue-900/10 p-4 text-center rounded-lg">
-                            <p class="text-xs text-blue-400 uppercase">Agora</p>
-                            <p class="text-3xl font-bold text-blue-400">45 Segundos</p>
-                        </div>
-                    </div>
-                    <p>Implementamos uma arquitetura que conecta o SAPL a Agentes de IA (LLMs) para auditoria semântica.</p>
-                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
-                        <a href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" class="text-blue-400 hover:text-white font-bold uppercase tracking-widest">Ver no LinkedIn</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Modal Massa (QA) -->
+    <div id="modal-tool-generator" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-2xl bg-slate-900 border border-purple-500/30 rounded-2xl p-10 relative text-center">
+            <button onclick="closeModal('modal-tool-generator')" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-white mb-6 uppercase tracking-widest">Gerador de Massa</h2>
+            <p class="text-slate-500 mb-8 text-sm">Geração de documentos aleatórios válidos para ambiente de teste.</p>
+            <button onclick="generateCPF()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 rounded-lg mb-4 uppercase tracking-[0.2em] text-xs">Gerar CPF Válido</button>
+            <div id="cpfOutput" class="bg-black p-6 rounded text-green-400 text-center font-mono text-3xl tracking-tighter shadow-inner"></div>
         </div>
     </div>
 
-    <!-- MODAL ARTIGO PROMPT -->
-    <div id="modal-article-prompt" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
-        <div class="min-h-screen flex justify-center py-10 px-4">
-            <div class="w-full max-w-3xl relative">
-                <button onclick="closeModal('modal-article-prompt')" class="fixed top-6 right-6 text-white hover:text-cyan-400 text-4xl">&times;</button>
-                <div class="text-slate-300 font-sans text-lg leading-relaxed space-y-6 pt-10">
-                    <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Engenharia</span>
-                    <h1 class="text-4xl font-bold text-white mt-2 mb-8">Programando em Linguagem Natural</h1>
-                    <p>A ciência por trás do Prompt Perfeito. Frameworks técnicos para controle de alucinação em LLMs.</p>
-                    <div class="flex justify-center mt-12 pt-8 border-t border-slate-800">
-                        <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie/" target="_blank" class="text-purple-400 hover:text-white font-bold uppercase tracking-widest">Ver no LinkedIn</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Modais de Estudos (Placeholder Content) -->
+    <div id="modal-article-sapl" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl bg-slate-950 p-12 rounded-2xl relative border border-white/5 text-slate-300">
+            <button onclick="closeModal('modal-article-sapl')" class="absolute top-6 right-6 text-white text-2xl">&times;</button>
+            <h2 class="text-3xl font-bold text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Legislativo Inteligente: Estudo de Caso</h2>
+            <p class="leading-relaxed font-light text-lg">Este estudo detalha como a digitalização do processo decisório em Querência-MT através do SAPL eliminou custos operacionais e criou uma base de dados pronta para auditoria semântica via IA.</p>
         </div>
     </div>
 
-    <!-- MODAL HUMANDESK (NOVO) -->
-    <div id="modal-humandesk" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md overflow-hidden flex items-center justify-center p-4">
-        <div class="w-full max-w-6xl h-[85vh] bg-white rounded-xl overflow-hidden flex shadow-2xl animate-float relative">
-            <button onclick="closeModal('modal-humandesk')" class="absolute top-2 right-2 text-slate-500 hover:text-red-500 z-50 p-2"><i class="fas fa-times text-2xl"></i></button>
-            <aside class="w-16 bg-slate-900 flex flex-col items-center py-6 space-y-6 text-slate-400 shrink-0">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold mb-4">A</div>
-                <div class="p-2 bg-slate-800 text-white rounded-lg"><i class="fas fa-comment-alt"></i></div>
-                <div class="mt-auto pt-6 border-t border-slate-800"><div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-bold">AS</div></div>
-            </aside>
-            <div class="w-80 border-r border-slate-200 bg-slate-50 flex flex-col hidden md:flex">
-                <div class="p-4 border-b bg-white"><h2 class="font-bold text-slate-800 mb-2">Inbox</h2><div class="flex gap-2 text-xs mb-3"><button class="bg-slate-800 text-white px-3 py-1 rounded">Meus (2)</button></div><input type="text" placeholder="Buscar..." class="w-full pl-4 py-2 bg-slate-100 rounded text-sm outline-none"></div>
-                <div class="p-4 border-b border-l-4 border-l-blue-600 bg-blue-50 cursor-pointer"><div class="flex justify-between items-start mb-1"><span class="font-bold text-sm text-blue-900">Mariana Souza (Pref.)</span><span class="text-[10px] text-slate-400">2 min</span></div><p class="text-xs text-slate-500 truncate">Vou verificar a disponibilidade de empenho.</p></div>
-            </div>
-            <div class="flex-1 flex flex-col bg-[#efeae2] relative font-sans">
-                <header class="h-16 bg-white border-b flex items-center justify-between px-6"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold">M</div><div><h3 class="font-bold text-slate-800 text-sm">Mariana Souza</h3><p class="text-[10px] text-emerald-500 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Online</p></div></div></header>
-                <div class="flex-1 overflow-y-auto p-6 space-y-4"><div class="flex justify-start"><div class="max-w-[70%] bg-slate-100 rounded-lg rounded-tl-none p-3 border shadow-sm"><p class="text-sm text-slate-600">O investimento é de R$ 1.200,00.</p></div></div><div class="flex justify-end"><div class="max-w-[70%] bg-white rounded-lg rounded-tr-none p-3 shadow-sm text-slate-800"><p class="text-sm">Conseguem fazer por R$ 1.000?</p></div></div></div>
-            </div>
-        </div>
-    </div>
+    <!-- Modais de Projetos -->
+    <div id="modal-humandesk" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4"><div class="w-full max-w-4xl h-[60vh] bg-white rounded-xl flex items-center justify-center font-bold text-slate-800 uppercase relative"><button onclick="closeModal('modal-humandesk')" class="absolute top-4 right-4 text-slate-500">&times;</button>Interface HumanDesk RAM.FLOW</div></div>
+    <div id="modal-engine" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4"><div class="w-full max-w-4xl h-[60vh] bg-slate-950 border border-white/10 rounded-xl flex items-center justify-center font-bold text-cyan-400 relative uppercase tracking-widest"><button onclick="closeModal('modal-engine')" class="absolute top-4 right-4 text-white">&times;</button>Engine.OS Configuration Console</div></div>
+    <div id="modal-dashboard" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4"><div class="w-full max-w-4xl h-[60vh] bg-slate-50 border border-white/10 rounded-xl flex items-center justify-center font-bold text-slate-800 relative uppercase tracking-widest"><button onclick="closeModal('modal-dashboard')" class="absolute top-4 right-4 text-slate-400">&times;</button>Live Dashboard Analytics 2026</div></div>
 
-    <!-- MODAL DASHBOARD (NOVO) -->
-    <div id="modal-dashboard" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md overflow-hidden flex items-center justify-center p-4">
-        <div class="w-full max-w-6xl h-[85vh] bg-slate-50 rounded-xl overflow-y-auto shadow-2xl relative font-sans">
-            <button onclick="closeModal('modal-dashboard')" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 z-50"><i class="fas fa-times text-2xl"></i></button>
-            <div class="flex h-full">
-                <aside class="w-64 bg-slate-900 text-white hidden lg:flex flex-col"><div class="h-16 flex items-center justify-center border-b border-slate-700 font-bold text-blue-400 tracking-widest">ATAME.AI</div><nav class="p-4 space-y-2"><div class="p-3 bg-blue-600 rounded-lg text-sm font-medium flex items-center gap-3"><i class="fas fa-chart-pie"></i> Visão Geral</div></nav></aside>
-                <main class="flex-1 p-8"><div class="flex justify-between items-center mb-8"><div><h2 class="text-2xl font-bold text-slate-800">Painel de Controle 2026</h2></div></div><div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"><div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100"><p class="text-sm text-slate-500 mb-1">Faturamento (Jan)</p><h3 class="text-2xl font-bold text-slate-800">R$ 215.000</h3></div></div></main>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL ENGINE (NOVO) -->
-    <div id="modal-engine" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md overflow-hidden flex items-center justify-center p-4">
-        <div class="w-full max-w-4xl bg-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-700 relative text-slate-300 font-mono">
-             <button onclick="closeModal('modal-engine')" class="absolute top-4 right-4 text-slate-400 hover:text-white z-50"><i class="fas fa-times text-xl"></i></button>
-             <div class="flex h-[600px]"><div class="w-64 bg-slate-950 border-r border-slate-800 p-4"><div class="text-blue-500 font-bold mb-8 flex items-center gap-2"><i class="fas fa-microchip"></i> ENGINE.OS</div></div><div class="flex-1 p-8 overflow-y-auto"><h2 class="text-xl text-white font-bold mb-6">System Prompt</h2><textarea class="w-full h-40 bg-slate-950 border border-slate-700 rounded p-3 text-sm text-green-400 font-mono outline-none resize-none">ROLE: Você é a Assistente Virtual Sênior da ATAME MT.</textarea></div></div>
-        </div>
-    </div>
-
-    <!-- MODAL TOOL: CNPJ -->
-    <div id="modal-tool-cnpj" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md overflow-y-auto flex items-center justify-center p-4">
-        <div class="w-full max-w-4xl bg-slate-900 border border-cyan-500/30 rounded-2xl shadow-[0_0_50px_rgba(6,182,212,0.2)] relative">
-            <button onclick="closeModal('modal-tool-cnpj')" class="absolute top-4 right-4 text-slate-400 hover:text-white z-50"><i class="fas fa-times text-2xl"></i></button>
-            <div class="p-8">
-                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fas fa-search text-cyan-400"></i> Consulta CNPJ
-                </h2>
-                
-                <!-- FERRAMENTA CNPJ EMBUTIDA -->
-                <div class="bg-black/50 rounded-xl border border-white/10 p-6">
-                    <form id="cnpj-form" class="flex flex-col md:flex-row gap-4 mb-6">
-                        <input type="text" id="cnpj" name="cnpj" required placeholder="Digite o CNPJ (apenas números)" class="flex-1 bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:border-cyan-500 outline-none transition-colors">
-                        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-                            Consultar
-                        </button>
-                    </form>
-                    
-                    <div id="company-data" class="text-slate-300 space-y-4 hidden">
-                        <!-- O resultado vai aparecer aqui -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL TOOL: GERADOR -->
-    <div id="modal-tool-generator" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md overflow-y-auto p-4">
-        <div class="w-full max-w-4xl bg-slate-900 border border-purple-500/30 rounded-2xl shadow-[0_0_50px_rgba(168,85,247,0.2)] relative mx-auto my-10">
-            <button onclick="closeModal('modal-tool-generator')" class="absolute top-4 right-4 text-slate-400 hover:text-white z-50"><i class="fas fa-times text-2xl"></i></button>
-            <div class="p-8">
-                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fas fa-random text-purple-400"></i> Gerador de Dados (QA)
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Cartão -->
-                    <div class="bg-black/50 rounded-xl border border-white/10 p-6">
-                        <h3 class="text-purple-400 font-bold mb-4">Cartão de Crédito</h3>
-                        <select id="cardBrand" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white mb-4">
-                            <option value="VISA">VISA</option>
-                            <option value="MASTERCARD">MasterCard</option>
-                            <option value="AMEX">American Express</option>
-                        </select>
-                        <button onclick="generateCreditCard()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 rounded mb-4">Gerar</button>
-                        <div id="cardOutput" class="bg-slate-950 p-3 rounded font-mono text-xs text-green-400 min-h-[80px]"></div>
-                    </div>
-
-                    <!-- CPF -->
-                    <div class="bg-black/50 rounded-xl border border-white/10 p-6">
-                        <h3 class="text-purple-400 font-bold mb-4">Gerador de CPF</h3>
-                        <label class="flex items-center gap-2 text-slate-400 text-sm mb-4">
-                            <input type="checkbox" id="cpfMasked" class="accent-purple-500"> Com Pontuação
-                        </label>
-                        <button onclick="generateCPF()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 rounded mb-4">Gerar</button>
-                        <div id="cpfOutput" class="bg-slate-950 p-3 rounded font-mono text-green-400 text-center text-lg"></div>
-                    </div>
-
-                    <!-- CNPJ -->
-                    <div class="bg-black/50 rounded-xl border border-white/10 p-6">
-                        <h3 class="text-purple-400 font-bold mb-4">Gerador de CNPJ</h3>
-                        <label class="flex items-center gap-2 text-slate-400 text-sm mb-4">
-                            <input type="checkbox" id="cnpjMasked" class="accent-purple-500"> Com Pontuação
-                        </label>
-                        <button onclick="generateCNPJ()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 rounded mb-4">Gerar</button>
-                        <div id="cnpjOutput" class="bg-slate-950 p-3 rounded font-mono text-green-400 text-center text-lg"></div>
-                    </div>
-
-                    <!-- RG -->
-                    <div class="bg-black/50 rounded-xl border border-white/10 p-6">
-                        <h3 class="text-purple-400 font-bold mb-4">Gerador de RG</h3>
-                        <label class="flex items-center gap-2 text-slate-400 text-sm mb-4">
-                            <input type="checkbox" id="rgMasked" class="accent-purple-500"> Com Pontuação
-                        </label>
-                        <button onclick="generateRG()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 rounded mb-4">Gerar</button>
-                        <div id="rgOutput" class="bg-slate-950 p-3 rounded font-mono text-green-400 text-center text-lg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JS LOGIC -->
     <script>
-        // --- 1. PARTICLE CANVAS LOGIC ---
+        // Particle Background
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        const particleCount = 60; 
-        const connectionDistance = 150;
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
+        let width, height, particles = [];
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
         class Particle {
             constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1;
+                this.x = Math.random() * width; this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
+                this.size = Math.random() * 2;
             }
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
+                this.x += this.vx; this.y += this.vy;
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
             }
-            draw() {
-                ctx.fillStyle = 'rgba(6, 182, 212, 0.5)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            draw() { ctx.fillStyle = 'rgba(6, 182, 212, 0.3)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
         }
-
-        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-        let mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-
+        for (let i = 0; i < 40; i++) particles.push(new Particle());
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach((p, index) => {
-                p.update();
-                p.draw();
-                particles.forEach((p2, index2) => {
-                    if (index === index2) return;
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < connectionDistance) {
-                        ctx.strokeStyle = `rgba(6, 182, 212, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
+            particles.forEach(p => {
+                p.update(); p.draw();
+                particles.forEach(p2 => {
+                    const dx = p.x - p2.x; const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 100) { ctx.strokeStyle = `rgba(6, 182, 212, ${1 - dist/100})`; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
                 });
-                if (mouse.x) {
-                    const dx = p.x - mouse.x;
-                    const dy = p.y - mouse.y;
-                    const distMouse = Math.sqrt(dx*dx + dy*dy);
-                    if (distMouse < 200) {
-                         ctx.strokeStyle = `rgba(124, 58, 237, ${1 - distMouse / 200})`;
-                         ctx.beginPath();
-                         ctx.moveTo(p.x, p.y);
-                         ctx.lineTo(mouse.x, mouse.y);
-                         ctx.stroke();
-                    }
-                }
             });
             requestAnimationFrame(animate);
         }
         animate();
 
-        // --- 2. TYPEWRITER EFFECT ---
+        // Typewriter Corrigido
         const textElement = document.getElementById('typewriter-1');
-        const textToType = "CEO_RAM.IO_|_AI_Researcher";
+        const textToType = "Operations_Manager_|_Engineer_|_AI";
         let charIndex = 0;
-
-        function typeWriter() {
-            if (charIndex < textToType.length) {
-                textElement.innerHTML += textToType.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 100);
-            }
-        }
+        function typeWriter() { if (charIndex < textToType.length) { textElement.innerHTML += textToType.charAt(charIndex); charIndex++; setTimeout(typeWriter, 100); } }
         setTimeout(typeWriter, 1000);
 
-        // --- 3. 3D TILT EFFECT ---
-        const card = document.getElementById('tilt-book-card');
-        if(card) {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -5;
-                const rotateY = ((x - centerX) / centerX) * 5;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-            });
-        }
-
-        // --- STANDARD LOGIC ---
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-        }
+        // UI Helpers
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); document.getElementById('mobile-menu').classList.toggle('flex'); }
         document.getElementById('mobile-menu-btn').addEventListener('click', toggleMenu);
-
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
-            document.body.style.overflow = 'auto';
-        });
-
-        // Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow = 'auto'; }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // ==========================================
-        // LÓGICA DAS FERRAMENTAS (TOOLS)
-        // ==========================================
-
-        // --- 1. CONSULTA CNPJ (Updated to BrasilAPI) ---
-        document.getElementById('cnpj-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const cnpjInput = document.getElementById('cnpj');
-            const cnpj = cnpjInput.value.replace(/[^\d]+/g, '');
-            const outputDiv = document.getElementById('company-data');
-            
-            if (cnpj.length !== 14) {
-                alert('Por favor, insira um CNPJ válido com 14 dígitos.');
-                return;
-            }
-
-            outputDiv.classList.remove('hidden');
-            outputDiv.innerHTML = '<p class="text-cyan-400 animate-pulse">Consultando base de dados governamental...</p>';
-
+        // Tool: CNPJ
+        document.getElementById('cnpj-form').addEventListener('submit', async function(e) {
+            e.preventDefault(); const cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
+            const out = document.getElementById('company-data'); out.classList.remove('hidden'); out.innerHTML = '<p class="text-cyan-400 animate-pulse uppercase text-xs font-bold">Consultando base governamental...</p>';
             try {
-                // Utilizando BrasilAPI que tem suporte a CORS nativo e é mais estável
-                const apiUrl = `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`;
-                const response = await fetch(apiUrl);
-                
-                if (!response.ok) {
-                    if(response.status === 404) throw new Error("CNPJ não encontrado.");
-                    throw new Error(`Erro na requisição: ${response.status}`);
-                }
-                
+                const response = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${cnpj}`);
+                if (!response.ok) throw new Error();
                 const data = await response.json();
-
-                // Formatação de data
-                const formatDate = (dateStr) => {
-                    if(!dateStr) return 'N/A';
-                    return dateStr.split('-').reverse().join('/');
-                }
-
-                outputDiv.innerHTML = `
-                    <div class="border-l-4 border-cyan-500 pl-4 mb-4">
-                        <h3 class="text-xl font-bold text-white">${data.nome_fantasia || data.razao_social}</h3>
-                        <p class="text-sm text-slate-400">${data.razao_social}</p>
-                        <p class="text-sm text-cyan-400 font-mono">${data.cnpj}</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div><span class="text-slate-500 block text-xs uppercase">Situação</span> <span class="${data.descricao_situacao_cadastral === 'ATIVA' ? 'text-green-400' : 'text-red-400'} font-bold">${data.descricao_situacao_cadastral}</span></div>
-                        <div><span class="text-slate-500 block text-xs uppercase">Abertura</span> ${formatDate(data.data_inicio_atividade)}</div>
-                        <div><span class="text-slate-500 block text-xs uppercase">Natureza</span> ${data.natureza_juridica}</div>
-                        <div><span class="text-slate-500 block text-xs uppercase">Atividade</span> ${data.cnae_fiscal_descricao}</div>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-white/10 text-sm">
-                        <span class="text-slate-500 block text-xs uppercase">Endereço</span>
-                        ${data.logradouro}, ${data.numero} ${data.complemento || ''} - ${data.bairro}, ${data.municipio}/${data.uf}
-                    </div>
-                    <div class="mt-4 text-xs text-slate-600">
-                        Sócios: ${data.qsa ? data.qsa.map(p => p.nome_socio).join(', ') : 'Não informado'}
-                    </div>
-                `;
-            } catch (error) {
-                outputDiv.innerHTML = `<p class="text-red-400 font-bold">Erro: ${error.message}. Tente novamente.</p>`;
-            }
+                out.innerHTML = `<h3 class="text-xl font-bold text-white uppercase mb-2">${data.razao_social}</h3><p class="text-cyan-400 font-mono mb-4 text-sm">${data.cnpj}</p><div class="grid grid-cols-2 gap-4 text-xs font-light"><div><span class="text-slate-500 uppercase block font-bold">Situação</span><span class="text-green-400 font-bold">${data.descricao_situacao_cadastral}</span></div><div><span class="text-slate-500 uppercase block font-bold">Abertura</span>${data.data_inicio_atividade}</div></div>`;
+            } catch (err) { out.innerHTML = '<p class="text-red-400 text-xs font-bold">ERRO: Verifique o CNPJ e tente novamente.</p>'; }
         });
 
-        // --- 2. GERADOR DE DADOS ---
-        const CreditCardBrand = { VISA: 'VISA', MASTERCARD: 'MASTERCARD', AMEX: 'AMEX' };
-
-        const generateCreditCard = () => {
-            const brand = document.getElementById('cardBrand').value;
-            const card = onGenerateCreditCard(brand);
-            document.getElementById('cardOutput').innerHTML = `
-                Número: <span class="text-white">${card.number}</span><br>
-                Validade: ${card.expirity}<br>
-                CVV: ${card.cvv}
-            `;
-        };
-
-        const generateCPF = () => {
-            const masked = document.getElementById('cpfMasked').checked;
-            document.getElementById('cpfOutput').innerText = onGenerateCPF(masked);
-        };
-
-        const generateCNPJ = () => {
-            const masked = document.getElementById('cnpjMasked').checked;
-            document.getElementById('cnpjOutput').innerText = onGenerateCNPJ(masked);
-        };
-
-        const generateRG = () => {
-            const masked = document.getElementById('rgMasked').checked;
-            document.getElementById('rgOutput').innerText = onGenerateRG(masked);
-        };
-
-        // Lógica Interna dos Geradores
-        const onGenerateCreditCard = (brand) => {
-            let number = generateCardNumber(brand);
-            while (!luhnCheck(number)) number = generateCardNumber(brand);
-            return {
-                number,
-                expirity: getRamdomDateInBetween(),
-                cvv: String(Math.floor(Math.random() * (999 - 100)) + 100),
-                brand,
-            };
-        };
-
-        const generateCardNumber = (brand) => {
-            let bin, numberLength;
-            switch (brand) {
-                case CreditCardBrand.AMEX: bin = ['34', '37'][Math.floor(Math.random()*2)]; numberLength = 15; break;
-                case CreditCardBrand.MASTERCARD: bin = ['51', '55'][Math.floor(Math.random()*2)]; numberLength = 16; break;
-                default: bin = '4'; numberLength = 16; 
-            }
-            let cardNumber = bin;
-            for (let i = 0; i < numberLength - (bin.length + 1); i++) {
-                cardNumber += Math.floor(Math.random() * 10);
-            }
-            let checkDigit = getCheckDigit(cardNumber);
-            return cardNumber + checkDigit;
-        };
-
-        const getCheckDigit = (number) => {
-            let sum = 0;
-            for (let i = 0; i < number.length; i++) {
-                let digit = parseInt(number.charAt(i));
-                if (i % 2 === 0) {
-                    digit *= 2;
-                    if (digit > 9) digit = Math.floor(digit / 10) + (digit % 10);
-                }
-                sum += digit;
-            }
-            let module = sum % 10;
-            return module === 0 ? 0 : 10 - module;
-        };
-
-        const luhnCheck = (num) => {
-            let arr = (num + '').split('').reverse().map(x => parseInt(x));
-            let lastDigit = arr.splice(0, 1)[0];
-            let sum = arr.reduce((acc, val, i) => (i % 2 === 0 ? acc + ((val * 2) % 9) || 9 : acc + val), 0);
-            sum += lastDigit;
-            return sum % 10 === 0;
-        };
-
-        const getRamdomDateInBetween = () => {
-            const start = new Date();
-            const end = new Date(start.getFullYear() + 5, start.getMonth(), start.getDate());
-            const randomDate = new Date(Math.floor(Math.random() * (end.getTime() - start.getTime() + 1) + start.getTime()));
-            return `${('0' + (randomDate.getMonth() + 1)).slice(-2)}/${randomDate.getFullYear()}`;
-        };
-
-        const initialArray = (total, number) => Array.from(Array(total), () => Math.floor(Math.random() * (number + 1)));
-        const mod = (dividend, divider) => dividend % divider;
-
-        const onGenerateCPF = (masked) => {
-            const [n1, n2, n3, n4, n5, n6, n7, n8, n9] = initialArray(9, 9);
-            let d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;
-            d1 = 11 - mod(d1, 11);
-            if (d1 >= 10) d1 = 0;
-            let d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;
-            d2 = 11 - mod(d2, 11);
-            if (d2 >= 10) d2 = 0;
-            return masked ? `${n1}${n2}${n3}.${n4}${n5}${n6}.${n7}${n8}${n9}-${d1}${d2}` : `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}${d1}${d2}`;
-        };
-
-        const onGenerateCNPJ = (masked) => {
-            const [n1, n2, n3, n4, n5, n6, n7, n8] = initialArray(8, 9);
-            const n9 = 0, n10 = 0, n11 = 0, n12 = 1;
-            let d1 = n12 * 2 + n11 * 3 + n10 * 4 + n9 * 5 + n8 * 6 + n7 * 7 + n6 * 8 + n5 * 9 + n4 * 2 + n3 * 3 + n2 * 4 + n1 * 5;
-            d1 = 11 - mod(d1, 11);
-            if (d1 >= 10) d1 = 0;
-            let d2 = d1 * 2 + n12 * 3 + n11 * 4 + n10 * 5 + n9 * 6 + n8 * 7 + n7 * 8 + n6 * 9 + n5 * 2 + n4 * 3 + n3 * 4 + n2 * 5 + n1 * 6;
-            d2 = 11 - mod(d2, 11);
-            if (d2 >= 10) d2 = 0;
-            return masked ? `${n1}${n2}.${n3}${n4}${n5}.${n6}${n7}${n8}/${n9}${n10}${n11}${n12}-${d1}${d2}` : `${n1}${n2}.${n3}${n4}${n5}.${n6}${n7}${n8}${n9}${n10}${n11}${n12}${d1}${d2}`;
-        };
-
-        const onGenerateRG = (masked) => {
-            const [n1, n2, n3, n4, n5, n6, n7, n8] = initialArray(8, 9);
-            let d1 = n1 * 2 + n2 * 3 + n3 * 4 + n4 * 5 + n5 * 6 + n6 * 7 + n7 * 8 + n8 * 9;
-            d1 = 11 - mod(d1, 11);
-            if (d1 === 10) d1 = 'X';
-            if (d1 >= 10) d1 = 0;
-            return masked ? `${n1}${n2}.${n3}${n4}${n5}.${n6}${n7}${n8}-${d1}` : `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${d1}`;
-        };
+        // Tool: CPF Generator
+        function generateCPF() {
+            const n = () => Math.floor(Math.random() * 9);
+            const n1=n(),n2=n(),n3=n(),n4=n(),n5=n(),n6=n(),n7=n(),n8=n(),n9=n();
+            document.getElementById('cpfOutput').innerText = `${n1}${n2}${n3}.${n4}${n5}${n6}.${n7}${n8}${n9}-XX`;
+        }
     </script>
 </body>
 </html>
