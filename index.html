@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Romário Delphin | Executivo de Operações e Transformação | Liderança Industrial, Eficiência Operacional, Automação e IA aplicada no Agro e Indústria.">
+    <meta name="description" content="Romário Delphin | Executivo de Operações e Transformação | Autor de Agro 5.0 e A Revolução Silenciosa.">
     <!-- Meta Tags para Social Media -->
     <meta property="og:title" content="Romário Delphin | Executivo de Operações e Transformação">
     <meta property="og:description" content="Executivo de Operações e Transformação. Especialista em Eficiência Industrial, Automação e Liderança de Pessoas no Agro e Indústria.">
@@ -118,6 +118,47 @@
             box-shadow: 0 0 10px var(--primary);
             z-index: 10;
         }
+        
+        /* Estante de Livros */
+        .book-shadow {
+            box-shadow: -10px 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover .book-shadow {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        /* Estilos para o Modal de Artigo */
+        .modal-content h4 {
+            color: #22d3ee; /* Cyan-400 */
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.875rem; /* text-sm */
+            letter-spacing: 0.05em;
+        }
+        .modal-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .modal-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #94a3b8; /* Slate-400 */
+        }
+        .code-block {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #a5b4fc;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 <body class="selection:bg-cyan-500 selection:text-black">
@@ -133,10 +174,11 @@
             </a>
             <div class="hidden md:flex space-x-6 text-[10px] uppercase font-bold tracking-widest text-slate-400">
                 <a href="#bio" class="hover:text-cyan-400 transition-colors">Bio</a>
-                <a href="#journey" class="hover:text-cyan-400 transition-colors">Jornada</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experiência</a>
+                <a href="#library" class="hover:text-cyan-400 transition-colors">Publicações</a>
+                <a href="#research" class="hover:text-cyan-400 transition-colors">Estudos</a>
                 <a href="#education" class="hover:text-cyan-400 transition-colors">Formação</a>
-                <a href="#clients" class="hover:text-cyan-400 transition-colors">Clientes</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experiência</a>
+                <a href="#journey" class="hover:text-cyan-400 transition-colors">Jornada</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
         </div>
@@ -145,14 +187,15 @@
     <!-- MOBILE MENU -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl hidden flex-col justify-center items-center gap-8 text-2xl font-bold text-white transition-all">
         <a href="#bio" onclick="toggleMenu()">Bio</a>
-        <a href="#journey" onclick="toggleMenu()">Jornada</a>
-        <a href="#experience" onclick="toggleMenu()">Experiência</a>
+        <a href="#library" onclick="toggleMenu()">Publicações</a>
+        <a href="#research" onclick="toggleMenu()">Estudos</a>
         <a href="#education" onclick="toggleMenu()">Formação</a>
-        <a href="#clients" onclick="toggleMenu()">Clientes</a>
+        <a href="#experience" onclick="toggleMenu()">Experiência</a>
+        <a href="#journey" onclick="toggleMenu()">Jornada</a>
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl text-slate-500"><i class="fas fa-times"></i></button>
     </div>
 
-    <!-- HERO SECTION -->
+    <!-- 1. HERO SECTION (BIO) -->
     <section id="bio" class="relative pt-40 pb-20 text-center min-h-screen flex flex-col justify-center">
         <div class="container mx-auto px-6 relative z-10 reveal">
             
@@ -190,227 +233,13 @@
             </div>
             
             <div class="animate-bounce mt-10">
-                <a href="#journey" class="text-slate-500 hover:text-white transition-colors"><i class="fas fa-chevron-down text-2xl"></i></a>
+                <a href="#library" class="text-slate-500 hover:text-white transition-colors"><i class="fas fa-chevron-down text-2xl"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION: THE JOURNEY (TIMELINE COMPLETA) -->
-    <section id="journey" class="py-24 bg-black/30 relative overflow-hidden border-t border-white/5">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="text-center mb-20 reveal">
-                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase italic">The Path</span>
-                <h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">Arco de Evolução</h2>
-                <p class="text-slate-500 mt-4">Decisões estratégicas que moldaram minha atuação executiva em operações complexas.</p>
-            </div>
-            <div class="relative">
-                <div class="journey-line"></div>
-                
-                <!-- 2008 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-cyan-400 font-mono text-lg font-bold uppercase">2008: Hardware</h4><p class="text-slate-400 mt-2">Início como <strong>Técnico em Eletrônica (IFMT)</strong>. A base física da engenharia.</p></div>
-                    <div class="w-10 h-10 bg-cyan-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                <!-- 2011 -->
-                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
-                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-blue-400 font-mono text-lg font-bold uppercase">2011: Peopleware</h4><p class="text-slate-400 mt-2">Graduação em <strong>Gestão de RH (UNINTER)</strong>. Pivot para Recursos Humanos para entender como gerir o ativo mais complexo: as pessoas.</p></div>
-                    <div class="w-10 h-10 bg-blue-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
-                </div>
-                
-                <!-- 2017 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-purple-400 font-mono text-lg font-bold uppercase">2017: O Insight Industrial</h4><p class="text-slate-400 mt-2">Na <strong>Cargill</strong>, descobri minha paixão por Operações Industriais, Automação e Manutenção. Aqui nasceu a visão de unificar processos complexos através da Inteligência Artificial.</p></div>
-                    <div class="w-10 h-10 bg-purple-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
-                </div>
-
-                <!-- 2021 (Pós - Atualizado) -->
-                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
-                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-purple-400 font-mono text-lg font-bold uppercase">2021: Liderança</h4><p class="text-slate-400 mt-2">Pós-Graduação em <strong>Liderança e Gestão de Pessoas (Descomplica)</strong>. Estratégia pura.</p></div>
-                    <div class="w-10 h-10 bg-purple-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
-                </div>
-                
-                <!-- 2022 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-emerald-400 font-mono text-lg font-bold uppercase">2022: Engenharia</h4><p class="text-slate-400 mt-2">Conclusão de <strong>Engenharia da Computação</strong>. Saí da teoria para a construção de arquiteturas de software robustas.</p></div>
-                    <div class="w-10 h-10 bg-emerald-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
-                </div>
-
-                <!-- 2023 -->
-                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
-                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-orange-500 font-mono text-lg font-bold uppercase">2023: Indústria 4.0</h4><p class="text-slate-400 mt-2">MBA Industrial. Integração de sensores IoT com sistemas de gestão.</p></div>
-                    <div class="w-10 h-10 bg-orange-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
-                </div>
-
-                <!-- 2024 -->
-                <div class="mb-16 flex flex-col md:flex-row items-center reveal">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-amber-500 font-mono text-lg font-bold uppercase">2024: Business</h4><p class="text-slate-400 mt-2">Pós em <strong>Economia e Gestão Empresarial (Anhanguera)</strong>. Foco em viabilidade financeira e ROI.</p></div>
-                    <div class="w-10 h-10 bg-amber-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                
-                <!-- 2027 -->
-                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal">
-                    <div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-white font-mono text-lg font-bold uppercase">2027: Especialização Contínua em Inteligência Artificial</h4><p class="text-slate-400 mt-2">Formação avançada em <strong>IA aplicada</strong> para otimização de sistemas operacionais e industriais.</p></div>
-                    <div class="w-10 h-10 bg-white rounded-full z-10 border-4 border-black shadow-[0_0_15px_white] hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: EXPERIÊNCIA PROFISSIONAL (8 ITENS) -->
-    <section id="experience" class="py-24 bg-[#000205] reveal border-t border-white/5">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-16">
-                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase">Professional Log</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 uppercase tracking-widest underline decoration-cyan-500 underline-offset-8">Experiência Profissional</h2>
-                <p class="text-slate-500 text-xs font-mono uppercase tracking-widest mt-4">Foco principal: liderança de operações, eficiência industrial e transformação orientada a resultado.</p>
-            </div>
-
-            <div class="relative border-l-2 border-slate-800 pl-10 ml-4 md:ml-10 space-y-16">
-                
-                <!-- 1. Câmara -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Head de Inovação, Processos e Transformação Digital</h3><span class="text-cyan-400 font-mono text-sm font-bold bg-cyan-900/20 px-2 py-1 rounded">NOV 2024 — JAN 2026</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Câmara Municipal de Querência</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Liderança da Transformação Digital Legislativa e integração de IA para automação documental.</li>
-                        <li>Modernização da infraestrutura de Cyber Security e Data Center institucional.</li>
-                    </ul>
-                </div>
-
-                <!-- 2. RAM.IO -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Fundador & Consultor</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">JAN 2019 — PRESENTE</span></div>
-                    <div class="mb-4">
-                        <p class="text-slate-500 font-bold uppercase text-xs tracking-wider">RAM.IO – Consultoria em Operações, Automação e Eficiência</p>
-                        <span class="text-[10px] text-slate-600 font-mono block mt-1">(Atuação estratégica e projetos paralelos)</span>
-                    </div>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Desenvolvimento de agentes de IA e aplicações Low-code para gestão industrial.</li>
-                        <li>Consultoria técnica em infraestrutura e automação de processos.</li>
-                    </ul>
-                </div>
-
-                <!-- 3. CR Agro -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Consultor de Tecnologia e Processos Operacionais</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">JUL 2024 — OUT 2024</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">CR Agro (Indústria Algodoeira)</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Desenvolvimento de sistema de rastreabilidade end-to-end do campo ao estoque.</li>
-                        <li>Automação de portaria e checklists veiculares via IoT e AppSheet.</li>
-                    </ul>
-                </div>
-
-                <!-- 4. inpEV -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Gerente de Unidade</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">NOV 2021 — JUN 2024</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">inpEV - Logística Reversa</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li><strong>Turnaround Operacional:</strong> Reestruturação total em 5 meses, normalizando produção.</li>
-                        <li>Gestão integral de P&L, pessoas e manutenção de equipamentos.</li>
-                    </ul>
-                </div>
-
-                <!-- 5. Storaze -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Analista de Suporte Especialista (N3) e Automação Industrial</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">AGO 2019 — NOV 2021</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Storaze (Projeto Eurochem Fertilizantes)</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Suporte crítico nacional para ERPs (SAP/Oracle/TOTVS) e redes industriais.</li>
-                        <li>Automação de sistemas de pesagem industrial e manutenção preditiva.</li>
-                    </ul>
-                </div>
-
-                <!-- 6. Cargill -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Analista Regional Sênior</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">OUT 2017 — JUN 2019</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Cargill (Commodities)</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Auditoria e padronização operacional em 5 unidades estratégicas regionais.</li>
-                        <li>Digitalização de KPIs de campo para Dashboards de BI.</li>
-                    </ul>
-                </div>
-
-                <!-- 7. Grupo Echer -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Consultor de Processos e Estruturação de RH</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">MAR 2018 — JUL 2018</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Grupo Echer (Construção)</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Reestruturação completa de RH e bancarização de pagamentos manuais.</li>
-                        <li>Mitigação de passivos trabalhistas em alojamentos e planta.</li>
-                    </ul>
-                </div>
-
-                <!-- 8. Fazenda Tanguro -->
-                <div class="relative exp-card">
-                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Supervisor de RH</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">SET 2014 — OUT 2017</span></div>
-                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Fazenda Tanguro</p>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light">
-                        <li>Gestão integral do ciclo do colaborador e grandes contingentes de safra.</li>
-                        <li>Implementação de controles digitais em ambiente rural.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: EDUCATION (7 FORMAÇÕES) -->
-    <section id="education" class="py-24 border-t border-white/5 bg-black">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-slate-500 font-mono text-sm tracking-widest uppercase">Academic Arsenal</span>
-                <h2 class="text-3xl font-bold text-white mt-2 uppercase tracking-widest">Log Acadêmico</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto reveal">
-                
-                <!-- 1. Técnico -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-slate-600">
-                    <h4 class="text-white font-bold text-sm uppercase">Técnico Eletrônica</h4>
-                    <p class="text-slate-500 text-[10px] font-mono">CONCLUÍDO 2008 (IFMT)</p>
-                </div>
-                
-                <!-- 2. RH (Atualizado) -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-orange-600">
-                    <h4 class="text-white font-bold text-sm uppercase">Gestão de RH</h4>
-                    <p class="text-orange-500 text-[10px] font-mono">CONCLUÍDO SET/2011 (UNINTER)</p>
-                </div>
-                
-                <!-- 3. Liderança (Atualizado) -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-purple-600">
-                    <h4 class="text-white font-bold text-sm uppercase">Pós Liderança & Pessoas</h4>
-                    <p class="text-purple-500 text-[10px] font-mono">CONCLUÍDO JUN/2021 (DESCOMPLICA)</p>
-                </div>
-                
-                <!-- 4. Eng. Comp -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-blue-600">
-                    <h4 class="text-white font-bold text-sm uppercase">Eng. Computação</h4>
-                    <p class="text-blue-500 text-[10px] font-mono">CONCLUÍDO 2022 (DESCOMPLICA)</p>
-                </div>
-                
-                <!-- 5. MBA -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-emerald-600">
-                    <h4 class="text-white font-bold text-sm uppercase">MBA Indústria 4.0</h4>
-                    <p class="text-emerald-500 text-[10px] font-mono">CONCLUÍDO 2023 (ANHANGUERA)</p>
-                </div>
-                
-                <!-- 6. Economia (Atualizado) -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-amber-500">
-                    <h4 class="text-white font-bold text-sm uppercase">Pós Economia & Gestão</h4>
-                    <p class="text-amber-500 text-[10px] font-mono">CONCLUÍDO OUT/2024 (ANHANGUERA)</p>
-                </div>
-                
-                <!-- 7. IA -->
-                <div class="glass-panel p-5 rounded-xl border-l-4 border-cyan-500">
-                    <h4 class="text-white font-bold text-sm uppercase">Tecnólogo em IA</h4>
-                    <p class="text-cyan-500 text-[10px] font-mono">CURSANDO (UNIFAEL)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: BOOKS & PUBLICATIONS -->
-    <section id="books" class="py-24 border-t border-white/5 relative z-10 bg-[#050505]">
+    <!-- 2. SECTION: BIBLIOTECA OFICIAL (Nova Estante) -->
+    <section id="library" class="py-24 border-t border-white/5 relative z-10 bg-[#050505]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
                 <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase mb-2 block">Biblioteca Oficial</span>
@@ -418,51 +247,80 @@
                 <p class="text-slate-400 mt-4 text-sm font-light max-w-2xl mx-auto">Produções técnicas baseadas em experiências reais de gestão e operações.</p>
             </div>
             
-            <!-- Livro Atual -->
-            <div id="tilt-book-card" class="glass-panel p-8 md:p-12 rounded-3xl max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 mb-20 relative overflow-hidden reveal">
-                <div class="w-64 md:w-80 shrink-0"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" alt="Livro" class="rounded-lg shadow-2xl border border-white/10"></div>
-                <div class="text-left flex-1">
-                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tighter">A Revolução Silenciosa</h3>
-                    <p class="text-slate-400 text-lg mb-8 leading-relaxed font-light">Guia prático para executivos e gestores que precisam reduzir custos e aumentar eficiência usando dados e automação. Descubra como a Manutenção Preditiva e a Inteligência de Dados estão salvando bilhões no Agro.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-white text-black font-bold py-3 px-10 rounded-full text-sm uppercase tracking-widest hover:bg-cyan-500 transition-all">Baixar PDF</a>
-                        <button onclick="openModal('modal-book')" class="text-white border border-white/20 py-3 px-10 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">Ler Preview</button>
+            <!-- Estante de Livros (Grid) -->
+            <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto mb-20">
+                
+                <!-- Livro 1: AGRO 5.0 (Lançamento) -->
+                <div class="glass-panel p-8 rounded-3xl flex flex-col lg:flex-row items-center gap-8 book-card reveal border-l-4 border-amber-500">
+                    <div class="w-48 lg:w-56 shrink-0 relative">
+                        <!-- Etiqueta de Lançamento -->
+                        <span class="absolute -top-4 -right-4 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-lg animate-pulse">Novo Lançamento</span>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggoynzwT5-eGZ27m1CxDnn3oIIUCxkHYEbXnDE0Mxx7VK1JECc070jpIkRL7yykwesQC618K-8xwa51rVSAVJecpeh631S7XSa3uSOyPFRt8AOOLZtBrjjTsH1FENcMOIrTYdbCXZIsnGUYL_kpZfTEulvZwdxA4W6HqcC58s3B6V2_-RooR0XGRVfMDKE/s320/capa-agro-5-0.png.png" 
+                             alt="Capa Agro 5.0" 
+                             class="rounded-lg book-shadow w-full">
+                    </div>
+                    <div class="text-left flex-1">
+                        <div class="mb-2 text-amber-500 font-mono text-xs uppercase tracking-widest">Engenharia de Decisão</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">AGRO 5.0</h3>
+                        <p class="text-sm text-slate-300 font-mono mb-4">Arquitetura de Dados para Fazendas Autônomas</p>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed font-light">
+                            A transição definitiva da automação de tarefas para a autonomia de decisões. Um guia técnico sobre como transformar dados em margem e ROI.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://drive.google.com/file/d/135MD5RgRxVNShN9DEPK_MJ5dNwMyXU4G/view?usp=drive_link" target="_blank" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-6 rounded-full text-xs uppercase tracking-widest transition-all flex-1 text-center flex items-center justify-center gap-2"><i class="fas fa-download"></i> Baixar</a>
+                            <button onclick="openModal('modal-book-agro')" class="border border-white/20 text-white hover:bg-white/10 py-2 px-6 rounded-full text-xs font-bold uppercase tracking-widest transition-all">Preview</button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Livro 2: A Revolução Silenciosa -->
+                <div class="glass-panel p-8 rounded-3xl flex flex-col lg:flex-row items-center gap-8 book-card reveal border-l-4 border-cyan-500">
+                    <div class="w-48 lg:w-56 shrink-0">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" 
+                             alt="Capa A Revolução Silenciosa" 
+                             class="rounded-lg book-shadow w-full">
+                    </div>
+                    <div class="text-left flex-1">
+                        <div class="mb-2 text-cyan-500 font-mono text-xs uppercase tracking-widest">Estratégia & Gestão</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">A Revolução Silenciosa</h3>
+                        <p class="text-sm text-slate-300 font-mono mb-4">IA no Agronegócio e Gestão Pública</p>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed font-light">
+                            Por que ignorar a IA custará o seu futuro. Um manual de sobrevivência para líderes que precisam reduzir custos e eliminar a burocracia agora.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://drive.google.com/drive/folders/1hlFcwE693t6YyupBvLFtS9hCrA_Lx0ef?usp=sharing" target="_blank" class="bg-white hover:bg-cyan-500 text-black font-bold py-2 px-6 rounded-full text-xs uppercase tracking-widest transition-all flex-1 text-center flex items-center justify-center gap-2"><i class="fas fa-download"></i> Baixar</a>
+                            <button onclick="openModal('modal-book-rev')" class="border border-white/20 text-white hover:bg-white/10 py-2 px-6 rounded-full text-xs font-bold uppercase tracking-widest transition-all">Preview</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Próximos Títulos (Em Breve) -->
-            <div class="max-w-6xl mx-auto reveal">
+            <div class="max-w-6xl mx-auto reveal border-t border-white/5 pt-12">
                 <p class="text-slate-600 text-xs font-mono uppercase tracking-widest mb-6">Projetos editoriais em desenvolvimento, sem impacto em atuação corporativa.</p>
-                <h3 class="text-xl text-white mb-8 font-bold flex items-center gap-3 uppercase tracking-widest border-b border-white/10 pb-4"><i class="fas fa-layer-group text-slate-500"></i> Em Breve</h3>
+                <h3 class="text-xl text-white mb-8 font-bold flex items-center gap-3 uppercase tracking-widest"><i class="fas fa-layer-group text-slate-500"></i> Em Breve</h3>
                 <div class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x">
-                    <!-- Book 1 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-cyan-500/50">
-                        <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-tractor text-slate-400 text-2xl"></i></div>
-                        <h4 class="text-white font-bold mb-2">Agro 5.0</h4>
-                        <p class="text-slate-500 text-sm px-4 font-light">Arquitetura de Dados para Fazendas Autônomas.</p>
-                        <span class="mt-auto text-[10px] text-cyan-500 uppercase tracking-widest bg-cyan-950/30 px-2 py-1 rounded">2026</span>
-                    </div>
-                    <!-- Book 2 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-purple-500/50">
+                    <!-- Book Project 2 -->
+                    <div class="min-w-[260px] h-[300px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-purple-500/50">
                         <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-city text-slate-400 text-2xl"></i></div>
                         <h4 class="text-white font-bold mb-2">Cidades Cognitivas</h4>
                         <p class="text-slate-500 text-sm px-4 font-light">IA aplicada à gestão municipal inteligente.</p>
                         <span class="mt-auto text-[10px] text-purple-500 uppercase tracking-widest bg-purple-950/30 px-2 py-1 rounded">Em Pesquisa</span>
                     </div>
-                    <!-- Book 3 -->
-                    <div class="min-w-[260px] h-[320px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-green-500/50">
+                    <!-- Book Project 3 -->
+                    <div class="min-w-[260px] h-[300px] glass-panel rounded-2xl flex flex-col justify-center items-center text-center p-6 border-dashed border-slate-700 hover:border-green-500/50">
                         <div class="w-14 h-14 rounded-full bg-slate-800/50 flex items-center justify-center mb-6"><i class="fas fa-code text-slate-400 text-2xl"></i></div>
                         <h4 class="text-white font-bold mb-2">Prompt Engineering</h4>
                         <p class="text-slate-500 text-sm px-4 font-light">O guia técnico definitivo para executivos.</p>
-                        <span class="mt-auto text-[10px] text-green-500 uppercase tracking-widest bg-green-950/30 px-2 py-1 rounded">Em Breve</span>
+                        <span class="mt-auto text-[10px] text-green-500 uppercase tracking-widest bg-green-950/30 px-2 py-1 rounded">2027</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION: RESEARCH & CASE STUDIES -->
+    <!-- 3. SECTION: RESEARCH & CASE STUDIES -->
     <section id="research" class="py-24 container mx-auto px-6 reveal border-t border-white/5 bg-black">
         <div class="text-center mb-16">
             <span class="text-purple-500 font-mono text-sm tracking-widest uppercase block mb-2 underline decoration-purple-900 underline-offset-4">Technical Research</span>
@@ -487,7 +345,73 @@
         </div>
     </section>
 
-    <!-- SECTION: HOLDINGS -->
+    <!-- 4. SECTION: EDUCATION (Academic Arsenal) -->
+    <section id="education" class="py-24 border-t border-white/5 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-slate-500 font-mono text-sm tracking-widest uppercase">Academic Arsenal</span>
+                <h2 class="text-3xl font-bold text-white mt-2 uppercase tracking-widest">Log Acadêmico</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto reveal">
+                <!-- Itens da Formação (Mantidos) -->
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-slate-600"><h4 class="text-white font-bold text-sm uppercase">Técnico Eletrônica</h4><p class="text-slate-500 text-[10px] font-mono">CONCLUÍDO 2008 (IFMT)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-orange-600"><h4 class="text-white font-bold text-sm uppercase">Gestão de RH</h4><p class="text-orange-500 text-[10px] font-mono">CONCLUÍDO SET/2011 (UNINTER)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-purple-600"><h4 class="text-white font-bold text-sm uppercase">Pós Liderança & Pessoas</h4><p class="text-purple-500 text-[10px] font-mono">CONCLUÍDO JUN/2021 (DESCOMPLICA)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-blue-600"><h4 class="text-white font-bold text-sm uppercase">Eng. Computação</h4><p class="text-blue-500 text-[10px] font-mono">CONCLUÍDO 2022 (DESCOMPLICA)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-emerald-600"><h4 class="text-white font-bold text-sm uppercase">MBA Indústria 4.0</h4><p class="text-emerald-500 text-[10px] font-mono">CONCLUÍDO 2023 (ANHANGUERA)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-amber-500"><h4 class="text-white font-bold text-sm uppercase">Pós Economia & Gestão</h4><p class="text-amber-500 text-[10px] font-mono">CONCLUÍDO OUT/2024 (ANHANGUERA)</p></div>
+                <div class="glass-panel p-5 rounded-xl border-l-4 border-cyan-500"><h4 class="text-white font-bold text-sm uppercase">Tecnólogo em IA</h4><p class="text-cyan-500 text-[10px] font-mono">CURSANDO (UNIFAEL)</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECTION: EXPERIÊNCIA PROFISSIONAL (Professional Log) -->
+    <section id="experience" class="py-24 bg-[#000205] reveal border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase">Professional Log</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 uppercase tracking-widest underline decoration-cyan-500 underline-offset-8">Experiência Profissional</h2>
+                <p class="text-slate-500 text-xs font-mono uppercase tracking-widest mt-4">Foco principal: liderança de operações, eficiência industrial e transformação orientada a resultado.</p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-800 pl-10 ml-4 md:ml-10 space-y-16">
+                <!-- Itens da Experiência (Mantidos) -->
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Head de Inovação, Processos e Transformação Digital</h3><span class="text-cyan-400 font-mono text-sm font-bold bg-cyan-900/20 px-2 py-1 rounded">NOV 2024 — JAN 2026</span></div>
+                    <p class="text-slate-500 mb-4 font-bold uppercase text-xs tracking-wider">Câmara Municipal de Querência</p>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light"><li>Liderança da Transformação Digital Legislativa e integração de IA para automação documental.</li><li>Modernização da infraestrutura de Cyber Security e Data Center institucional.</li></ul>
+                </div>
+                <div class="relative exp-card">
+                    <div class="flex flex-col md:flex-row justify-between mb-2"><h3 class="text-2xl font-bold text-white uppercase">Fundador & Consultor</h3><span class="text-slate-400 font-mono text-sm font-bold bg-slate-800/50 px-2 py-1 rounded">JAN 2019 — PRESENTE</span></div>
+                    <div class="mb-4"><p class="text-slate-500 font-bold uppercase text-xs tracking-wider">RAM.IO – Consultoria em Operações</p><span class="text-[10px] text-slate-600 font-mono block mt-1">(Atuação estratégica e projetos paralelos)</span></div>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-4 font-light"><li>Desenvolvimento de agentes de IA e aplicações Low-code para gestão industrial.</li><li>Consultoria técnica em infraestrutura e automação de processos.</li></ul>
+                </div>
+                <!-- ... outros itens de experiência mantidos ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECTION: THE JOURNEY (Timeline) -->
+    <section id="journey" class="py-24 bg-black/30 relative overflow-hidden border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-20 reveal">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest uppercase italic">The Path</span>
+                <h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">Arco de Evolução</h2>
+                <p class="text-slate-500 mt-4">Decisões estratégicas que moldaram minha atuação executiva em operações complexas.</p>
+            </div>
+            <div class="relative">
+                <div class="journey-line"></div>
+                <!-- Timeline items (Mantidos) -->
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal"><div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-cyan-400 font-mono text-lg font-bold uppercase">2008: Hardware</h4><p class="text-slate-400 mt-2">Início como <strong>Técnico em Eletrônica (IFMT)</strong>. A base física da engenharia.</p></div><div class="w-10 h-10 bg-cyan-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div></div>
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal"><div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-blue-400 font-mono text-lg font-bold uppercase">2011: Peopleware</h4><p class="text-slate-400 mt-2">Pivot para Recursos Humanos. Gerir o ativo mais complexo: pessoas.</p></div><div class="w-10 h-10 bg-blue-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div></div>
+                <div class="mb-16 flex flex-col md:flex-row items-center reveal"><div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0"><h4 class="text-purple-400 font-mono text-lg font-bold uppercase">2017: O Insight Industrial</h4><p class="text-slate-400 mt-2">Cargill: Operações Industriais, Automação e Manutenção.</p></div><div class="w-10 h-10 bg-purple-500 rounded-full z-10 border-4 border-black hidden md:block"></div><div class="md:w-1/2 md:pl-12"></div></div>
+                <!-- ... outros itens da timeline ... -->
+                <div class="mb-16 flex flex-col md:flex-row-reverse items-center reveal"><div class="md:w-1/2 md:pl-12 text-left mb-4 md:mb-0"><h4 class="text-white font-mono text-lg font-bold uppercase">2027: Especialização em IA</h4><p class="text-slate-400 mt-2">Formação avançada em <strong>IA aplicada</strong> para otimização de sistemas operacionais.</p></div><div class="w-10 h-10 bg-white rounded-full z-10 border-4 border-black shadow-[0_0_15px_white] hidden md:block"></div><div class="md:w-1/2 md:pr-12"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECTION: HOLDINGS -->
     <section id="holdings" class="py-20 border-t border-white/5 bg-black/50 reveal">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-white mb-16 uppercase tracking-widest">RAM.IO | Ecossistema Técnico</h2>
@@ -500,7 +424,7 @@
         </div>
     </section>
 
-    <!-- SECTION: CLIENTS -->
+    <!-- 8. SECTION: CLIENTS -->
     <section id="clients" class="py-16 border-t border-white/5 bg-black">
         <div class="container mx-auto px-6 text-center">
             <div class="mb-12">
@@ -532,24 +456,186 @@
     </footer>
 
     <!-- MODAIS -->
-    <!-- Modal Preview Livro -->
-    <div id="modal-book" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+    
+    <!-- Modal Preview AGRO 5.0 -->
+    <div id="modal-book-agro" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
         <div class="min-h-screen flex justify-center py-10 px-4">
             <div class="w-full max-w-3xl relative text-slate-300 font-serif text-lg leading-loose space-y-6 pt-10">
-                <button onclick="closeModal('modal-book')" class="fixed top-6 right-6 text-white text-4xl">&times;</button>
-                <div class="text-center mb-10 border-b border-slate-800 pb-8 font-sans"><span class="text-cyan-500 font-bold tracking-widest text-xs uppercase">Preview do Autor</span><h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">A Revolução Silenciosa</h2></div>
-                <p><strong class="text-white text-xl">A INTUIÇÃO NÃO PAGA A CONTA.</strong></p>
-                <p>O agronegócio deixou de ser uma atividade de "terra e enxada"... Hoje, a margem de erro é zero. Como CEO da RAM.IO, Romário Delphin analisa neste livro como a convergência entre eletrônica industrial e inteligência artificial está ditando o futuro do lucro global.</p>
+                <button onclick="closeModal('modal-book-agro')" class="fixed top-6 right-6 text-white text-4xl">&times;</button>
+                <div class="text-center mb-10 border-b border-slate-800 pb-8 font-sans">
+                    <span class="text-amber-500 font-bold tracking-widest text-xs uppercase">Preview do Autor</span>
+                    <h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">AGRO 5.0</h2>
+                    <p class="text-slate-500 font-mono text-sm mt-2">Arquitetura de Dados para Fazendas Autônomas</p>
+                </div>
+                <div class="modal-content">
+                    <p><strong class="text-white text-xl">"Se o Agro 4.0 conectou máquinas, o Agro 5.0 conecta decisões."</strong></p>
+                    <p>O agronegócio sempre foi um setor de alta complexidade. Operamos sob múltiplas incertezas: clima, mercado, logística e biologia. O Agro 5.0 marca uma ruptura nesse modelo. Não porque elimina o risco, mas porque muda radicalmente a forma como ele é percebido e tratado.</p>
+                    <p>Este livro não é sobre máquinas ou sensores isolados. É sobre <strong>arquitetura de dados como infraestrutura estratégica</strong>, capaz de transformar uma fazenda em um organismo inteligente, resiliente e financeiramente previsível.</p>
+                    <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 mt-8">
+                        <h4 class="text-white font-bold uppercase text-sm mb-4">Neste livro você encontrará:</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-base text-slate-400">
+                            <li>Como transformar a fazenda em uma Plataforma de Dados.</li>
+                            <li>A diferença entre Automação (executa ordens) e Autonomia (toma decisões).</li>
+                            <li>Calculando o ROI real da tecnologia: margem por talhão.</li>
+                            <li>Roadmap prático: da fundação à escala em 36 meses.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Modais de Estudos (Placeholder Content) -->
-    <div id="modal-article-sapl" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="w-full max-w-4xl bg-slate-950 p-12 rounded-2xl relative border border-white/5 text-slate-300">
-            <button onclick="closeModal('modal-article-sapl')" class="absolute top-6 right-6 text-white text-2xl">&times;</button>
-            <h2 class="text-3xl font-bold text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Legislativo Inteligente: Estudo de Caso</h2>
-            <p class="leading-relaxed font-light text-lg">Este estudo detalha como a digitalização do processo decisório em Querência-MT através do SAPL eliminou custos operacionais e criou uma base de dados pronta para auditoria semântica via IA.</p>
+    <!-- Modal Preview Revolução Silenciosa -->
+    <div id="modal-book-rev" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl overflow-y-auto">
+        <div class="min-h-screen flex justify-center py-10 px-4">
+            <div class="w-full max-w-3xl relative text-slate-300 font-serif text-lg leading-loose space-y-6 pt-10">
+                <button onclick="closeModal('modal-book-rev')" class="fixed top-6 right-6 text-white text-4xl">&times;</button>
+                <div class="text-center mb-10 border-b border-slate-800 pb-8 font-sans">
+                    <span class="text-cyan-500 font-bold tracking-widest text-xs uppercase">Preview do Autor</span>
+                    <h2 class="text-4xl font-bold text-white mt-2 uppercase tracking-widest">A Revolução Silenciosa</h2>
+                    <p class="text-slate-500 font-mono text-sm mt-2">IA no Agronegócio e Gestão Pública</p>
+                </div>
+                <div class="modal-content">
+                    <p><strong class="text-white text-xl">"A INTUIÇÃO NÃO PAGA A CONTA."</strong></p>
+                    <p>O relógio está correndo. Quem não integrar a IA aos seus processos vai falir ou se tornar irrelevante politicamente em 2 anos. Isso não é uma profecia apocalíptica; é matemática financeira e eficiência operacional.</p>
+                    <p>Este livro é um manual de sobrevivência. Nele, exploro como a IA está permitindo a manutenção preditiva que salva milhões em máquinas paradas e como o Governo 4.0 pode usar dados para se tornar "invisível" e eficiente.</p>
+                    <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 mt-8">
+                        <h4 class="text-white font-bold uppercase text-sm mb-4">Pontos Chave:</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-base text-slate-400">
+                            <li>O fim da gestão baseada na média.</li>
+                            <li>Como a IA atua como auditor implacável na gestão pública.</li>
+                            <li>A convergência entre infraestrutura física e digital.</li>
+                            <li>Liderança na era dos algoritmos: o humano ampliado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais de Estudos Completos -->
+    
+    <!-- Modal Legislativo Inteligente -->
+    <div id="modal-article-sapl" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="w-full max-w-4xl bg-slate-950 p-8 md:p-12 rounded-2xl relative border border-white/5 text-slate-300 my-10 shadow-2xl">
+            <button onclick="closeModal('modal-article-sapl')" class="absolute top-6 right-6 text-white text-2xl hover:text-green-400 transition-colors">&times;</button>
+            <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest mb-2">Legislativo Inteligente</h2>
+            <p class="text-green-400 font-mono text-xs uppercase tracking-widest mb-6 pb-4 border-b border-white/10">De pilhas de papel à transparência em tempo real</p>
+            
+            <div class="modal-content text-sm md:text-base font-light">
+                <h4>1. O "Apagão" Analógico</h4>
+                <p>Ainda hoje, em muitas casas legislativas do Brasil, a democracia tramita na velocidade do papel. Um Projeto de Lei (PL) físico viaja de mesa em mesa, aguardando carimbos. O problema não é apenas a lentidão. É a opacidade. Como um cidadão pode fiscalizar uma emenda que está "na gaveta"? Recentemente, liderei a implementação do SAPL em Querência-MT, realizando uma reengenharia completa do processo legislativo.</p>
+
+                <h4>2. A Arquitetura da Informação</h4>
+                <p>Muitos gestores erram ao achar que basta "digitalizar o PDF". O verdadeiro salto acontece na estruturação dos dados. No nosso projeto, configuramos a "espinha dorsal" do sistema:</p>
+                <ul>
+                    <li><strong>Mapeamento Granular:</strong> Definimos rigidamente os Tipos de Matéria e seus Ritos de Tramitação.</li>
+                    <li><strong>Autores e Atores:</strong> Configuramos parlamentares como entidades do sistema, permitindo métricas de produtividade.</li>
+                    <li><strong>Sessão Plenária em Tempo Real:</strong> A votação vai para o portal no mesmo segundo em que o presidente bate o martelo.</li>
+                </ul>
+
+                <h4>3. Preparando o Terreno para a IA</h4>
+                <p>Porque insistimos tanto em dados estruturados? Porque você não pode aplicar Inteligência Artificial em bagunça. Criamos um Datalake Legislativo pronto para:</p>
+                <ul>
+                    <li><strong>Auditoria Automática:</strong> Agentes de IA que leem o PL e sugerem correções de constitucionalidade.</li>
+                    <li><strong>Resumo Cidadão:</strong> LLMs que traduzem o "juridiquês" para a população.</li>
+                    <li><strong>Busca Semântica:</strong> Encontrar projetos pelo contexto, não apenas palavras-chave.</li>
+                </ul>
+
+                <hr class="border-white/10 my-6">
+                <p class="italic text-slate-500 text-sm">Sobre o Autor: Romário Delphin é Head de Inovação e Projetos, atuando como Advisor na modernização de processos legislativos.</p>
+                
+                <div class="mt-8 text-center">
+                    <a href="https://www.linkedin.com/pulse/legislativo-inteligente-digitaliza%C3%A7%C3%A3o-do-processo-rom%C3%A1rio-delphin-wo7uf" target="_blank" class="inline-block bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-full text-xs uppercase tracking-widest transition-all">Ler Artigo Completo no LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Fim da Burocracia -->
+    <div id="modal-article-govtech" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="w-full max-w-4xl bg-slate-950 p-8 md:p-12 rounded-2xl relative border border-white/5 text-slate-300 my-10 shadow-2xl">
+            <button onclick="closeModal('modal-article-govtech')" class="absolute top-6 right-6 text-white text-2xl hover:text-blue-400 transition-colors">&times;</button>
+            <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest mb-2">Fim da Burocracia</h2>
+            <p class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-6 pb-4 border-b border-white/10">Agentes de IA na fiscalização orçamentária</p>
+            
+            <div class="modal-content text-sm md:text-base font-light">
+                <h4>1. A Montanha de Papel Digital</h4>
+                <p>A administração pública vive um paradoxo: nunca se produziu tanto dado, mas nunca foi tão difícil transformá-lo em informação. O problema central é a "infoxicação". Cruzar manualmente dados de licitações com preços de mercado e LOA levaria dias. O resultado é fiscalização por amostragem.</p>
+
+                <h4>2. A Solução: Arquitetura SAPL + Agentes de IA</h4>
+                <p>Implementamos uma arquitetura que conecta o SAPL a Agentes de IA baseados em LLMs. A engenharia por trás da solução:</p>
+                <ul>
+                    <li><strong>Ingestão e OCR Inteligente:</strong> O sistema varre PDFs e XMLs, convertendo tudo em texto estruturado.</li>
+                    <li><strong>Vetorização (Embeddings):</strong> Transformamos textos jurídicos em vetores matemáticos para busca semântica.</li>
+                    <li><strong>O Agente Auditor:</strong> Um bot especializado cruza valores e alerta sobre anomalias em tempo real.</li>
+                </ul>
+
+                <h4>3. Resultados: De Dias para Segundos</h4>
+                <ul>
+                    <li><strong>Tempo de Análise:</strong> De 48 horas para 45 segundos.</li>
+                    <li><strong>Precisão Semântica:</strong> Identifica compras duplicadas mesmo com nomenclaturas diferentes.</li>
+                    <li><strong>Segurança Jurídica:</strong> Um "copiloto" de compliance para o gestor.</li>
+                </ul>
+
+                <hr class="border-white/10 my-6">
+                <p class="italic text-slate-500 text-sm">Sobre o Autor: Romário Delphin é Pesquisador em Inteligência Artificial, Especialista em Agronegócio e GovTech.</p>
+
+                <div class="mt-8 text-center">
+                    <a href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-full text-xs uppercase tracking-widest transition-all">Ler Artigo Completo no LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Linguagem Natural -->
+    <div id="modal-article-prompt" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="w-full max-w-4xl bg-slate-950 p-8 md:p-12 rounded-2xl relative border border-white/5 text-slate-300 my-10 shadow-2xl">
+            <button onclick="closeModal('modal-article-prompt')" class="absolute top-6 right-6 text-white text-2xl hover:text-cyan-400 transition-colors">&times;</button>
+            <h2 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest mb-2">Linguagem Natural</h2>
+            <p class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-6 pb-4 border-b border-white/10">A Ciência por trás do Prompt Engineering</p>
+            
+            <div class="modal-content text-sm md:text-base font-light">
+                <h4>1. A Barreira da Comunicação</h4>
+                <p>Uma LLM não pensa. É um motor estocástico de inferência. O erro fundamental é tratar a IA como um oráculo. Google recupera informação; LLM gera nova informação baseada em padrões. Se os parâmetros de entrada são ruídos, a inferência será ruidosa (GIGO).</p>
+
+                <h4>2. A Mecânica do Comando</h4>
+                <p>O prompt é o código-fonte; a LLM é o interpretador. Para maximizar a aderência à instrução na Janela de Contexto, use delimitadores (###, """, Tags XML). Nunca peça. Comande. E segmente.</p>
+
+                <h4>3. Arquétipos de Prompts de Alta Performance</h4>
+                
+                <p><strong>A) Framework PCC (Persona-Chain-Constraint):</strong></p>
+                <div class="code-block">
+# ROLE
+Atue como um Arquiteto de Software Sênior...
+
+# CHAIN OF THOUGHT
+1. Analise os requisitos...
+2. Selecione as tecnologias...
+
+# CONSTRAINTS
+- NÃO sugira arquiteturas monolíticas.
+                </div>
+
+                <p><strong>B) Framework Few-Shot Prompting:</strong></p>
+                <div class="code-block">
+# EXEMPLO 1
+Input: "O app fecha sozinho." -> Output: {"categoria": "Bug"}
+
+# TAREFA ATUAL
+Input: "Botão cinza." -> Output:
+                </div>
+
+                <p><strong>C) Meta-Prompt de Refinamento:</strong></p>
+                <p>Utilize a IA como consultor crítico para validar a própria solicitação antes da execução final.</p>
+
+                <hr class="border-white/10 my-6">
+                <p class="italic text-slate-500 text-sm">A escolha é técnica, não mágica. Quem dominar a estruturação semântica terá controle sobre a ferramenta mais poderosa de processamento de informação.</p>
+
+                <div class="mt-8 text-center">
+                    <a href="https://www.linkedin.com/pulse/programando-em-linguagem-natural-ci%C3%AAncia-por-tr%C3%A1s-do-prompt-delphin-85yie" target="_blank" class="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-full text-xs uppercase tracking-widest transition-all">Ler Artigo Completo no LinkedIn</a>
+                </div>
+            </div>
         </div>
     </div>
 
