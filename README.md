@@ -19,6 +19,7 @@ Agentes de IA, SAPL, GovTech, automação legislativa e transformação digital 
 
 - atuação em Inteligência Artificial para o setor público;
 - case Agentes de IA + SAPL;
+- diagnóstico de maturidade IA + SAPL com cinco dimensões e plano inicial de 90 dias;
 - projetos de GovTech, compliance e IA aplicada;
 - experiência profissional;
 - formação acadêmica;
