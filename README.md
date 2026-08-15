@@ -26,6 +26,7 @@ Agentes de IA, SAPL, GovTech, automação legislativa e transformação digital 
 - experiência profissional;
 - formação acadêmica;
 - livros e publicações;
+- página dedicada aos currículos profissional e ATS;
 - canais de contato profissional.
 
 ## Arquitetura
