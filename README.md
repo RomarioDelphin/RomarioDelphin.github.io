@@ -4,7 +4,8 @@ Currículo digital e portfólio técnico de **Romário Delphin**, consultor em I
 
 **Site:** [romariodelphin.github.io](https://romariodelphin.github.io/)<br>
 **LinkedIn:** [linkedin.com/in/romariodelphin](https://www.linkedin.com/in/romariodelphin/)<br>
-**Instagram:** [@romariodelphi](https://www.instagram.com/romariodelphi/)
+**Instagram:** [@romariodelphi](https://www.instagram.com/romariodelphi/)<br>
+**WhatsApp:** [(66) 99917-4504](https://wa.me/5566999174504)
 
 ## Posicionamento
 
