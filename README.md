@@ -35,7 +35,11 @@ O projeto utiliza uma arquitetura estática, leve e compatível com GitHub Pages
 - JavaScript sem dependências;
 - navegação acessível;
 - suporte a preferência por movimento reduzido;
-- metadados para busca e compartilhamento.
+- metadados completos para busca e compartilhamento;
+- URLs canônicas, `robots.txt` e `sitemap.xml`;
+- dados estruturados Schema.org em JSON-LD;
+- cartões Open Graph e Twitter em 1200 × 630;
+- manifesto e favicon próprios.
 
 ## Direção visual
 

@@ -1,0 +1,19 @@
+{
+  "name": "Romário Delphin | IA para o Setor Público",
+  "short_name": "Romário Delphin",
+  "description": "Portfólio profissional sobre Inteligência Artificial aplicada ao Setor Público, SAPL, GovTech e transformação digital.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06111a",
+  "theme_color": "#06111a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
