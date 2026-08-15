@@ -3,7 +3,8 @@
 Currículo digital e portfólio técnico de **Romário Delphin**, consultor em Inteligência Artificial para o Setor Público.
 
 **Site:** [romariodelphin.github.io](https://romariodelphin.github.io/)<br>
-**LinkedIn:** [linkedin.com/in/romariodelphin](https://www.linkedin.com/in/romariodelphin/)
+**LinkedIn:** [linkedin.com/in/romariodelphin](https://www.linkedin.com/in/romariodelphin/)<br>
+**Instagram:** [@romariodelphi](https://www.instagram.com/romariodelphi/)
 
 ## Posicionamento
 
