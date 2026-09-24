@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#06111a">
-  <meta name="description" content="Consultor de Inteligência Artificial para o Setor Público em Brasília. Agentes de IA, SAPL, GovTech, automação legislativa e transformação digital.">
+  <meta name="description" content="Romário Delphin, Engenheiro de Computação em Querência, MT. Inteligência Artificial, automação, processos e transformação digital para operações e setor público.">
   <meta name="author" content="Romário Delphin">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://romariodelphin.github.io/">
@@ -52,10 +52,10 @@
           "@id": "https://romariodelphin.github.io/#webpage",
           "url": "https://romariodelphin.github.io/",
           "name": "Consultor de IA para o Setor Público | Romário Delphin",
-          "description": "Consultor de Inteligência Artificial para o Setor Público em Brasília, com atuação em agentes de IA, SAPL, GovTech e transformação digital.",
+          "description": "Engenheiro de Computação em Querência, MT, com atuação em IA, automação, processos e transformação digital.",
           "isPartOf": { "@id": "https://romariodelphin.github.io/#website" },
           "mainEntity": { "@id": "https://romariodelphin.github.io/#romario-delphin" },
-          "dateModified": "2026-08-24",
+          "dateModified": "2026-09-24",
           "inLanguage": "pt-BR"
         },
         {
@@ -63,11 +63,9 @@
           "@id": "https://romariodelphin.github.io/#romario-delphin",
           "name": "Romário Delphin",
           "url": "https://romariodelphin.github.io/",
-          "image": "https://romariodelphin.github.io/assets/images/romario-delphin-portfolio-2026.png",
           "jobTitle": [
             "Consultor de Inteligência Artificial para o Setor Público",
-            "Assessor Legislativo Parlamentar",
-            "Membro Técnico em Inteligência Artificial no Legislativo Brasileiro"
+            "Membro Técnico Voluntário em Inteligência Artificial no Legislativo"
           ],
           "description": "Especialista em agentes de IA, SAPL, GovTech, automação legislativa, governança de IA e transformação digital no setor público.",
           "telephone": "+55 66 99917-4504",
@@ -80,8 +78,8 @@
           },
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Brasília",
-            "addressRegion": "Distrito Federal",
+            "addressLocality": "Querência",
+            "addressRegion": "Mato Grosso",
             "addressCountry": "BR"
           },
           "sameAs": [
@@ -99,10 +97,7 @@
             "Automação de Processos",
             "Transformação Digital"
           ],
-          "worksFor": [
-            { "@type": "Organization", "name": "Programa Interlegis" },
-            { "@type": "GovernmentOrganization", "name": "Câmara Municipal de Querência" }
-          ]
+          "hasOccupation": { "@type": "Occupation", "name": "Engenheiro de Computação" }
         }
       ]
     }
@@ -127,7 +122,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
       margin: 0;
       min-width: 320px;
@@ -336,6 +331,24 @@
       gap: 13px;
       margin-top: 34px;
     }
+    .hero-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 21px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .hero-socials a {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(185, 218, 230, .3);
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .hero-socials a:hover, .hero-socials a:focus-visible {
+      color: var(--cyan-soft);
+      border-color: var(--cyan);
+    }
     .button {
       display: inline-flex;
       align-items: center;
@@ -385,6 +398,12 @@
       border: 1px solid var(--line-bright);
       border-radius: 42px 42px 130px 42px;
       box-shadow: 0 34px 100px rgba(0, 0, 0, .34);
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 68% 32%, rgba(80, 215, 219, .2), transparent 39%),
+        repeating-linear-gradient(90deg, transparent 0 47px, rgba(185, 218, 230, .045) 48px),
+        linear-gradient(155deg, #123244, #06111a 80%);
     }
     .portrait-card::before {
       content: "";
@@ -401,15 +420,31 @@
       height: 46%;
       background: linear-gradient(to top, rgba(6, 17, 26, .96), transparent);
     }
-    .portrait-card img {
+    .portrait-monogram {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: clamp(180px, 58%, 290px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(80, 215, 219, .43);
+      border-radius: 30%;
+      box-shadow: inset 0 0 80px rgba(80, 215, 219, .06), 0 0 110px rgba(80, 215, 219, .1);
+      color: var(--cyan-soft);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(5.6rem, 12vw, 9rem);
+      font-weight: 700;
+      letter-spacing: -.11em;
+      padding-right: .1em;
+    }
+    .portrait-monogram::after {
+      content: "";
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 25%;
-      filter: saturate(.76) contrast(1.04);
-      opacity: .93;
+      bottom: 19%;
+      width: 28%;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--gold);
     }
     .portrait-meta {
       position: absolute;
@@ -814,6 +849,7 @@
       .reveal { opacity: 1; transform: none; }
     }
   </style>
+  <noscript><style>@media (max-width: 820px) { .mobile-menu { display: grid; } .menu-toggle { display: none; } }</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -833,9 +869,9 @@
         <a href="curriculos.html">Currículos</a>
         <a class="nav-cta" href="diagnostico.html">Diagnóstico</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">≡</button>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="menu-movel" aria-expanded="false">≡</button>
     </div>
-    <nav class="mobile-menu" aria-label="Navegação móvel">
+    <nav class="mobile-menu" id="menu-movel" aria-label="Navegação móvel">
       <a href="#atuacao">Atuação</a>
       <a href="#case">Case SAPL</a>
       <a href="#projetos">Projetos</a>
@@ -851,7 +887,7 @@
       <div class="container">
         <div class="hero-grid">
           <div class="reveal">
-            <div class="eyebrow">Brasília · IA aplicada ao Estado</div>
+            <div class="eyebrow">Querência, MT · IA aplicada a problemas reais</div>
             <h1>Romário <span>Delphin</span></h1>
             <p class="hero-title">Inteligência Artificial para o Setor Público.</p>
             <p class="hero-copy">
@@ -860,12 +896,15 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="diagnostico.html">Diagnóstico IA + SAPL <span aria-hidden="true">↗</span></a>
-              <a class="button button-secondary" href="curriculos.html">Currículos</a>
               <a class="button button-secondary" href="#case">Ver case</a>
-              <a class="button button-secondary" href="https://www.linkedin.com/in/romariodelphin/" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="button button-secondary" href="https://www.instagram.com/romariodelphi/" target="_blank" rel="noopener">Instagram</a>
-              <a class="button button-gold" href="https://wa.me/5566999174504" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="button button-secondary" href="curriculos.html">Currículos</a>
             </div>
+            <nav class="hero-socials" aria-label="Links profissionais">
+              <a href="https://github.com/RomarioDelphin" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/romariodelphin/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="https://wa.me/5566999174504" target="_blank" rel="noopener">WhatsApp ↗</a>
+              <a href="https://www.instagram.com/romariodelphi/" target="_blank" rel="noopener">Instagram ↗</a>
+            </nav>
             <div class="metrics" aria-label="Indicadores principais">
               <div class="metric metric-accent">
                 <strong>48 h → 45 s</strong>
@@ -873,7 +912,7 @@
               </div>
               <div class="metric">
                 <strong>Desde 2023</strong>
-                <span>Agentes de IA integrados a fluxos do SAPL</span>
+                <span>Estudos de IA relacionados ao SAPL e a processos legislativos</span>
               </div>
               <div class="metric">
                 <strong>Humano no centro</strong>
@@ -884,10 +923,10 @@
 
           <div class="portrait-stage reveal">
             <div class="portrait-card">
-              <img src="assets/images/romario-delphin-portfolio-2026.png" alt="Retrato profissional de Romário Delphin trabalhando com um notebook" width="1122" height="1402" decoding="async" fetchpriority="high">
+              <div class="portrait-monogram" aria-hidden="true">RD</div>
               <div class="portrait-meta">
                 <p class="portrait-role">Consultor de IA · Engenheiro de Computação</p>
-                <p class="portrait-place">Brasília, Distrito Federal, Brasil</p>
+                <p class="portrait-place">Querência, Mato Grosso, Brasil</p>
               </div>
             </div>
             <div class="orbit orbit-one">IA responsável</div>
@@ -938,12 +977,12 @@
             <div class="case-copy">
               <div class="case-kicker">Case principal · Agentes de IA + SAPL</div>
               <h3>Fiscalização orçamentária com evidências rastreáveis.</h3>
-              <p>Diários Oficiais, empenhos, contratos e proposições passam por um fluxo estruturado de processamento, relação contextual e sinalização de pontos que merecem revisão técnica.</p>
+              <p>O case descreve um fluxo de análise preliminar de Diários Oficiais, empenhos, contratos e proposições, com processamento, relação contextual e revisão técnica. O repositório público documenta a proposta e não contém código executável.</p>
             </div>
             <aside class="result-card" aria-label="Resultado do case">
-              <span>Resultado observado</span>
+              <span>Tempo relatado em um cenário específico</span>
               <div class="result-flow"><strong>48 h</strong><b>→</b><strong>45 s</strong></div>
-              <p>Comparação entre análise humana intermitente e processamento preliminar automatizado. A decisão permanece humana.</p>
+              <p>Estimativa para a etapa preliminar, comparando uma análise humana intermitente com o processamento automatizado. Não representa o processo completo; a decisão permanece humana.</p>
             </aside>
           </div>
 
@@ -977,6 +1016,7 @@
             <span>Segurança jurídica</span>
           </div>
           <div class="case-actions">
+            <a class="button button-secondary" href="https://github.com/RomarioDelphin/agentes-ia-sapl" target="_blank" rel="noopener">Ler documentação do case ↗</a>
             <a class="button button-primary" href="https://www.linkedin.com/posts/romariodelphin_agentes-de-ia-sapl-fiscaliza%C3%A7%C3%A3o-com-controle-activity-7494380024087781377-FfT-/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgL59gBCYDr_Q-0OPqtg6RLdAhO7Xkj3lk" target="_blank" rel="noopener">Ver carrossel do case</a>
             <a class="button button-secondary" href="https://www.linkedin.com/pulse/o-fim-da-burocracia-invis%C3%ADvel-rom%C3%A1rio-delphin-nlg5e" target="_blank" rel="noopener">Ler artigo técnico</a>
             <a class="button button-gold" href="diagnostico.html">Diagnóstico de maturidade</a>
@@ -1010,7 +1050,7 @@
           <a class="project reveal" href="https://github.com/RomarioDelphin/agentes-ia-sapl" target="_blank" rel="noopener">
             <div class="project-tag">GovTech · Case principal</div>
             <h3>Agentes de IA + SAPL</h3>
-            <p>Arquitetura para análise documental, fiscalização orçamentária e revisão humana apoiada por evidências rastreáveis.</p>
+            <p>Estudo de caso documental sobre arquitetura de análise legislativa, recuperação de contexto e revisão humana. O repositório apresenta a proposta, sem código executável.</p>
             <div class="project-stack">IA generativa · RAG · OCR · SAPL</div>
           </a>
           <article class="project reveal">
@@ -1022,7 +1062,7 @@
           <a class="project reveal" href="https://github.com/RomarioDelphin/Consulta-de-CNPJ-com-Analise-IA" target="_blank" rel="noopener">
             <div class="project-tag">Compliance público</div>
             <h3>Fiscal Risk AI</h3>
-            <p>Aplicação full-stack para consulta empresarial, classificação de risco e apoio à análise de conformidade.</p>
+            <p>Protótipo Flask para consulta empresarial e duas regras simples de triagem, com dados públicos. Não é uma decisão de crédito nem um modelo de IA validado.</p>
             <div class="project-stack">Python · Flask · Regras · Dados públicos</div>
           </a>
           <a class="project reveal" href="https://github.com/RomarioDelphin/consultacnpj" target="_blank" rel="noopener">
@@ -1040,7 +1080,7 @@
           <a class="project reveal" href="https://github.com/RomarioDelphin/Sentinela_Industrial" target="_blank" rel="noopener">
             <div class="project-tag">Indústria 4.0 · IA aplicada</div>
             <h3>Sentinela Industrial</h3>
-            <p>Manutenção preditiva com dados de sensores para antecipar falhas e apoiar a confiabilidade operacional.</p>
+            <p>Protótipo de exploração de dados de sensores e sinais de risco operacional. As métricas de desempenho ainda exigem validação reproduzível.</p>
             <div class="project-stack">Python · Machine Learning · Streamlit · IoT</div>
           </a>
           <a class="project reveal" href="https://github.com/RomarioDelphin/Gerador-de-Informacoes" target="_blank" rel="noopener">
@@ -1048,6 +1088,12 @@
             <h3>Engine.OS</h3>
             <p>Gerador client-side de dados sintéticos válidos para testes de formulários, regras de negócio e homologação.</p>
             <div class="project-stack">HTML · CSS · JavaScript · Algoritmos</div>
+          </a>
+          <a class="project reveal" href="https://github.com/RomarioDelphin/ai-master-challenge/tree/submission/romario-queiroz/submissions/romario-queiroz" target="_blank" rel="noopener">
+            <div class="project-tag">Participação técnica · Desafio G4</div>
+            <h3>Lead Focus</h3>
+            <p>Protótipo de priorização de oportunidades com testes e limites documentados. A validação temporal não sustentou o modelo preditivo, e o projeto apresenta um fluxo alternativo transparente.</p>
+            <div class="project-stack">Python · Streamlit · Validação temporal</div>
           </a>
         </div>
       </div>
@@ -1066,7 +1112,7 @@
           <article class="experience featured reveal">
             <div class="experience-meta"><span>Programa Interlegis</span><span>Mai 2026 — Atual</span></div>
             <h3>Membro Técnico — Inteligência Artificial no Legislativo Brasileiro</h3>
-            <h4>Atuação contratual</h4>
+            <h4>Atuação voluntária</h4>
             <ul>
               <li>Demonstrações de IA generativa, engenharia de prompts e agentes aplicados à atividade legislativa.</li>
               <li>Capacitação institucional com foco em modernização, governança e uso responsável.</li>
@@ -1074,11 +1120,11 @@
             </ul>
           </article>
           <article class="experience reveal">
-            <div class="experience-meta"><span>Câmara Municipal de Querência — MT</span><span>Mai 2019 — Atual</span></div>
+            <div class="experience-meta"><span>Câmara Municipal de Querência — MT</span><span>Mai 2019 — Set 2026</span></div>
             <h3>Assessor Legislativo Parlamentar · Especialista em IA e Inovação Pública</h3>
-            <h4>Atuação em tempo integral</h4>
+            <h4>Processos, apoio legislativo e soluções digitais</h4>
             <ul>
-              <li>Desde 2023, desenvolvimento de agentes de IA integrados ao SAPL e aos fluxos institucionais.</li>
+              <li>Desde 2023, desenvolvimento de estudos e fluxos de IA relacionados ao SAPL e a processos institucionais.</li>
               <li>Apoio técnico a proposições, documentos, demandas cidadãs e fiscalização.</li>
               <li>Automação documental com validação humana e segurança jurídica.</li>
             </ul>
@@ -1104,12 +1150,10 @@
           </div>
         </div>
         <div class="education-grid">
-          <article class="education-item reveal"><span>Desde ago. 2026 · FGV</span><h3>Mestrado em Relações Públicas/Gestão de Imagem</h3><p>Pós-graduação stricto sensu em andamento.</p></article>
-          <article class="education-item reveal"><span>Concluído · UNIFAEL</span><h3>Graduação em Inteligência Artificial</h3><p>IA aplicada, modelos de linguagem e automação.</p></article>
+          <article class="education-item reveal"><span>Em andamento · UNIFAEL</span><h3>Graduação em Inteligência Artificial</h3><p>Previsão de conclusão em 2026 · IA aplicada, modelos de linguagem e automação.</p></article>
           <article class="education-item reveal"><span>Anhanguera Educacional</span><h3>MBA em Engenharia Industrial 4.0</h3><p>Engenharia, automação e transformação de processos.</p></article>
           <article class="education-item reveal"><span>Descomplica Faculdade Digital</span><h3>Pós-graduação em Liderança e Gestão de Pessoas</h3><p>Liderança, equipes e desenvolvimento de pessoas.</p></article>
-          <article class="education-item reveal"><span>Descomplica Faculdade Digital</span><h3>Bacharelado em Engenharia de Computação</h3><p>Computação, sistemas, lógica e arquitetura tecnológica.</p></article>
-          <article class="education-item reveal"><span>2006-2008 · IFMT</span><h3>Ensino Técnico em Eletrônica</h3><p>Eletrônica, automação e raciocínio técnico aplicado.</p></article>
+          <article class="education-item reveal"><span>Concluído em 2022</span><h3>Engenharia de Computação</h3><p>Computação, sistemas, lógica e arquitetura tecnológica.</p></article>
         </div>
       </div>
     </section>
@@ -1186,7 +1230,7 @@
   <footer>
     <div class="container footer-row">
       <div><strong>Romário Delphin</strong> · IA para o Setor Público</div>
-      <div>Brasília, Distrito Federal, Brasil</div>
+      <div>Querência, Mato Grosso, Brasil</div>
       <div class="footer-links"><a href="curriculos.html">Currículos</a><a href="https://wa.me/5566999174504" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.linkedin.com/in/romariodelphin/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/RomarioDelphin" target="_blank" rel="noopener">GitHub</a><a href="https://www.instagram.com/romariodelphi/" target="_blank" rel="noopener">Instagram</a></div>
     </div>
   </footer>
@@ -1194,6 +1238,12 @@
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+      toggle.textContent = '≡';
+    }
     toggle.addEventListener('click', function () {
       const open = mobileMenu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
@@ -1202,12 +1252,21 @@
     });
 
     mobileMenu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Abrir menu');
-        toggle.textContent = '≡';
-      });
+      link.addEventListener('click', closeMobileMenu);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+        toggle.focus();
+      }
+    });
+    document.addEventListener('click', function (event) {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(event.target) && !toggle.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+    window.matchMedia('(min-width: 821px)').addEventListener('change', function (event) {
+      if (event.matches) closeMobileMenu();
     });
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Romário Delphin — Engenharia, processos e inteligência artificial</title>
+<desc id="desc">Cartão de apresentação profissional com monograma RD e localização Querência, Mato Grosso.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#06131e"/><stop offset="1" stop-color="#123844"/></linearGradient><linearGradient id="accent"><stop stop-color="#5cdce2"/><stop offset=".55" stop-color="#d5fff5"/><stop offset="1" stop-color="#e8c989"/></linearGradient><pattern id="grid" width="96" height="92" patternUnits="userSpaceOnUse"><path d="M96 0H0V92" fill="none" stroke="#a0c3ce" stroke-opacity=".12"/></pattern></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+<rect x="70" y="64" width="78" height="78" rx="18" fill="url(#accent)"/><text x="109" y="115" fill="#0a2230" font-family="DejaVu Sans, sans-serif" font-size="31" font-weight="bold" text-anchor="middle">RD</text>
+<text x="170" y="104" fill="#f8fbff" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="bold" letter-spacing="4">ROMÁRIO DELPHIN</text><text x="172" y="132" fill="#bdccd5" font-family="DejaVu Sans, sans-serif" font-size="16" letter-spacing="3">QUERÊNCIA · MATO GROSSO</text>
+<path d="M70 210h54" stroke="#70dce0" stroke-width="4"/><text x="145" y="217" fill="#d0e1e8" font-family="DejaVu Sans, sans-serif" font-size="18" letter-spacing="3">PORTFÓLIO PROFISSIONAL</text>
+<text x="70" y="306" fill="#f9fbff" font-family="DejaVu Sans, sans-serif" font-size="59" font-weight="bold">ENGENHARIA E</text><text x="70" y="381" fill="url(#accent)" font-family="DejaVu Sans, sans-serif" font-size="59" font-weight="bold">TECNOLOGIA APLICADA</text>
+<text x="72" y="430" fill="#d2e1e8" font-family="DejaVu Sans, sans-serif" font-size="21">Processos · Automação · Inteligência Artificial</text>
+<circle cx="994" cy="298" r="134" fill="#0b2634" stroke="#60ced9" stroke-opacity=".55" stroke-width="2"/><circle cx="994" cy="298" r="78" fill="none" stroke="#c7ad75" stroke-opacity=".55"/><circle cx="994" cy="298" r="37" fill="url(#accent)"/><text x="994" y="306" fill="#092733" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="bold" text-anchor="middle">IA</text>
+<path d="M70 558h1060" stroke="#97adb9" stroke-opacity=".35"/><text x="70" y="592" fill="#b6c8d1" font-family="DejaVu Sans, sans-serif" font-size="16" letter-spacing="2">DADOS · CONTEXTO · DECISÃO</text><text x="1128" y="592" fill="#e6c885" font-family="DejaVu Sans, sans-serif" font-size="17" text-anchor="end">romariodelphin.github.io</text>
+</svg>

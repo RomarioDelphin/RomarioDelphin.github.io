@@ -50,4 +50,4 @@ Identidade institucional premium baseada em azul profundo, ciano técnico e dour
 
 ---
 
-© 2026 Romário Delphin · Brasília, Distrito Federal, Brasil
+© 2026 Romário Delphin · Querência, Mato Grosso, Brasil
