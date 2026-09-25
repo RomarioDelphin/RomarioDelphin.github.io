@@ -1,0 +1,76 @@
+:root {
+  --ink: #0b1f33;
+  --ink-soft: #17344f;
+  --paper: #0b1f33;
+  --muted: #5f7080;
+  --cyan: #087f8c;
+  --cyan-soft: #0b6770;
+  --gold: #8b531f;
+  --gold-soft: #8b531f;
+  --line: rgba(11, 31, 51, .11);
+  --line-bright: rgba(8, 127, 140, .25);
+  --panel: #fff;
+  --panel-strong: #fff;
+}
+
+html { background: #f6f8fb; }
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(92, 201, 194, .14), transparent 30rem),
+    radial-gradient(circle at 92% 12%, rgba(246, 181, 101, .12), transparent 28rem),
+    #f6f8fb;
+}
+
+body::before {
+  opacity: .32;
+  background-image: linear-gradient(rgba(11, 31, 51, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 31, 51, .025) 1px, transparent 1px);
+}
+
+.topbar {
+  color: var(--ink);
+  background: rgba(255, 255, 255, .9);
+  border-bottom-color: var(--line);
+  box-shadow: 0 10px 36px rgba(23, 52, 79, .06);
+}
+
+.brand, .nav-links a, .nav-actions a, .nav-link, .mobile-menu a { color: var(--ink); }
+.brand-mark { color: #fff; background: var(--cyan); border: 0; }
+.nav-cta { color: #fff !important; background: var(--ink); border-color: var(--ink); }
+.menu-toggle { color: var(--ink); background: #fff; border-color: var(--line); }
+.mobile-menu { background: rgba(255, 255, 255, .98); border-color: var(--line); }
+
+.hero { min-height: auto; }
+.hero h1, .hero h2, .section-head h2, .decision-shell h2, .cta h2, .contact-shell h2 { color: var(--ink); }
+.hero-copy, .section-head p, .resume-card p, .decision-copy p, .process-card p, .dimension li, .stage p, .timeline-step p, .delivery p { color: var(--muted); }
+.eyebrow, .section-number, .dimension-code, .stage-range, .timeline-step span { color: var(--cyan); }
+
+.resume-card, .decision-shell, .contact-shell, .process-card, .dimension, .stage, .timeline-step, .score-card, .decision-shell, .governance, .cta {
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: 0 16px 46px rgba(23, 52, 79, .07);
+}
+
+.button-primary { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+.button-secondary { color: var(--ink); background: #fff; border-color: var(--line); }
+.button-gold { color: #fff; background: var(--gold); border-color: var(--gold); }
+.status, .badge, .file-meta span, .hero-facts span, .governance-list span { color: var(--ink); background: #fff; border-color: var(--line); }
+.status, .badge, .file-meta span, .hero-facts span { font-size: .75rem; }
+.document-mark { color: #fff; background: var(--cyan); }
+.score-card, .cta, .contact-shell { color: var(--ink); }
+.score-number strong { color: var(--cyan); }
+.score-scale span { background: rgba(8, 127, 140, .24); }
+.score-scale span:last-child { background: var(--cyan); }
+
+footer { color: var(--muted); background: #fff; border-color: var(--line); }
+.footer-row strong, .footer-links a { color: var(--ink); }
+
+@media (max-width: 620px) {
+  .container { width: min(calc(100% - 32px), var(--max)); }
+  .hero { padding-top: 96px; }
+  .button { min-height: 48px; font-size: .78rem; }
+  .resume-card, .process-card, .dimension, .stage, .timeline-step { padding: 24px; }
+  .hero-facts, .status-row { gap: 9px; }
+  .hero-facts span, .status { font-size: .78rem; }
+}

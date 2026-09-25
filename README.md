@@ -1,6 +1,6 @@
 # Romário Delphin — Portfólio Profissional
 
-Currículo digital e portfólio técnico de **Romário Delphin**, consultor em Inteligência Artificial para o Setor Público.
+Currículo digital e portfólio técnico de **Romário Delphin**, Engenheiro de Computação com atuação em IA aplicada, automação, dados, processos e operações.
 
 **Site:** [romariodelphin.github.io](https://romariodelphin.github.io/)<br>
 **LinkedIn:** [linkedin.com/in/romariodelphin](https://www.linkedin.com/in/romariodelphin/)<br>
@@ -9,7 +9,7 @@ Currículo digital e portfólio técnico de **Romário Delphin**, consultor em I
 
 ## Posicionamento
 
-Agentes de IA, SAPL, GovTech, automação legislativa e transformação digital com foco em:
+IA aplicada, automação, dados, processos, operações e transformação digital com foco em:
 
 - rastreabilidade;
 - governança de dados;
@@ -19,7 +19,7 @@ Agentes de IA, SAPL, GovTech, automação legislativa e transformação digital 
 
 ## Conteúdo do portfólio
 
-- atuação em Inteligência Artificial para o setor público;
+- atuação em Inteligência Artificial aplicada a diferentes setores;
 - case Agentes de IA + SAPL;
 - diagnóstico de maturidade IA + SAPL com cinco dimensões e plano inicial de 90 dias;
 - projetos de GovTech, compliance e IA aplicada;
