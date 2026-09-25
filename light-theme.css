@@ -113,7 +113,11 @@ body::before {
   border-color: var(--line);
   box-shadow: 0 14px 40px rgba(23, 52, 79, .06);
 }
-.metric { border-color: var(--line); }
+.metric {
+  color: var(--ink);
+  background: #fff;
+  border-color: var(--line);
+}
 .metric strong { color: var(--ink); }
 .metric-accent strong { color: var(--cyan); }
 .metric span { color: var(--muted); }
@@ -124,7 +128,7 @@ body::before {
 .section-number, .case-kicker, .project-tag, .book-label { color: var(--cyan); }
 .capability-code, .result-card span, .architecture-step small, .governance-row span,
 .project-tag, .project-stack, .experience-meta, .education-item span, .book-label,
-.contact > span { font-size: .75rem; }
+.contact > span { font-size: .8rem; }
 .section-head h2 { color: var(--ink); }
 .section-head p { color: var(--muted); }
 
@@ -162,6 +166,7 @@ body::before {
 
 .experience-meta { color: var(--cyan); }
 .experience.featured { border-color: rgba(8, 127, 140, .34); }
+.trajectory strong { color: var(--ink); }
 .education-item span { color: var(--gold-soft); }
 .book a { color: var(--cyan); }
 .quote-card blockquote { color: var(--ink); }
@@ -191,39 +196,45 @@ footer { color: var(--muted); background: #fff; border-color: var(--line); }
   .container { width: min(calc(100% - 34px), var(--max)); }
   .nav { min-height: 66px; }
   .brand { font-size: .82rem; }
-  .hero { padding: 82px 0 54px; }
-  .hero-grid { gap: 28px; }
-  .portrait-card { min-height: 310px; border-width: 6px; border-radius: 24px 24px 68px 24px; }
+  .hero { padding: 74px 0 48px; }
+  .hero-grid { gap: 24px; }
+  .portrait-stage { max-width: 430px; padding-inline: 2px; }
+  .portrait-card { min-height: 280px; border-width: 6px; border-radius: 24px 24px 62px 24px; }
   .portrait-card::before { inset: 14px; border-radius: 18px 18px 58px 18px; }
   .portrait-meta { left: 25px; right: 25px; bottom: 24px; }
   .portrait-role { font-size: .98rem; }
-  .orbit { padding: 8px 11px; font-size: .75rem; }
-  .orbit-one { right: 2%; top: 12%; }
-  .orbit-two { left: -1%; top: 46%; }
+  .orbit { max-width: calc(100% - 24px); padding: 8px 11px; font-size: .75rem; }
+  .orbit-one { right: 10px; top: 12%; }
+  .orbit-two { left: 10px; top: 46%; }
   .hero h1 { font-size: clamp(3.1rem, 17vw, 4.5rem); }
   .hero-title { margin-top: 20px; font-size: 1.3rem; }
   .hero-copy { font-size: .96rem; }
   .hero .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .hero .hero-actions .button:first-child { grid-column: 1 / -1; }
-  .button { min-height: 48px; padding: 0 15px; font-size: .78rem; }
+  .hero .hero-actions .button:nth-child(2) { display: none; }
+  .hero .hero-actions .button:first-child { grid-column: auto; }
+  .button { min-height: 48px; padding: 0 15px; font-size: .875rem; }
   .hero-socials { justify-content: center; gap: 10px 17px; }
+  .hero-socials a:nth-child(n + 3) { display: none; }
   .metrics { grid-template-columns: 1fr; }
-  .metric { min-height: auto; padding: 20px; }
+  .metric { min-height: auto; padding: 16px 18px; }
+  .metric strong { font-size: 1.05rem; }
+  .metric span { margin-top: 4px; font-size: .875rem; line-height: 1.45; }
   .section { padding: 58px 0; }
   .section-tight { padding: 48px 0; }
   .section-head { margin-bottom: 28px; }
   .section-head h2 { font-size: clamp(2rem, 11vw, 3rem); }
   .capability, .project, .experience, .education-item { min-height: auto; padding: 24px; }
+  .project h3 { margin: 24px 0 12px; }
+  .project-stack { padding-top: 18px; }
   .project-grid, .capability-grid, .experience-grid, .education-grid, .book-grid { gap: 14px; }
   .case-shell { padding: 24px 18px; }
   .book { padding: 20px; }
   .contact { padding: 36px 20px; border-radius: 28px; }
-  .project-tag, .project-stack, .education-item p, .book a { font-size: .78rem; }
+  .project-tag, .project-stack, .education-item p, .book a { font-size: .82rem; }
 }
 
 @media (max-width: 380px) {
   .container { width: min(calc(100% - 26px), var(--max)); }
   .hero h1 { font-size: clamp(2.85rem, 16vw, 3.7rem); }
   .hero .hero-actions { grid-template-columns: 1fr; }
-  .hero .hero-actions .button:first-child { grid-column: auto; }
 }
