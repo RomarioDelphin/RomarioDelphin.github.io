@@ -697,6 +697,20 @@
     .project h3 { margin: 56px 0 14px; font-family: 'Space Grotesk', sans-serif; font-size: 1.55rem; line-height: 1.15; letter-spacing: -.02em; }
     .project p { margin: 0; color: var(--muted); font-size: .84rem; }
     .project-stack { margin-top: auto; padding-top: 30px; color: var(--cyan-soft); font-size: .69rem; font-weight: 700; letter-spacing: .07em; }
+    .more-projects { margin-top: 24px; }
+    .more-projects summary {
+      width: fit-content;
+      min-height: 44px;
+      padding: 12px 18px;
+      cursor: pointer;
+      color: var(--ink);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 800;
+    }
+    .more-projects[open] summary { margin-bottom: 18px; }
+    :where(a, button, summary):focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
 
     .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .experience {
@@ -705,7 +719,7 @@
       border: 1px solid var(--line);
       border-radius: 26px;
     }
-    .experience.featured { border-color: var(--line-bright); background: linear-gradient(145deg, rgba(14, 44, 57, .88), rgba(8, 25, 35, .75)); }
+    .experience.featured { border-color: var(--line-bright); background: var(--panel); }
     .experience-meta { display: flex; justify-content: space-between; gap: 20px; color: var(--cyan); font-size: .69rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .experience h3 { margin: 28px 0 8px; font-size: 1.3rem; line-height: 1.3; }
     .experience h4 { margin: 0; color: var(--gold-soft); font-size: .82rem; }
@@ -1059,12 +1073,46 @@
           </div>
         </div>
         <div class="project-grid">
+          <a class="project reveal" href="https://github.com/RomarioDelphin/talent-ai" target="_blank" rel="noopener">
+            <div class="project-tag">Produto digital · Recrutamento</div>
+            <h3>Talent AI</h3>
+            <p>Plataforma em validação para aproximar candidatos e empresas, com perfis distintos, revisão humana e controles de acesso.</p>
+            <div class="project-stack">React · TypeScript · Convex · IA aplicada</div>
+          </a>
+          <a class="project reveal" href="https://github.com/RomarioDelphin/querencia-360" target="_blank" rel="noopener">
+            <div class="project-tag">Produto digital · Em validação</div>
+            <h3>Querência 360</h3>
+            <p>Projeto de experiência digital local em revisão técnica. Escopo, integrações e publicação serão documentados após a validação do código.</p>
+            <div class="project-stack">Aplicação web · Protótipo funcional</div>
+          </a>
+          <a class="project reveal" href="https://github.com/RomarioDelphin/capta-gov" target="_blank" rel="noopener">
+            <div class="project-tag">GovTech · Em validação</div>
+            <h3>Capta Gov</h3>
+            <p>Projeto de apoio à organização de oportunidades de captação pública, apresentado como protótipo até a conclusão da auditoria técnica.</p>
+            <div class="project-stack">Dados públicos · Automação · Aplicação web</div>
+          </a>
+          <a class="project reveal" href="https://github.com/RomarioDelphin/orca-ai" target="_blank" rel="noopener">
+            <div class="project-tag">IA aplicada · Em validação</div>
+            <h3>Orça AI</h3>
+            <p>Protótipo de apoio exploratório à leitura de informações orçamentárias, sem substituir análise técnica, contábil ou jurídica.</p>
+            <div class="project-stack">IA aplicada · Dados · Aplicação web</div>
+          </a>
+          <a class="project reveal" href="https://github.com/RomarioDelphin/agro-maintenance-pro" target="_blank" rel="noopener">
+            <div class="project-tag">AgroTech · Em validação</div>
+            <h3>Agro Maintenance Pro</h3>
+            <p>Demonstração de apoio à gestão de manutenção no agronegócio. Resultados operacionais dependerão de validação com dados de campo.</p>
+            <div class="project-stack">Manutenção · Dados · Aplicação web</div>
+          </a>
           <a class="project reveal" href="https://github.com/RomarioDelphin/portal-neiriberto-abner" target="_blank" rel="noopener">
             <div class="project-tag">GovTech · Portal institucional</div>
             <h3>Portal Professor Neiriberto Abner</h3>
             <p>Portal do mandato com notícias, transparência, contato comunitário e produção legislativa integrada à API pública do SAPL.</p>
             <div class="project-stack">Blogger XML · JavaScript · SAPL · SEO</div>
           </a>
+        </div>
+        <details class="more-projects reveal">
+          <summary>Ver mais projetos</summary>
+          <div class="project-grid">
           <a class="project reveal" href="https://github.com/RomarioDelphin/tema-camara-querencia-portal-modelo" target="_blank" rel="noopener">
             <div class="project-tag">GovTech · Portal legislativo</div>
             <h3>Tema Câmara de Querência</h3>
@@ -1113,7 +1161,8 @@
             <p>Gerador client-side de dados sintéticos válidos para testes de formulários, regras de negócio e homologação.</p>
             <div class="project-stack">HTML · CSS · JavaScript · Algoritmos</div>
           </a>
-        </div>
+          </div>
+        </details>
         <div class="section-head reveal" style="margin-top: 64px;">
           <div class="section-number">Testes e cases técnicos</div>
           <div>
@@ -1202,7 +1251,7 @@
         </div>
         <div class="book-grid">
           <article class="book reveal">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLN1qg9TGWl4oCnjrpghOIAeAD_C-t2EYGXRzlKy2CDDNWn0GGXiyIAaIg07xaFebqFXUS6a5M_Lif2q4VArO2CHyO_Q0HsC86aXol6cTGPAfo8mMRMBHx2Jnx_cyVPEF7QaYnjkMwTyrF4Ede343f9G3_L5GQKjxZoc8zmvHTOcMM8Dp7ZYpcGuZBJmKK/s320/capa.jpg" alt="Capa do livro A Revolução Silenciosa" loading="lazy" decoding="async">
+            <img src="assets/images/books/revolucao-silenciosa.jpg" alt="Capa do livro A Revolução Silenciosa" width="232" height="320" loading="lazy" decoding="async">
             <div>
               <div class="book-label">Livro autoral</div>
               <h3>A Revolução Silenciosa</h3>
@@ -1212,7 +1261,7 @@
             </div>
           </article>
           <article class="book reveal">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggoynzwT5-eGZ27m1CxDnn3oIIUCxkHYEbXnDE0Mxx7VK1JECc070jpIkRL7yykwesQC618K-8xwa51rVSAVJecpeh631S7XSa3uSOyPFRt8AOOLZtBrjjTsH1FENcMOIrTYdbCXZIsnGUYL_kpZfTEulvZwdxA4W6HqcC58s3B6V2_-RooR0XGRVfMDKE/s320/capa-agro-5-0.png.png" alt="Capa do livro Agro 5.0" loading="lazy" decoding="async">
+            <img src="assets/images/books/agro-5-0.png" alt="Capa do livro Agro 5.0" width="213" height="320" loading="lazy" decoding="async">
             <div>
               <div class="book-label">Engenharia de decisão</div>
               <h3>Agro 5.0</h3>
