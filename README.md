@@ -21,7 +21,7 @@ IA aplicada, automação, dados, processos, operações e transformação digita
 
 - atuação em Inteligência Artificial aplicada a diferentes setores;
 - case Agentes de IA + SAPL;
-- diagnóstico de maturidade IA + SAPL com cinco dimensões e plano inicial de 90 dias;
+- diagnóstico inicial IA + SAPL com cinco dimensões e roteiro ilustrativo de 90 dias, separado da eventual implementação;
 - projetos de GovTech, compliance e IA aplicada;
 - experiência profissional;
 - formação acadêmica;
@@ -51,3 +51,7 @@ Identidade institucional premium baseada em azul profundo, ciano técnico e dour
 ---
 
 © 2026 Romário Delphin · Querência, Mato Grosso, Brasil
+
+## Critérios de publicação
+
+O case Agentes de IA + SAPL é uma proposta documentada sem código executável neste portfólio. A comparação de tempo mencionada em materiais anteriores não possui protocolo e registros públicos de aferição; por isso não é apresentada aqui como resultado medido. Os cartões de protótipos sem demonstração pública ficam em uma seção secundária com status explícito.

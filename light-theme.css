@@ -152,7 +152,7 @@ body::before {
   box-shadow: 0 22px 58px rgba(23, 52, 79, .11);
 }
 
-.capability h3, .project h3, .experience h3, .education-item h3, .book h3, .case-copy h3 { color: var(--ink); }
+.capability h3, .project h3, .experience h3, .education-item h3, .book h3, .case-copy h2 { color: var(--ink); }
 .capability p, .project p, .experience p, .education-item p, .book p, .case-copy > p, .principle p { color: var(--muted); }
 .capability-code { color: #fff; background: var(--cyan); }
 .project-stack { color: var(--cyan-soft); }
@@ -238,3 +238,19 @@ footer { color: var(--muted); background: #fff; border-color: var(--line); }
   .hero h1 { font-size: clamp(2.85rem, 16vw, 3.7rem); }
   .hero .hero-actions { grid-template-columns: 1fr; }
 }
+
+/* Protótipos sem demonstração pública têm estado visual distinto de links. */
+.project-unlinked { border-style: dashed; opacity: .82; }
+.project-unlinked::after { display: none; }
+.project-unlinked:hover { transform: none; border-color: var(--line); }
+#servicos .capability a { color: var(--cyan); font-weight: 800; text-underline-offset: 4px; }
+#servicos .capability a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+
+.portfolio-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 20px; }
+.portfolio-tab { appearance: none; padding: 13px 20px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.portfolio-tab[aria-selected="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.portfolio-tab:hover { border-color: var(--cyan); }
+.portfolio-tab:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+[role="tabpanel"][hidden] { display: none; }
+.validation-intro { max-width: 760px; margin: 0 0 20px; color: var(--muted); line-height: 1.65; }
+@media (max-width: 520px) { .portfolio-tabs { display: grid; grid-template-columns: 1fr; } .portfolio-tab { width: 100%; text-align: left; } }
