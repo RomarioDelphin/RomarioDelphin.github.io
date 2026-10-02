@@ -1,0 +1,34 @@
+title: Romário Delphin
+description: Inteligência Artificial aplicada ao Legislativo e à Gestão Pública
+url: "https://romariodelphin.github.io"
+baseurl: ""
+lang: pt-BR
+timezone: America/Sao_Paulo
+permalink: /blog/:title/
+markdown: kramdown
+collections:
+  albums:
+    output: true
+    permalink: /galeria/:name/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: site
+      is_post: true
+      author: Romário Delphin
+  - scope:
+      path: ""
+      type: albums
+    values:
+      layout: site
+exclude:
+  - README.md
+  - PUBLICAR.md
+  - DOMINIO.md
+  - modelo-artigo.md
+  - modelo-album.md
+  - node_modules
+  - package-lock.json
+  - qa

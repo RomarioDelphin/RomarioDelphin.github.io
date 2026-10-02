@@ -11,6 +11,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - name: Build site with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -18,7 +23,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Desktop and mobile checks
         run: |
-          python3 -m http.server 8000 > /tmp/server.log 2>&1 &
+          python3 -m http.server 8000 --directory _site > /tmp/server.log 2>&1 &
           node <<'JS'
           const { chromium } = require('playwright');
           const assert = require('node:assert/strict');
@@ -26,7 +31,7 @@ jobs:
           (async () => {
             fs.mkdirSync('qa', {recursive:true});
             const browser = await chromium.launch();
-            for (const [name,width,height] of [['desktop',1440,1000],['mobile',390,844]]) {
+            for (const [name,width,height] of [['desktop',1440,1000],['tablet',768,1024],['mobile',390,844],['small-mobile',320,780]]) {
               const page = await browser.newPage({viewport:{width,height}});
               const errors=[]; page.on('pageerror',e=>errors.push(e.message));
               await page.goto('http://localhost:8000', {waitUntil:'networkidle'});
@@ -45,10 +50,10 @@ jobs:
               assert.deepEqual(result.missingAnchors,[]);
               assert.ok(result.portrait>0,'portrait must load');
               assert.ok(result.schema['@graph'].find(x=>x['@type']==='Person').jobTitle[0].includes('Legislativo'));
-              if(name==='mobile') {
+              if(width<=1100) {
                 await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
                 assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
-                await page.locator('#menu-movel').getByRole('link',{name:'Cursos',exact:true}).click();
+                await page.locator('#menu-movel').getByRole('link',{name:'Cursos & Atuação',exact:true}).click();
                 assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
               }
               await page.getByRole('tab',{name:/Projetos em validação/}).click();
@@ -60,8 +65,47 @@ jobs:
               const localLinks = await page.locator('a[href]').evaluateAll(as=>[...new Set(as.map(a=>a.getAttribute('href')).filter(h=>!h.startsWith('#')&&!h.startsWith('http')&&!h.startsWith('mailto:')))]);
               for(const link of localLinks){ const response=await page.request.get('http://localhost:8000/'+link); assert.ok(response.ok(),link); }
               fs.writeFileSync('qa/'+name+'.json',JSON.stringify({name,width,height,result,errors},null,2));
+
+              for (const [route, key, heading] of [['portfolio.html','portfolio','Tecnologia aplicada.'],['blog.html','blog','Ideias para aplicar IA'],['galeria.html','galeria','Conhecimento'],['galeria/retrato-profissional/','album','Retrato profissional']]) {
+                await page.goto('http://localhost:8000/'+route,{waitUntil:'networkidle'});
+                assert.equal(await page.locator('h1').count(),1);
+                assert.ok((await page.locator('h1').innerText()).includes(heading));
+                assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' overflow');
+                assert.ok(!(await page.locator('body').innerText()).includes('{%'),'Liquid must be rendered');
+                const badImages=await page.locator('img[src]').evaluateAll(imgs=>imgs.filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src));
+                assert.deepEqual(badImages,[],route+' images');
+                if(width<=850){
+                  await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
+                  assert.equal(await page.locator('.site-menu-button').getAttribute('aria-expanded'),'true');
+                  await page.keyboard.press('Escape');
+                  assert.equal(await page.locator('.site-menu-button').getAttribute('aria-expanded'),'false');
+                  assert.ok(await page.locator('.site-menu-button').evaluate(e=>e===document.activeElement));
+                }
+                if(key==='portfolio'){
+                  await page.locator('.project-collection').first().locator('summary').click();
+                  assert.ok(await page.getByRole('heading',{name:'Lead Focus',exact:true}).isVisible());
+                  assert.equal(await page.getByRole('link').filter({has:page.getByRole('heading',{name:'Lead Focus',exact:true})}).count(),1);
+                }
+                if(key==='galeria'){
+                  await page.getByRole('button',{name:'Retratos',exact:true}).click();
+                  assert.equal(await page.locator('.gallery-card:visible').count(),1);
+                  await page.getByRole('button',{name:'Todos',exact:true}).click();
+                }
+                if(key==='album'){
+                  await page.getByRole('button',{name:/Ampliar foto/}).click();
+                  assert.ok(await page.getByRole('dialog').isVisible());
+                  await page.locator('.photo-dialog img').evaluate(img=>img.decode());
+                  assert.ok(await page.locator('.photo-dialog img').evaluate(img=>img.naturalWidth>0));
+                  await page.keyboard.press('Escape');
+                  assert.equal(await page.getByRole('dialog').isVisible(),false);
+                }
+                await page.screenshot({path:'qa/'+name+'-'+key+'.png',fullPage:true});
+                assert.deepEqual(errors,[]);
+              }
               await page.close();
             }
+            const sitemap=await (await fetch('http://localhost:8000/sitemap.xml')).text();
+            assert.ok(sitemap.includes('/blog.html')&&sitemap.includes('/galeria.html')&&!sitemap.includes('{%'));
             await browser.close();
           })().catch(e=>{ console.error(e);process.exit(1); });
           JS
