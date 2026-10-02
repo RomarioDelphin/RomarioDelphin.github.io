@@ -1,0 +1,72 @@
+name: Portfolio checks
+on:
+  push:
+    branches: [main, portfolio-legislativo-2026-10-02]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  browser-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.51.1
+      - run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile checks
+        run: |
+          python3 -m http.server 8000 > /tmp/server.log 2>&1 &
+          node <<'JS'
+          const { chromium } = require('playwright');
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          (async () => {
+            fs.mkdirSync('qa', {recursive:true});
+            const browser = await chromium.launch();
+            for (const [name,width,height] of [['desktop',1440,1000],['mobile',390,844]]) {
+              const page = await browser.newPage({viewport:{width,height}});
+              const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+              await page.goto('http://localhost:8000', {waitUntil:'networkidle'});
+              await page.locator('.hero-title').waitFor();
+              assert.match(await page.title(), /Legislativo e Gestão Pública/);
+              assert.match(await page.locator('.authority-line').innerText(), /Professor.*Mentor.*Palestrante.*Autor/);
+              assert.equal(await page.locator('h1').count(),1);
+              assert.equal(await page.locator('.education-item').count(),7);
+              const result = await page.evaluate(() => ({
+                overflow:document.documentElement.scrollWidth>window.innerWidth,
+                missingAnchors:[...document.querySelectorAll('a[href^="#"]')].filter(a=>!document.getElementById(a.getAttribute('href').slice(1))).map(a=>a.getAttribute('href')),
+                portrait:document.querySelector('.portrait-photo').naturalWidth,
+                schema:JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)
+              }));
+              assert.equal(result.overflow,false,'horizontal overflow');
+              assert.deepEqual(result.missingAnchors,[]);
+              assert.ok(result.portrait>0,'portrait must load');
+              assert.ok(result.schema['@graph'].find(x=>x['@type']==='Person').jobTitle[0].includes('Legislativo'));
+              if(name==='mobile') {
+                await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
+                assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
+                await page.locator('#menu-movel').getByRole('link',{name:'Cursos',exact:true}).click();
+                assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
+              }
+              await page.getByRole('tab',{name:/Projetos em validação/}).click();
+              assert.equal(await page.locator('#painel-validacao').isVisible(),true);
+              await page.getByRole('tab',{name:'Trabalhos documentados',exact:true}).click();
+              assert.deepEqual(errors,[]);
+              await page.goto('http://localhost:8000');
+              await page.screenshot({path:'qa/'+name+'.png',fullPage:true});
+              const localLinks = await page.locator('a[href]').evaluateAll(as=>[...new Set(as.map(a=>a.getAttribute('href')).filter(h=>!h.startsWith('#')&&!h.startsWith('http')&&!h.startsWith('mailto:')))]);
+              for(const link of localLinks){ const response=await page.request.get('http://localhost:8000/'+link); assert.ok(response.ok(),link); }
+              fs.writeFileSync('qa/'+name+'.json',JSON.stringify({name,width,height,result,errors},null,2));
+              await page.close();
+            }
+            await browser.close();
+          })().catch(e=>{ console.error(e);process.exit(1); });
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-qa
+          path: qa/
