@@ -1,13 +1,13 @@
 {
-  "name": "Romário Delphin | Engenharia, IA e Automação",
+  "name": "Romário Delphin | Inteligência Artificial no Legislativo e Gestão Pública",
   "short_name": "Romário Delphin",
-  "description": "Portfólio profissional sobre Inteligência Artificial aplicada ao Setor Público, SAPL, GovTech e transformação digital.",
+  "description": "Professor, mentor, palestrante, consultor técnico e autor em IA aplicada ao Legislativo e à Gestão Pública.",
   "lang": "pt-BR",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#06111a",
-  "theme_color": "#06111a",
+  "background_color": "#fcfdfd",
+  "theme_color": "#fcfdfd",
   "icons": [
     {
       "src": "/favicon.svg",
