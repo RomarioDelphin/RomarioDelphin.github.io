@@ -72,7 +72,7 @@ jobs:
                 assert.ok((await page.locator('h1').innerText()).includes(heading));
                 assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' overflow');
                 assert.ok(!(await page.locator('body').innerText()).includes('{%'),'Liquid must be rendered');
-                const badImages=await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src));
+                const badImages=await page.locator('img[src]').evaluateAll(imgs=>imgs.filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src));
                 assert.deepEqual(badImages,[],route+' images');
                 if(width<=850){
                   await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
@@ -94,6 +94,8 @@ jobs:
                 if(key==='album'){
                   await page.getByRole('button',{name:/Ampliar foto/}).click();
                   assert.ok(await page.getByRole('dialog').isVisible());
+                  await page.locator('.photo-dialog img').evaluate(img=>img.decode());
+                  assert.ok(await page.locator('.photo-dialog img').evaluate(img=>img.naturalWidth>0));
                   await page.keyboard.press('Escape');
                   assert.equal(await page.getByRole('dialog').isVisible(),false);
                 }
