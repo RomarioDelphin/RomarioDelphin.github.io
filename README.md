@@ -1,57 +1,44 @@
-# Romário Delphin — Portfólio Profissional
+# Romário Delphin
 
-Currículo digital e portfólio técnico de **Romário Delphin**, Engenheiro de Computação com atuação em IA aplicada, automação, dados, processos e operações.
+**Especialista em Inteligência Artificial aplicada ao Legislativo e à Gestão Pública**
 
-**Site:** [romariodelphin.github.io](https://romariodelphin.github.io/)<br>
-**LinkedIn:** [linkedin.com/in/romariodelphin](https://www.linkedin.com/in/romariodelphin/)<br>
-**Instagram:** [@romariodelphi](https://www.instagram.com/romariodelphi/)<br>
-**WhatsApp:** [(66) 99917-4504](https://wa.me/5566999174504)
+Professor · Mentor · Palestrante · Consultor Técnico · Autor
 
-## Posicionamento
+Portfólio com formação técnica e executiva, consultoria, produção intelectual e projetos de IA generativa, LLMs, agentes, automação, OCR, RAG, busca semântica, integração de dados, SAPL e governança.
 
-IA aplicada, automação, dados, processos, operações e transformação digital com foco em:
+## Trajetória
 
-- rastreabilidade;
-- governança de dados;
-- segurança da informação;
-- segurança jurídica;
-- validação humana antes da decisão.
+- Poder Legislativo desde 2019: Assessor Legislativo Parlamentar na Câmara Municipal de Querência/MT (2019–2026).
+- Programa Interlegis: Membro Técnico Voluntário em Inteligência Artificial no Legislativo (2026–atual). Atuação voluntária; não indica vínculo empregatício com o Senado Federal.
+- Professor de formação técnica: SENAI e SENAR.
+- Experiência multidisciplinar em CR Agro, inpEV, Storaze e Cargill.
 
-## Conteúdo do portfólio
+## Formação
 
-- atuação em Inteligência Artificial aplicada a diferentes setores;
-- case Agentes de IA + SAPL;
-- diagnóstico inicial IA + SAPL com cinco dimensões e roteiro ilustrativo de 90 dias, separado da eventual implementação;
-- projetos de GovTech, compliance e IA aplicada;
-- experiência profissional;
-- formação acadêmica;
-- livros e publicações;
-- página dedicada aos currículos profissional e ATS;
-- canais de contato profissional.
+Mestrado em Gestão Pública (em andamento); Inteligência Artificial — UNIFAEL (2026); MBA em Engenharia Industrial 4.0 — Anhanguera (2023); Engenharia de Computação (2022); Liderança e Gestão de Pessoas — Descomplica (2021); Gestão de Recursos Humanos (2011); Técnico em Informática (2008).
 
-## Arquitetura
+## Livros
 
-O projeto utiliza uma arquitetura estática, leve e compatível com GitHub Pages:
+- Agro 5.0 — Arquitetura de Dados para Fazendas Autônomas.
+- A Revolução Silenciosa — Inteligência Artificial, Agro e Gestão Pública.
+- A Empresa Enxuta — Como Pequenos Negócios e Autônomos Usam IA para Reduzir Custos, Automatizar Rotinas e Vender Mais.
 
-- HTML5 semântico;
-- CSS responsivo;
-- JavaScript sem dependências;
-- navegação acessível;
-- suporte a preferência por movimento reduzido;
-- metadados completos para busca e compartilhamento;
-- URLs canônicas, `robots.txt` e `sitemap.xml`;
-- dados estruturados Schema.org em JSON-LD;
-- cartões Open Graph e Twitter em 1200 × 630;
-- manifesto e favicon próprios.
+## Conteúdo e critérios editoriais
 
-## Direção visual
+IA no Legislativo e Gestão Pública, cursos e palestras, mentoria, consultoria, livros, trajetória, formação e projetos técnicos. Links e materiais publicados foram preservados. Projetos em validação têm status explícito. O case Agentes de IA + SAPL é uma proposta documentada, sem código executável ou implantação comprovada. Lead Focus é um desafio técnico, sem vínculo profissional com a G4. Não são anunciados clientes, resultados ou métricas sem documentação.
 
-Identidade institucional premium baseada em azul profundo, ciano técnico e dourado discreto. A interface prioriza clareza, credibilidade e leitura executiva, sem comprometer desempenho.
+IA auxilia o trabalho e não substitui análise jurídica, responsabilidade institucional ou decisão humana.
 
----
+## Arquitetura e validação
 
-© 2026 Romário Delphin · Querência, Mato Grosso, Brasil
+HTML semântico, CSS responsivo, JavaScript sem dependências de aplicação, navegação acessível, preferência por movimento reduzido, metadados Open Graph/Twitter e Schema.org. GitHub Pages publica a branch main. A branch de reestruturação preserva o histórico anterior. O workflow Portfolio checks verifica desktop e mobile, navegação, âncoras, links locais, imagem principal e SEO, e produz capturas de tela.
 
-## Critérios de publicação
+Interface: Brasília, Distrito Federal · Atuação nacional. Os dados estruturados não afirmam residência em Brasília.
 
-O case Agentes de IA + SAPL é uma proposta documentada sem código executável neste portfólio. A comparação de tempo mencionada em materiais anteriores não possui protocolo e registros públicos de aferição; por isso não é apresentada aqui como resultado medido. Os cartões de protótipos sem demonstração pública ficam em uma seção secundária com status explícito.
+## Contato
+
+- Site: https://romariodelphin.github.io/
+- LinkedIn: https://www.linkedin.com/in/romariodelphin/
+- GitHub: https://github.com/RomarioDelphin
+- Instagram: https://www.instagram.com/romariodelphi/
+- WhatsApp: https://wa.me/5566999174504
