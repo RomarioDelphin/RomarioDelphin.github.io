@@ -1,6 +1,6 @@
 title: Romário Delphin
 description: Inteligência Artificial aplicada ao Legislativo e à Gestão Pública
-url: "https://romariodelphin.github.io"
+url: "https://romariodelphin.com.br"
 baseurl: ""
 lang: pt-BR
 timezone: America/Sao_Paulo
@@ -32,3 +32,4 @@ exclude:
   - node_modules
   - package-lock.json
   - qa
+
