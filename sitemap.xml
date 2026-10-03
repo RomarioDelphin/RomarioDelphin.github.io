@@ -3,7 +3,7 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% assign routes = '/,/portfolio.html,/galeria.html,/curriculos.html,/diagnostico.html,/bio/,/palestras-ia-setor-publico.html,/cursos-ia-setor-publico.html,/mentoria-ia-setor-publico.html' | split: ',' %}{% for route in routes %}<url><loc>{{ route | absolute_url | xml_escape }}</loc><lastmod>2026-10-03</lastmod></url>{% endfor %}
+{% assign routes = '/,/portfolio.html,/galeria.html,/curriculos.html,/diagnostico.html,/bio/,/palestras-ia-setor-publico.html,/cursos-ia-setor-publico.html,/mentoria-ia-setor-publico.html,/solicitar-proposta.html,/capta-ia.html,/privacidade.html' | split: ',' %}{% for route in routes %}<url><loc>{{ route | absolute_url | xml_escape }}</loc><lastmod>2026-10-03</lastmod></url>{% endfor %}
 {% for post in site.posts %}<url><loc>{{ post.url | absolute_url | xml_escape }}</loc><lastmod>{{ post.modified | default: post.date | date_to_xmlschema }}</lastmod></url>{% endfor %}
 {% for album in site.albums %}<url><loc>{{ album.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
 </urlset>

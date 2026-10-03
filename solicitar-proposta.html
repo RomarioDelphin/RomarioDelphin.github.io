@@ -1,0 +1,21 @@
+---
+layout: site
+permalink: /solicitar-proposta.html
+title: Solicitar proposta de palestras, cursos e mentoria de IA
+description: Conte o objetivo da sua instituição para solicitar uma proposta de palestras, cursos, mentoria ou soluções digitais com Romário Delphin.
+---
+<section class="page-heading container"><a class="back-link" href="/">← Início</a><div class="page-kicker">Vamos conversar · IA aplicada ao setor público</div><h1>Qual é o desafio<br>da sua instituição?</h1><p class="page-lead">Conte o que sua equipe precisa. Vamos organizar o pedido para conversar sobre uma proposta adequada ao seu objetivo.</p></section>
+<div class="container"><form id="proposal-form" class="proposal-form">
+<p class="form-note">Seu pedido será preparado para envio pelo WhatsApp de Romário Delphin. Você confere a mensagem antes de enviar. Campos marcados com * são necessários.</p>
+<label for="lead-service">O que você procura? *</label><select id="lead-service" name="service" required><option value="">Selecione</option><option>Palestra de IA para o setor público</option><option>Curso ou workshop para minha equipe</option><option>Mentoria de IA aplicada</option><option>Mapeamento de processos e soluções digitais</option><option>IA, SAPL e Portal Modelo</option><option>Capta IA — conhecer o projeto</option></select>
+<label for="lead-name">Seu nome *</label><input id="lead-name" name="name" autocomplete="name" maxlength="100" required>
+<label for="lead-institution">Instituição ou equipe *</label><input id="lead-institution" name="institution" autocomplete="organization" maxlength="150" required>
+<label for="lead-role">Cargo ou função (opcional)</label><input id="lead-role" name="role" autocomplete="organization-title" maxlength="100">
+<label for="lead-contact">Outro contato para retorno (opcional)</label><input id="lead-contact" name="contact" maxlength="150" placeholder="E-mail profissional ou telefone">
+<label for="lead-goal">Qual objetivo você quer alcançar? *</label><textarea id="lead-goal" name="goal" maxlength="1500" required placeholder="Conte o desafio, o público e, se houver, o formato ou período desejado."></textarea>
+<div class="trap" aria-hidden="true"><label for="lead-website">Website</label><input id="lead-website" name="website" tabindex="-1" autocomplete="off"></div>
+<p class="form-note">Use apenas informações necessárias ao contato. Evite documentos sigilosos, senhas e dados pessoais de terceiros. Ao preparar a mensagem, nada é enviado ou salvo automaticamente pelo site. <a href="/privacidade.html">Conheça a política de privacidade.</a></p>
+<div class="hero-actions"><button type="submit" disabled class="button button-primary">Preparar pedido para WhatsApp ↗</button></div>
+<div id="proposal-result" class="proposal-result" tabindex="-1" role="status" aria-live="polite" hidden><strong>Mensagem pronta para você conferir.</strong><p>Seu pedido ainda não foi enviado. Abra o WhatsApp, revise a mensagem e toque em enviar para que Romário receba seu contato.</p><a id="proposal-whatsapp" class="button button-primary" target="_blank" rel="noopener noreferrer">Abrir WhatsApp e revisar ↗</a></div>
+<noscript><p class="form-note">Para organizar o pedido pelo formulário, ative JavaScript ou <a href="https://wa.me/5566999174504" target="_blank" rel="noopener">fale diretamente pelo WhatsApp</a>.</p></noscript>
+</form></div><script src="/proposal-form.js" defer></script>
