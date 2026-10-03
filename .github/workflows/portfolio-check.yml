@@ -35,11 +35,12 @@ jobs:
               const page = await browser.newPage({viewport:{width,height}});
               const errors=[]; page.on('pageerror',e=>errors.push(e.message));
               await page.goto('http://localhost:8000', {waitUntil:'networkidle'});
-              await page.locator('.hero-title').waitFor();
-              assert.match(await page.title(), /Legislativo e Gestão Pública/);
-              assert.match(await page.locator('.authority-line').innerText(), /Professor.*Mentor.*Palestrante.*Autor/);
+              await page.locator('.hero h1').waitFor();
+              assert.match(await page.title(), /Mentor de IA, Palestrante e Autor/);
+              assert.match(await page.locator('.identity').innerText(), /Mentor.*Palestrante.*Educador.*Autor/);
               assert.equal(await page.locator('h1').count(),1);
-              assert.equal(await page.locator('.education-item').count(),7);
+              assert.equal(await page.locator('.book').count(),3);
+              assert.equal(await page.locator('#mentoria .step').count(),4);
               const result = await page.evaluate(() => ({
                 overflow:document.documentElement.scrollWidth>window.innerWidth,
                 missingAnchors:[...document.querySelectorAll('a[href^="#"]')].filter(a=>!document.getElementById(a.getAttribute('href').slice(1))).map(a=>a.getAttribute('href')),
@@ -49,16 +50,18 @@ jobs:
               assert.equal(result.overflow,false,'horizontal overflow');
               assert.deepEqual(result.missingAnchors,[]);
               assert.ok(result.portrait>0,'portrait must load');
-              assert.ok(result.schema['@graph'].find(x=>x['@type']==='Person').jobTitle[0].includes('Legislativo'));
-              if(width<=1100) {
+              assert.ok(result.schema['@type']==='Person' && result.schema.jobTitle.includes('Mentor de Inteligência Artificial'));
+              if(width<=800) {
                 await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
                 assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
-                await page.locator('#menu-movel').getByRole('link',{name:'Cursos & Atuação',exact:true}).click();
+                await page.locator('#menu-movel').getByRole('link',{name:'Cursos',exact:true}).click();
                 assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
               }
-              await page.getByRole('tab',{name:/Projetos em validação/}).click();
-              assert.equal(await page.locator('#painel-validacao').isVisible(),true);
-              await page.getByRole('tab',{name:'Trabalhos documentados',exact:true}).click();
+              await page.locator('.hero').getByRole('link',{name:'Conhecer a mentoria',exact:true}).click();
+              await page.waitForURL('**/#mentoria');
+              assert.ok(await page.locator('#mentoria').isVisible());
+              const contactLinks=await page.locator('#contato a').evaluateAll(as=>as.map(a=>a.href));
+              assert.ok(contactLinks.every(h=>h.startsWith('https://wa.me/5566999174504?text=')));
               assert.deepEqual(errors,[]);
               await page.goto('http://localhost:8000');
               await page.screenshot({path:'qa/'+name+'.png',fullPage:true});
