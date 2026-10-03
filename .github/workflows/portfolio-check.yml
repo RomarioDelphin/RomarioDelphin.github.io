@@ -40,6 +40,17 @@ jobs:
               assert.match(await page.locator('.identity').innerText(), /Mentor.*Palestrante.*Educador.*Autor/);
               assert.equal(await page.locator('h1').count(),1);
               assert.equal(await page.locator('.book').count(),3);
+              const bookLinks=await page.locator('#livros .book a').evaluateAll(as=>as.map(a=>({label:a.textContent.trim(),url:a.href})));
+              assert.equal(bookLinks.length,3);
+              const bookIds=['19Fjr7OxuM776WOi9HxSbbASk5haqMQG0','1UB_2yO_o5YrbO4uVCBVUpm6f-gaaPKkA','135MD5RgRxVNShN9DEPK_MJ5dNwMyXU4G'];
+              bookLinks.forEach((book,index)=>{
+                assert.ok(book.label.includes('Baixar livro'),'book download label');
+                const url=new URL(book.url);
+                assert.equal(url.hostname,'drive.google.com');
+                assert.equal(url.pathname,'/uc');
+                assert.equal(url.searchParams.get('export'),'download');
+                assert.equal(url.searchParams.get('id'),bookIds[index]);
+              });
               assert.equal(await page.locator('#mentoria .step').count(),4);
               const result = await page.evaluate(() => ({
                 overflow:document.documentElement.scrollWidth>window.innerWidth,
@@ -69,7 +80,7 @@ jobs:
               for(const link of localLinks){ const response=await page.request.get('http://localhost:8000/'+link); assert.ok(response.ok(),link); }
               fs.writeFileSync('qa/'+name+'.json',JSON.stringify({name,width,height,result,errors},null,2));
 
-              for (const [route, key, heading] of [['portfolio.html','portfolio','Tecnologia aplicada.'],['blog.html','blog','Ideias para aplicar IA'],['galeria.html','galeria','Conhecimento'],['galeria/retrato-profissional/','album','Retrato profissional']]) {
+              for (const [route, key, heading] of [['portfolio.html','portfolio','Projetos que conectam'],['galeria.html','galeria','Conhecimento'],['galeria/retrato-profissional/','album','Retrato profissional']]) {
                 await page.goto('http://localhost:8000/'+route,{waitUntil:'networkidle'});
                 assert.equal(await page.locator('h1').count(),1);
                 assert.ok((await page.locator('h1').innerText()).includes(heading));
@@ -85,11 +96,18 @@ jobs:
                   assert.ok(await page.locator('.site-menu-button').evaluate(e=>e===document.activeElement));
                 }
                 if(key==='portfolio'){
-                  await page.locator('.project-collection').first().locator('summary').click();
+                  assert.match(await page.locator('h1').innerText(),/Projetos que conectam\s+IA e serviço público/);
+                  assert.equal(await page.locator('#capta-ia').count(),1);
+                  assert.ok(await page.locator('#capta-ia').isVisible());
+                  assert.match(await page.locator('#capta-ia').innerText(),/Capta IA/);
+                  await page.locator('.project-collection').nth(1).locator('summary').click();
                   assert.ok(await page.getByRole('heading',{name:'Lead Focus',exact:true}).isVisible());
                   assert.equal(await page.getByRole('link').filter({has:page.getByRole('heading',{name:'Lead Focus',exact:true})}).count(),1);
                 }
                 if(key==='galeria'){
+                  const background=await page.locator('body').evaluate(body=>getComputedStyle(body).backgroundColor);
+                  const rgb=background.match(/\d+/g).slice(0,3).map(Number);
+                  assert.ok(rgb.every(channel=>channel<60),'gallery uses dark background');
                   await page.getByRole('button',{name:'Retratos',exact:true}).click();
                   assert.equal(await page.locator('.gallery-card:visible').count(),1);
                   await page.getByRole('button',{name:'Todos',exact:true}).click();
@@ -108,7 +126,10 @@ jobs:
               await page.close();
             }
             const sitemap=await (await fetch('http://localhost:8000/sitemap.xml')).text();
-            assert.ok(sitemap.includes('/blog.html')&&sitemap.includes('/galeria.html')&&!sitemap.includes('{%'));
+            assert.ok(!sitemap.includes('/blog.html')&&sitemap.includes('/portfolio.html')&&sitemap.includes('/galeria.html')&&!sitemap.includes('{%'));
+            assert.ok(sitemap.includes('2026-10-03'));
+            assert.equal((await fetch('http://localhost:8000/blog.html')).status,404);
+            assert.equal((await fetch('http://localhost:8000/feed.xml')).status,404);
             await browser.close();
           })().catch(e=>{ console.error(e);process.exit(1); });
           JS
@@ -117,3 +138,4 @@ jobs:
         with:
           name: portfolio-qa
           path: qa/
+
