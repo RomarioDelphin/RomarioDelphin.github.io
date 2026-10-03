@@ -115,11 +115,11 @@ jobs:
                 }
                 if(key==='album'){
                   await page.getByRole('button',{name:/Ampliar foto/}).click();
-                  assert.ok(await page.getByRole('dialog').isVisible());
+                  assert.ok(await page.locator('.photo-dialog').isVisible());
                   await page.locator('.photo-dialog img').evaluate(img=>img.decode());
                   assert.ok(await page.locator('.photo-dialog img').evaluate(img=>img.naturalWidth>0));
                   await page.keyboard.press('Escape');
-                  assert.equal(await page.getByRole('dialog').isVisible(),false);
+                  assert.equal(await page.locator('.photo-dialog').isVisible(),false);
                 }
                 await page.screenshot({path:'qa/'+name+'-'+key+'.png',fullPage:true});
                 assert.deepEqual(errors,[]);
