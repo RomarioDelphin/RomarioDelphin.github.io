@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RD">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#50d7db"/>
-      <stop offset="0.58" stop-color="#b5f0ef"/>
-      <stop offset="1" stop-color="#f1d69f"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="#06111a"/>
-  <rect x="5" y="5" width="54" height="54" rx="15" fill="url(#g)"/>
-  <text x="32" y="41" text-anchor="middle" fill="#06111a" font-family="Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="1">RD</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img"><title>Romário Delphin — RD</title><rect width="128" height="128" rx="28" fill="#101A30"/><g transform="translate(-7 0)"><path fill="#FFFFFF" fill-rule="evenodd" d="M18 24H45C61 24 70 35 70 48C70 60 62 68 53 71L70 104H54L37 73H32V104H18Z M32 38V59H45C52 59 56 55 56 48C56 42 52 38 45 38Z M76 24H88C112 24 124 39 124 64C124 89 112 104 88 104H76Z M90 38V90C103 88 110 79 110 64C110 49 103 40 90 38Z"/></g></svg>
