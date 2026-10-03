@@ -42,3 +42,7 @@ Interface: Brasília, Distrito Federal · Atuação nacional. Os dados estrutura
 - GitHub: https://github.com/RomarioDelphin
 - Instagram: https://www.instagram.com/romariodelphi/
 - WhatsApp: https://wa.me/5566999174504
+
+
+
+Atualização de 03/10/2026: o portfólio destaca Capta IA, IA + SAPL e Portal Modelo. O blog vazio e o feed sem artigos foram removidos, assim como os estilos claros substituídos. Os modelos de artigos continuam excluídos do build. A galeria mantém os registros efetivamente disponíveis.

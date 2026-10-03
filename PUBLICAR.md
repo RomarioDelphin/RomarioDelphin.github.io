@@ -43,3 +43,7 @@ O primeiro álbum é um retrato profissional, identificado como tal. Não repres
 - Domínio: veja `DOMINIO.md`.
 
 Não há painel de edição dentro do site nem upload público. A publicação usa o acesso autenticado ao GitHub.
+
+
+
+Atualização de 03/10/2026: o portfólio destaca Capta IA, IA + SAPL e Portal Modelo. O blog vazio e o feed sem artigos foram removidos, assim como os estilos claros substituídos. Os modelos de artigos continuam excluídos do build. A galeria mantém os registros efetivamente disponíveis.
