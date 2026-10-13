@@ -1,21 +1,23 @@
 ---
 layout: site
 permalink: /solicitar-proposta.html
-title: Solicitar proposta de palestras, cursos e mentoria de IA
-description: Conte o objetivo da sua instituição para solicitar uma proposta de palestras, cursos, mentoria ou soluções digitais com Romário Delphin.
+title: Solicitar proposta de capacitação em IA para sua Câmara
+description: Solicite uma proposta de curso presencial in company, capacitação online ao vivo ou formação continuada para sua Câmara Municipal.
 ---
-<section class="page-heading container"><a class="back-link" href="/">← Início</a><div class="page-kicker">Vamos conversar · IA aplicada ao setor público</div><h1>Qual é o desafio<br>da sua instituição?</h1><p class="page-lead">Conte o que sua equipe precisa. Vamos organizar o pedido para conversar sobre uma proposta adequada ao seu objetivo.</p></section>
+<section class="page-heading container"><a class="back-link" href="/">← Início</a><div class="page-kicker">Capacitação em IA · Poder Legislativo</div><h1>Uma proposta para<br>a sua Câmara.</h1><p class="page-lead">Informe a instituição e o formato desejado. Vamos conversar sobre uma capacitação adequada à realidade da sua equipe.</p></section>
 <div class="container"><form id="proposal-form" class="proposal-form">
-<p class="form-note">Seu pedido será preparado para envio pelo WhatsApp de Romário Delphin. Você confere a mensagem antes de enviar. Campos marcados com * são necessários.</p>
-<label for="lead-service">O que você procura? *</label><select id="lead-service" name="service" required><option value="">Selecione</option><option>Palestra de IA para o setor público</option><option>Curso ou workshop para minha equipe</option><option>Mentoria de IA aplicada</option><option>Mapeamento de processos e soluções digitais</option><option>IA, SAPL e Portal Modelo</option><option>Capta IA — conhecer o projeto</option></select>
+<p class="form-note">Organize seu pedido e envie pelo WhatsApp de Romário. Você confere a mensagem antes de enviar. Campos com * são necessários.</p>
+<label for="lead-service">Modalidade ou serviço *</label><select id="lead-service" name="service" required><option value="">Selecione</option><option value="incompany">Curso presencial in company</option><option value="online">Capacitação online ao vivo</option><option value="continuada">Programa de capacitação continuada</option><option value="palestra">Palestra de IA para o setor público</option><option value="mentoria">Mentoria de IA aplicada</option><option value="tecnica">IA, SAPL, Portal Modelo e soluções digitais</option><option value="capta">Capta IA — conhecer o projeto</option></select>
 <label for="lead-name">Seu nome *</label><input id="lead-name" name="name" autocomplete="name" maxlength="100" required>
-<label for="lead-institution">Instituição ou equipe *</label><input id="lead-institution" name="institution" autocomplete="organization" maxlength="150" required>
-<label for="lead-role">Cargo ou função (opcional)</label><input id="lead-role" name="role" autocomplete="organization-title" maxlength="100">
-<label for="lead-contact">Outro contato para retorno (opcional)</label><input id="lead-contact" name="contact" maxlength="150" placeholder="E-mail profissional ou telefone">
-<label for="lead-goal">Qual objetivo você quer alcançar? *</label><textarea id="lead-goal" name="goal" maxlength="1500" required placeholder="Conte o desafio, o público e, se houver, o formato ou período desejado."></textarea>
+<label for="lead-institution">Câmara Municipal ou instituição *</label><input id="lead-institution" name="institution" autocomplete="organization" maxlength="150" required placeholder="Ex.: Câmara Municipal de…">
+<label for="lead-location">Município e UF *</label><input id="lead-location" name="location" maxlength="100" required placeholder="Ex.: Brasília / DF">
+<label for="lead-role">Cargo ou setor (opcional)</label><input id="lead-role" name="role" autocomplete="organization-title" maxlength="100">
+<label for="lead-contact">Contato profissional para retorno *</label><input id="lead-contact" name="contact" maxlength="150" required placeholder="WhatsApp com DDD ou e-mail institucional">
+<label for="lead-course">Treinamento de interesse (opcional)</label><input id="lead-course" name="course" maxlength="150" placeholder="Ex.: IA na Prática para o Poder Legislativo">
+<label for="lead-goal">O que sua equipe precisa melhorar? (opcional)</label><textarea id="lead-goal" name="goal" maxlength="1500" placeholder="Se desejar, informe as prioridades, participantes previstos e período de interesse."></textarea>
 <div class="trap" aria-hidden="true"><label for="lead-website">Website</label><input id="lead-website" name="website" tabindex="-1" autocomplete="off"></div>
-<p class="form-note">Use apenas informações necessárias ao contato. Evite documentos sigilosos, senhas e dados pessoais de terceiros. Ao preparar a mensagem, nada é enviado ou salvo automaticamente pelo site. <a href="/privacidade.html">Conheça a política de privacidade.</a></p>
-<div class="hero-actions"><button type="submit" disabled class="button button-primary">Preparar pedido para WhatsApp ↗</button></div>
-<div id="proposal-result" class="proposal-result" tabindex="-1" role="status" aria-live="polite" hidden><strong>Mensagem pronta para você conferir.</strong><p>Seu pedido ainda não foi enviado. Abra o WhatsApp, revise a mensagem e toque em enviar para que Romário receba seu contato.</p><a id="proposal-whatsapp" class="button button-primary" target="_blank" rel="noopener noreferrer">Abrir WhatsApp e revisar ↗</a></div>
-<noscript><p class="form-note">Para organizar o pedido pelo formulário, ative JavaScript ou <a href="https://wa.me/5566999174504" target="_blank" rel="noopener">fale diretamente pelo WhatsApp</a>.</p></noscript>
-</form></div><script src="/proposal-form.js" defer></script>
+<p class="form-note">Usaremos as informações enviadas para atender seu pedido. Não há inscrição automática em campanhas. O site não salva nem envia este formulário: o contato chega a Romário após você enviar a mensagem no WhatsApp. <a href="/privacidade.html">Política de privacidade.</a></p>
+<div class="hero-actions"><button type="submit" disabled class="button button-primary">Preparar solicitação ↗</button></div>
+<div id="proposal-result" class="proposal-result" tabindex="-1" role="status" aria-live="polite" hidden><strong>Confira seu pedido e envie pelo WhatsApp.</strong><p>Seu pedido ainda não foi enviado. Abra o WhatsApp e toque em enviar para que Romário receba a solicitação.</p><pre id="proposal-preview" style="white-space:pre-wrap;overflow-wrap:anywhere;font:inherit"></pre><a id="proposal-whatsapp" class="button button-primary" target="_blank" rel="noopener noreferrer">Continuar no WhatsApp ↗</a></div>
+<noscript><p class="form-note">Ative JavaScript para organizar o pedido ou <a href="https://wa.me/5566999174504" target="_blank" rel="noopener">fale diretamente pelo WhatsApp</a>.</p></noscript>
+</form><p class="form-note">Romário Queiroz Delphin Martins · CNPJ 69.583.425/0001-77 · Atuação nacional.</p></div><script src="/proposal-form.js?v=20261013" defer></script>
