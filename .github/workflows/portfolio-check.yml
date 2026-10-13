@@ -37,7 +37,7 @@ jobs:
               await page.goto('http://localhost:8000', {waitUntil:'networkidle'});
               await page.locator('.hero h1').waitFor();
               await page.getByRole('button',{name:'Somente essenciais',exact:true}).click();
-              assert.match(await page.title(), /Palestras, Cursos e Mentoria de IA no Setor Público/);
+              assert.match(await page.title(), /Cursos de IA para Câmaras Municipais/);
               assert.match(await page.locator('.identity').innerText(), /Mentor.*Palestrante.*Educador.*Autor/);
               assert.equal(await page.locator('h1').count(),1);
               assert.equal(await page.locator('.book').count(),3);
@@ -69,9 +69,9 @@ jobs:
                 await page.locator('#menu-movel').getByRole('link',{name:'Cursos',exact:true}).click();
                 assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
               }
-              await page.locator('.hero').getByRole('link',{name:'Conhecer a mentoria',exact:true}).click();
-              await page.waitForURL('**/#mentoria');
-              assert.ok(await page.locator('#mentoria').isVisible());
+              await page.locator('.hero').getByRole('link',{name:'Conhecer os treinamentos',exact:true}).click();
+              await page.waitForURL('**/#treinamentos');
+              assert.ok(await page.locator('#treinamentos').isVisible());
               const contactLinks=await page.locator('#contato a').evaluateAll(as=>as.map(a=>a.href));
               assert.ok(contactLinks.every(h=>new URL(h).pathname==='/solicitar-proposta.html'));
               assert.deepEqual(errors,[]);
@@ -124,11 +124,34 @@ jobs:
                 await page.screenshot({path:'qa/'+name+'-'+key+'.png',fullPage:true});
                 assert.deepEqual(errors,[]);
               }
+              for(const route of ['cursos-incompany-camaras.html','cursos-online-legislativo.html']) {
+                await page.goto('http://localhost:8000/'+route,{waitUntil:'networkidle'});
+                assert.equal(await page.locator('h1').count(),1);
+                assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' overflow');
+              }
+              await page.goto('http://localhost:8000/solicitar-proposta.html?modalidade=online&curso=legislativo');
+              assert.equal(await page.locator('#lead-service').inputValue(),'online');
+              assert.equal(await page.locator('#lead-course').inputValue(),'IA na Prática para o Poder Legislativo');
+              await page.locator('#lead-name').fill('Teste de validação');
+              await page.locator('#lead-institution').fill('Câmara de teste');
+              await page.locator('#lead-location').fill('Brasília / DF');
+              await page.locator('#lead-contact').fill('teste@example.invalid');
+              await page.getByRole('button',{name:'Preparar solicitação',exact:false}).click();
+              assert.equal(await page.locator('#proposal-result').isVisible(),true);
+              const whatsapp=new URL(await page.locator('#proposal-whatsapp').getAttribute('href'));
+              assert.equal(whatsapp.hostname,'wa.me');
+              assert.equal(whatsapp.pathname,'/5566999174504');
+              assert.ok(whatsapp.searchParams.get('text').includes('Capacitação online ao vivo'));
+              assert.ok(whatsapp.searchParams.get('text').includes('Brasília / DF'));
+              await page.locator('#lead-name').fill('Nome corrigido');
+              assert.equal(await page.locator('#proposal-result').isVisible(),false);
+              assert.equal(await page.locator('#proposal-whatsapp').getAttribute('href'),null);
+              assert.deepEqual(errors,[]);
               await page.close();
             }
             const sitemap=await (await fetch('http://localhost:8000/sitemap.xml')).text();
             assert.ok(!sitemap.includes('/blog.html')&&sitemap.includes('/portfolio.html')&&sitemap.includes('/galeria.html')&&!sitemap.includes('{%'));
-            assert.ok(sitemap.includes('2026-10-03'));
+            assert.ok(sitemap.includes('2026-10-13'));
             assert.equal((await fetch('http://localhost:8000/blog.html')).status,404);
             assert.equal((await fetch('http://localhost:8000/feed.xml')).status,404);
             await browser.close();
@@ -139,4 +162,3 @@ jobs:
         with:
           name: portfolio-qa
           path: qa/
-
