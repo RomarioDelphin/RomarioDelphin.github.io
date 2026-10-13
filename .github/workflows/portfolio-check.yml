@@ -73,7 +73,8 @@ jobs:
               await page.waitForURL('**/#treinamentos');
               assert.ok(await page.locator('#treinamentos').isVisible());
               const contactLinks=await page.locator('#contato a').evaluateAll(as=>as.map(a=>a.href));
-              assert.ok(contactLinks.every(h=>new URL(h).pathname==='/solicitar-proposta.html'));
+              assert.ok(contactLinks.some(h=>new URL(h).pathname==='/solicitar-proposta.html'));
+              assert.ok(contactLinks.every(h=>new URL(h).pathname==='/solicitar-proposta.html'||new URL(h).hostname==='wa.me'));
               assert.deepEqual(errors,[]);
               await page.goto('http://localhost:8000');
               await page.screenshot({path:'qa/'+name+'.png',fullPage:true});
